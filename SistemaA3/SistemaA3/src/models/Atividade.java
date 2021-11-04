@@ -5,12 +5,14 @@ import java.time.LocalDate;
 public class Atividade {
     private String nome;
     private String descricao;
+    private Disciplina disciplina;
     private LocalDate prazo;
     private boolean concluida;
 
-    public Atividade(String nome, String descricao, LocalDate prazo, boolean concluida) {
+    public Atividade(String nome, String descricao, Disciplina disciplina, LocalDate prazo, boolean concluida) {
         this.nome = nome;
         this.descricao = descricao;
+        this.disciplina = disciplina;
         this.prazo = prazo;
         this.concluida = concluida;
     }
@@ -29,6 +31,14 @@ public class Atividade {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+    
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
     }
 
     public LocalDate getPrazo() {

@@ -6,6 +6,7 @@ public class Disciplina {
     
     private String nome;
     private ArrayList<Atividade> atividades;
+    private ArrayList<Conteudo> conteudos;
 
     public Disciplina(String nome) {
         this.nome = nome;
