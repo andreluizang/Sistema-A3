@@ -164,6 +164,9 @@
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cadastrarButtonMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

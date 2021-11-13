@@ -1,21 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package views;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import database.CadastroDAO;
 
-/**
- *
- * @author andre
- */
 public class TelaCadastro extends javax.swing.JFrame {
 
-    /**
-     * Creates new form NewJFrame
-     */
     public TelaCadastro() {
         initComponents();
     }
@@ -87,6 +77,11 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         cadastrarButton.setText("Cadastrar");
         cadastrarButton.setToolTipText("");
+        cadastrarButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cadastrarButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,6 +167,16 @@ public class TelaCadastro extends javax.swing.JFrame {
             emailTextField.setForeground(Color.black);
         }
     }//GEN-LAST:event_emailTextFieldMouseClicked
+
+    private void cadastrarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastrarButtonMouseClicked
+        if(senhaPasswordField.getText().equals(senhaConfirmaPasswordField.getText())){
+            CadastroDAO cadastro = new CadastroDAO();
+            String retorno = cadastro.cadastrar(nomeTextField.getText(), emailTextField.getText(), senhaPasswordField.getText());
+            System.out.println(retorno);
+        }else{
+            JOptionPane.showMessageDialog(null, "As senhas não são iguais!", "ERRO!", 0);
+        }
+    }//GEN-LAST:event_cadastrarButtonMouseClicked
 
     /**
      * @param args the command line arguments
