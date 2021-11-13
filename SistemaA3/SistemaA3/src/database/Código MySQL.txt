@@ -1,0 +1,60 @@
+CREATE DATABASE IF NOT EXISTS SistemaA3DataBase;
+USE SistemaA3DataBase;
+
+CREATE TABLE IF NOT EXISTS ESTUDANTE(
+    id int primary key auto_increment,
+    nome varchar(30) not null,
+    email varchar(30) unique not null,
+    senha varchar(30) not null
+);
+
+CREATE TABLE IF NOT EXISTS DISCIPLINA(
+    id int primary key auto_increment,
+    nome varchar(30) not null,
+    fk_estudante int not null,
+    FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
+);
+
+CREATE TABLE IF NOT EXISTS ATIVIDADE(
+    id int primary key auto_increment,
+    nome varchar(30) not null,
+    descricao varchar(200) not null,
+    prazo DATE not null,
+    concluida boolean not null,
+    dataConclusao DATE,
+    nota double,
+    notaMaxima double not null,
+    fk_disciplina int not null,
+    fk_estudante int not null,
+    FOREIGN KEY (fk_disciplina) REFERENCES DISCIPLINA (id),
+    FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
+);
+
+CREATE TABLE IF NOT EXISTS CONTEUDO(
+    id int primary key auto_increment,
+    nome varchar(30) not null,
+    aprendizado tinyint,
+    fk_disciplina int not null,
+    fk_estudante int not null,
+    FOREIGN KEY (fk_disciplina) REFERENCES DISCIPLINA (id),
+    FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
+);
+
+CREATE TABLE IF NOT EXISTS ANOTACOES(
+    id int primary key auto_increment,
+    anotacao varchar(200) not null,
+    fk_conteudo int not null,
+    fk_estudante int not null,
+    FOREIGN KEY (fk_conteudo) REFERENCES CONTEUDO (id),
+    FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
+);
+
+CREATE TABLE IF NOT EXISTS METAS(
+    id int primary key auto_increment,
+    concluida boolean not null,
+    dataConclusao DATE,
+    fk_conteudo int not null,
+    fk_estudante int not null,
+    FOREIGN KEY (fk_conteudo) REFERENCES CONTEUDO (id),
+    FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
+);
