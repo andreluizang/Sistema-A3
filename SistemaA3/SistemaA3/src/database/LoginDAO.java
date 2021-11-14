@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import models.Estudante;
 
 public class LoginDAO {
     
@@ -15,14 +14,13 @@ public class LoginDAO {
     public boolean fazerLogin(String email, String senha){
         ConexaoDAO.getConnection();
         boolean retorno = false;
-        String query = "SELECT email FROM ESTUDANTE WHERE email = ?";
-        ArrayList<Object> dadosSelect = new ArrayList<>();
-        dadosSelect.add(email);
-        ResultSet rs = conexao.Select(query, dadosSelect);
+        
         try{
-            if(rs!=null && rs.next()){ //encontrou e-mail
-                query = "SELECT senha FROM ESTUDANTE WHERE email = ?";
-                rs = conexao.Select(query, dadosSelect);
+            if(emailExiste(email)){
+                String query = "SELECT senha FROM ESTUDANTE WHERE email = ?";
+                ArrayList<Object> dadosSelect = new ArrayList<>();
+                dadosSelect.add(email);
+                ResultSet rs = conexao.Select(query, dadosSelect);
                 if(rs!=null && rs.next()){ //procurando senha
                     String compararSenha = rs.getString("senha");
                     if(compararSenha.equals(senha)){ //senha correta
@@ -45,6 +43,20 @@ public class LoginDAO {
             ConexaoDAO.closeConnection();
             retorno = false;
         }
+        return retorno;
+    }
+    
+    public boolean emailExiste(String email){
+        boolean retorno = false;
+        String query = "SELECT email FROM ESTUDANTE WHERE email = ?";
+        ArrayList<Object> dadosSelect = new ArrayList<>();
+        dadosSelect.add(email);
+        ResultSet rs = conexao.Select(query, dadosSelect);
+        try{
+            retorno = (rs != null && rs.next());
+        }catch(SQLException ex){
+            Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);            
+        }        
         return retorno;
     }
     
