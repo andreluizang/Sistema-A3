@@ -57,12 +57,14 @@ public class ConexaoDAO {
 
     protected ResultSet Select(String query, ArrayList<Object> parametros){
         try{
+            System.out.println("Chegou ao método Select");
             ResultSet rs;
             PreparedStatement ps = conexao.prepareStatement(query);
             for(int i = 0; i < parametros.size(); i++){
                 ps.setString(i+1, (parametros.get(i)).toString());
             }
             rs = ps.executeQuery();
+            System.out.println("Saiu do método Select");
             return rs;
         }catch(SQLException ex){
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);

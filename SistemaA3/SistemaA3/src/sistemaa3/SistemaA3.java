@@ -1,5 +1,6 @@
 package sistemaa3;
 
+import database.EstudanteDAO;
 import views.TelaCadastro;
 
 public class SistemaA3 {

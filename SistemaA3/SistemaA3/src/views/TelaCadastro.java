@@ -4,6 +4,7 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import database.CadastroDAO;
 import database.ConexaoDAO;
+import models.Estudante;
 
 public class TelaCadastro extends javax.swing.JFrame {
     ConexaoDAO conexao = new ConexaoDAO();
@@ -65,6 +66,16 @@ public class TelaCadastro extends javax.swing.JFrame {
         });
 
         loginButton.setText("Fazer login");
+        loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginButtonMouseClicked(evt);
+            }
+        });
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
 
         nomeLabel.setText("Nome");
 
@@ -90,7 +101,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(279, Short.MAX_VALUE)
+                .addContainerGap(282, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -173,12 +184,25 @@ public class TelaCadastro extends javax.swing.JFrame {
         CadastroDAO cadastro = new CadastroDAO(conexao);
         boolean senhasIguais = cadastro.confirmarSenhasIguais(senhaPasswordField.getText(), senhaConfirmaPasswordField.getText());
         if(senhasIguais){
-            String retorno = cadastro.cadastrar(nomeTextField.getText(), emailTextField.getText(), senhaPasswordField.getText());
-            System.out.println(retorno);
+            if(cadastro.cadastrar(nomeTextField.getText(), emailTextField.getText(), senhaPasswordField.getText())){
+                dispose();
+                TelaLogin login = new TelaLogin();
+                login.show();
+            }
         }else{
             JOptionPane.showMessageDialog(null, "As senhas não são iguais!", "ERRO!", 0);
         }
     }//GEN-LAST:event_cadastrarButtonMouseClicked
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
+        dispose();
+        TelaLogin login = new TelaLogin();
+        login.show();
+    }//GEN-LAST:event_loginButtonMouseClicked
 
     /**
      * @param args the command line arguments

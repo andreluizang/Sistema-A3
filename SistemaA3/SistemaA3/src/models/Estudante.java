@@ -5,6 +5,11 @@ public class Estudante {
     private String nome;
     private String email;
     private String senha;
+    
+    
+    public Estudante(){
+        
+    }
 
     public Estudante(String nome, String email, String senha) {
         this.nome = nome;
@@ -35,6 +40,6 @@ public class Estudante {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
     
 }

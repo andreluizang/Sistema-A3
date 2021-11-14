@@ -15,7 +15,7 @@ public class CadastroDAO {
         this.conexao = conexao;
     }
     
-    public String cadastrar(String nome, String email, String senha){
+    public boolean cadastrar(String nome, String email, String senha){
         ConexaoDAO.getConnection();
         ResultSet rs;
         String mensagem = new String();
@@ -27,7 +27,8 @@ public class CadastroDAO {
         try{
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "Esse e-mail já está cadastrado!", "ERRO!", 0);
-                mensagem = "Esse e-mail já está cadastrado!";
+                ConexaoDAO.closeConnection();
+                return false;
             }else{
                 //Query e array de objetos que vão ser passados pro método Insert da classe ConexaoDAO
                 String queryInsert = "INSERT INTO ESTUDANTE (nome, email, senha) VALUES (?, ?, ?)";
@@ -36,13 +37,14 @@ public class CadastroDAO {
                 conexao.Insert(queryInsert, dadosInsert);
                 JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!", "Parabéns!", 1);
                 mensagem = "Usuário cadastrado com sucesso!";
+                ConexaoDAO.closeConnection();
+                return true;
             }
         }catch(SQLException ex){
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            ConexaoDAO.closeConnection();
+            return false;
         }
-        ConexaoDAO.closeConnection();
-        return mensagem;
-
     }
     
     public boolean confirmarSenhasIguais(String senha, String senhaConfirma){

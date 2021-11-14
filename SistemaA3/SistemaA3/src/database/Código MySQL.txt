@@ -58,3 +58,5 @@ CREATE TABLE IF NOT EXISTS METAS(
     FOREIGN KEY (fk_conteudo) REFERENCES CONTEUDO (id),
     FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
 );
+
+INSERT INTO ESTUDANTE (nome, email, senha) VALUES ("admin", "admin@gmail.com", "admin123");
