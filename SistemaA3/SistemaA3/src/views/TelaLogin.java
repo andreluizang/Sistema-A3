@@ -38,6 +38,7 @@ public class TelaLogin extends javax.swing.JFrame {
         senhaLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         loginLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         loginLabel.setText("Login");
@@ -47,6 +48,11 @@ public class TelaLogin extends javax.swing.JFrame {
         loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginButtonMouseClicked(evt);
+            }
+        });
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
             }
         });
 
@@ -130,12 +136,16 @@ public class TelaLogin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
         if(conexaoLogin.fazerLogin(emailTextField.getText(), senhaPasswordField.getText())){
             //ir para tela inicial
             System.out.println("Seja bem-vindo(a), " + estudante.criarObjetoEstudante(emailTextField.getText()).getNome() + "!");
+            dispose();
+            TelaInicial tela = new TelaInicial();
+            tela.show();
         }
     }//GEN-LAST:event_loginButtonMouseClicked
 
@@ -159,6 +169,10 @@ public class TelaLogin extends javax.swing.JFrame {
         TelaCadastro cadastro = new TelaCadastro();
         cadastro.show();
     }//GEN-LAST:event_cadastreseButtonMouseClicked
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
      * @param args the command line arguments

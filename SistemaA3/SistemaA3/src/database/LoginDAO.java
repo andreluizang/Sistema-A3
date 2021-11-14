@@ -25,9 +25,8 @@ public class LoginDAO {
                 rs = conexao.Select(query, dadosSelect);
                 if(rs!=null && rs.next()){ //procurando senha
                     String compararSenha = rs.getString("senha");
-                    System.out.println("Chegou aqui!");
                     if(compararSenha.equals(senha)){ //senha correta
-                        JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!", "ERRO!", 1);
+                        JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!", "Parabéns!", 1);
                         ConexaoDAO.closeConnection();
                         retorno = true;
                     }else{ //senha incorreta

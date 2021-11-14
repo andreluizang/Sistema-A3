@@ -10,11 +10,10 @@ import models.Estudante;
 public class EstudanteDAO {
     
     private ConexaoDAO conexao = new ConexaoDAO();
-    public Estudante estudante = new Estudante();
+    public static Estudante estudante = new Estudante();
     
     public Estudante criarObjetoEstudante(String email){
         ConexaoDAO.getConnection();
-        Estudante estudante = new Estudante();
         String query = "SELECT nome, email, senha FROM ESTUDANTE WHERE email = ?";
         ArrayList<Object> dadosSelect = new ArrayList<>();
         dadosSelect.add(email);
@@ -32,5 +31,12 @@ public class EstudanteDAO {
         }
         return estudante;
     }
+    
+    public void fazerLogout(){
+        estudante.setNome(null);
+        estudante.setEmail(null);
+        estudante.setSenha(null);
+    }
+    
     
 }

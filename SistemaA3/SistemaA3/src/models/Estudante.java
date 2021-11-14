@@ -1,10 +1,13 @@
 package models;
 
+import database.EstudanteDAO;
+
 public class Estudante {
     
     private String nome;
     private String email;
     private String senha;
+    private EstudanteDAO estudantedao;
     
     
     public Estudante(){
