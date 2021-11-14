@@ -3,8 +3,10 @@ package views;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import database.CadastroDAO;
+import database.ConexaoDAO;
 
 public class TelaCadastro extends javax.swing.JFrame {
+    ConexaoDAO conexao = new ConexaoDAO();
 
     public TelaCadastro() {
         initComponents();
@@ -29,7 +31,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         emailLabel = new javax.swing.JLabel();
         senhaLabel = new javax.swing.JLabel();
         senhaConfirmaLabel = new javax.swing.JLabel();
-        cadastro = new javax.swing.JLabel();
+        cadastroLabel = new javax.swing.JLabel();
         cadastrarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,8 +74,8 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         senhaConfirmaLabel.setText("Confirme sua senha");
 
-        cadastro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        cadastro.setText("Cadastre-se!");
+        cadastroLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cadastroLabel.setText("Cadastre-se!");
 
         cadastrarButton.setText("Cadastrar");
         cadastrarButton.setToolTipText("");
@@ -88,12 +90,11 @@ public class TelaCadastro extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(278, Short.MAX_VALUE)
+                .addContainerGap(279, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
                                 .addComponent(loginButton)
                                 .addGap(25, 25, 25)
                                 .addComponent(cadastrarButton))
@@ -111,14 +112,14 @@ public class TelaCadastro extends javax.swing.JFrame {
                         .addComponent(loginLabel)
                         .addGap(116, 116, 116))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(cadastro)
+                        .addComponent(cadastroLabel)
                         .addGap(77, 77, 77))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(cadastro)
+                .addComponent(cadastroLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(nomeLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -169,8 +170,9 @@ public class TelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_emailTextFieldMouseClicked
 
     private void cadastrarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastrarButtonMouseClicked
-        if(senhaPasswordField.getText().equals(senhaConfirmaPasswordField.getText())){
-            CadastroDAO cadastro = new CadastroDAO();
+        CadastroDAO cadastro = new CadastroDAO(conexao);
+        boolean senhasIguais = cadastro.confirmarSenhasIguais(senhaPasswordField.getText(), senhaConfirmaPasswordField.getText());
+        if(senhasIguais){
             String retorno = cadastro.cadastrar(nomeTextField.getText(), emailTextField.getText(), senhaPasswordField.getText());
             System.out.println(retorno);
         }else{
@@ -218,7 +220,7 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrarButton;
-    private javax.swing.JLabel cadastro;
+    private javax.swing.JLabel cadastroLabel;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JButton loginButton;

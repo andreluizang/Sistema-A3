@@ -11,10 +11,12 @@ import java.util.logging.Logger;
 
 public class ConexaoDAO {
     
-    private Connection conexao = null;
+    private static Connection conexao = null;
     
-    //Método construtor que faz a conexão com o banco de dados
     public ConexaoDAO(){
+    }
+
+    public static java.sql.Connection getConnection(){
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/SistemaA3DataBase?useTimezone=true&serverTimezone=America/Sao_Paulo", "root", "1234");
@@ -23,11 +25,21 @@ public class ConexaoDAO {
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Falha ao conectar!");
         }
+        return conexao;
+    }
+    
+    public static boolean closeConnection(){
+        try {
+            ConexaoDAO.getConnection().close();
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
     }
     
     //Método de Insert, aceita de parâmetros uma String, que vai ser a query para formatar e um array de Object
     //que aceita qualquer tipo de variável ou objeto. Dessa forma, o método pode ser chamado em qualquer outra classe
-    public void Insert(String query, ArrayList<Object> parametros){
+    protected void Insert(String query, ArrayList<Object> parametros){
         PreparedStatement ps;
         try {
             ps = conexao.prepareStatement(query);
@@ -35,7 +47,6 @@ public class ConexaoDAO {
                 ps.setString(i+1, (parametros.get(i)).toString());
             }
             ps.execute();
-
         }catch (SQLException ex){
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);            
         }
@@ -44,7 +55,7 @@ public class ConexaoDAO {
     //Método de Select, aceita de parâmetros uma String, que vai ser a query para formatar e um array de Object
     //que aceita qualquer tipo de variável ou objeto. Dessa forma, o método pode ser chamado em qualquer outra classe
 
-    public ResultSet Select(String query, ArrayList<Object> parametros){
+    protected ResultSet Select(String query, ArrayList<Object> parametros){
         try{
             ResultSet rs;
             PreparedStatement ps = conexao.prepareStatement(query);
@@ -58,7 +69,5 @@ public class ConexaoDAO {
             return null;
         }
     }
-
-    
         
 }
