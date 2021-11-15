@@ -70,6 +70,11 @@ public class TelaAtividades extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         tituloLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         tituloLabel.setText("Atividades");
@@ -235,7 +240,9 @@ public class TelaAtividades extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void novaAtvButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novaAtvButtonActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        TelaNovaAtividade tela =new TelaNovaAtividade();
+        tela.show();
     }//GEN-LAST:event_novaAtvButtonActionPerformed
 
     private void atividadesTabelaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_atividadesTabelaFocusGained
@@ -268,6 +275,30 @@ public class TelaAtividades extends javax.swing.JFrame {
 
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        String[] col = {"Nome", "Disciplina", "Descrição", "Prazo", "Concluída"};
+        
+        TelaAtividades tela = new TelaAtividades();
+        DefaultTableModel model = (DefaultTableModel) atividadesTabela.getModel();
+        atividadesTabela.setModel(model);
+        model.setDataVector(atividadedao.formatarTabela(), col);
+        
+        if (atividadesTabela.getColumnModel().getColumnCount() > 0) {
+            atividadesTabela.getColumnModel().getColumn(0).setMinWidth(150);
+            atividadesTabela.getColumnModel().getColumn(0).setPreferredWidth(150);
+            atividadesTabela.getColumnModel().getColumn(0).setMaxWidth(200);
+            atividadesTabela.getColumnModel().getColumn(1).setMinWidth(150);
+            atividadesTabela.getColumnModel().getColumn(1).setPreferredWidth(150);
+            atividadesTabela.getColumnModel().getColumn(1).setMaxWidth(200);
+            atividadesTabela.getColumnModel().getColumn(3).setMinWidth(120);
+            atividadesTabela.getColumnModel().getColumn(3).setPreferredWidth(120);
+            atividadesTabela.getColumnModel().getColumn(3).setMaxWidth(120);
+            atividadesTabela.getColumnModel().getColumn(4).setMinWidth(65);
+            atividadesTabela.getColumnModel().getColumn(4).setPreferredWidth(65);
+            atividadesTabela.getColumnModel().getColumn(4).setMaxWidth(65);
+        }                                        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
