@@ -14,12 +14,13 @@ public class EstudanteDAO {
     
     public Estudante criarObjetoEstudante(String email){
         ConexaoDAO.getConnection();
-        String query = "SELECT nome, email, senha FROM ESTUDANTE WHERE email = ?";
+        String query = "SELECT id, nome, email, senha FROM ESTUDANTE WHERE email = ?";
         ArrayList<Object> dadosSelect = new ArrayList<>();
         dadosSelect.add(email);
         ResultSet rs = conexao.Select(query, dadosSelect);
         try{
             if(rs!=null & rs.next()){
+                estudante.setId(rs.getInt("id"));
                 estudante.setNome(rs.getString("nome"));
                 estudante.setEmail(rs.getString("email"));
                 estudante.setSenha(rs.getString("senha"));
@@ -33,6 +34,7 @@ public class EstudanteDAO {
     }
     
     public void fazerLogout(){
+        estudante.setId(0);
         estudante.setNome(null);
         estudante.setEmail(null);
         estudante.setSenha(null);

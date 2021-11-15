@@ -62,6 +62,7 @@ public class ConexaoDAO {
             for(int i = 0; i < parametros.size(); i++){
                 ps.setString(i+1, (parametros.get(i)).toString());
             }
+            System.out.println(ps.toString());
             rs = ps.executeQuery();
             return rs;
         }catch(SQLException ex){

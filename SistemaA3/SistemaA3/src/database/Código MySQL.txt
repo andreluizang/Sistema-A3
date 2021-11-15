@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS DISCIPLINA(
 );
 
 CREATE TABLE IF NOT EXISTS ATIVIDADE(
-    id int primary key auto_increment,
+	id int primary key auto_increment,
     nome varchar(30) not null,
     descricao varchar(200) not null,
     prazo DATE not null,
@@ -25,8 +25,8 @@ CREATE TABLE IF NOT EXISTS ATIVIDADE(
     nota double,
     notaMaxima double not null,
     fk_disciplina int not null,
-    fk_estudante int not null,
     FOREIGN KEY (fk_disciplina) REFERENCES DISCIPLINA (id),
+    fk_estudante int not null,
     FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
 );
 
@@ -35,8 +35,8 @@ CREATE TABLE IF NOT EXISTS CONTEUDO(
     nome varchar(30) not null,
     aprendizado tinyint,
     fk_disciplina int not null,
-    fk_estudante int not null,
     FOREIGN KEY (fk_disciplina) REFERENCES DISCIPLINA (id),
+    fk_estudante int not null,
     FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
 );
 
@@ -44,8 +44,8 @@ CREATE TABLE IF NOT EXISTS ANOTACOES(
     id int primary key auto_increment,
     anotacao varchar(200) not null,
     fk_conteudo int not null,
-    fk_estudante int not null,
     FOREIGN KEY (fk_conteudo) REFERENCES CONTEUDO (id),
+    fk_estudante int not null,
     FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
 );
 
@@ -54,9 +54,15 @@ CREATE TABLE IF NOT EXISTS METAS(
     concluida boolean not null,
     dataConclusao DATE,
     fk_conteudo int not null,
-    fk_estudante int not null,
     FOREIGN KEY (fk_conteudo) REFERENCES CONTEUDO (id),
+    fk_estudante int not null,
     FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
 );
 
-INSERT INTO ESTUDANTE (nome, email, senha) VALUES ("admin", "admin@gmail.com", "admin123");
+INSERT INTO ESTUDANTE (nome, email, senha) VALUES ("admin", "admin@email.com", "admin123");
+INSERT INTO DISCIPLINA (nome, fk_estudante) VALUES ("Matemática", 1);
+INSERT INTO ATIVIDADE (nome, descricao, prazo, concluida, notaMaxima, fk_disciplina, fk_estudante)
+			   VALUES ("Trabalho", "Apresentar", "2021-12-6", true, 10.0, 1, 1);
+INSERT INTO ATIVIDADE (nome, descricao, prazo, concluida, notaMaxima, fk_disciplina, fk_estudante)
+			   VALUES ("Prova", "Responder", "2021-12-6", false, 10.0, 1, 1);
+
