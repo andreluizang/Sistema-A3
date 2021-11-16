@@ -109,6 +109,11 @@ public class TelaAtividades extends javax.swing.JFrame {
                 atividadesTabelaFocusGained(evt);
             }
         });
+        atividadesTabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                atividadesTabelaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(atividadesTabela);
 
         descricaoTextArea.setColumns(20);
@@ -299,6 +304,10 @@ public class TelaAtividades extends javax.swing.JFrame {
             atividadesTabela.getColumnModel().getColumn(4).setMaxWidth(65);
         }                                        
     }//GEN-LAST:event_formWindowOpened
+
+    private void atividadesTabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_atividadesTabelaMouseClicked
+        //exibir informações referente às atividades por row
+    }//GEN-LAST:event_atividadesTabelaMouseClicked
 
     /**
      * @param args the command line arguments

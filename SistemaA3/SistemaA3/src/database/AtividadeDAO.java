@@ -7,14 +7,13 @@ import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.Atividade;
+import models.Disciplina;
 
 public class AtividadeDAO {
 
     private ConexaoDAO conexao = new ConexaoDAO();
 
     public ArrayList<Atividade> atividades = new ArrayList<>();
-    
-    
     
     public Object[][] formatarTabela(){
         ConexaoDAO.getConnection();
@@ -38,9 +37,6 @@ public class AtividadeDAO {
                 i++;
             }
 
-            for(Object[] atividade : tabela){
-                //atividades.add(new Atividade((tabela[i][0]).toString(), tabela[i][1].toString(), DisciplinaDAO.disciplina.get(DisciplinaDAO.countDisciplinas), rs.getd, tabela[i][4]));
-            }
             ConexaoDAO.closeConnection();
         }catch(SQLException ex){
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);

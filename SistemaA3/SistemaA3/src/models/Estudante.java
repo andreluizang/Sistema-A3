@@ -10,7 +10,6 @@ public class Estudante {
     private String senha;
     private EstudanteDAO estudantedao;
     
-    
     public Estudante(){
         
     }
@@ -19,6 +18,11 @@ public class Estudante {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+    }
+    
+    public void carregarInformações(String email){
+        estudantedao.criarObjetoEstudante(email);
+        
     }
     
     public int getId(){

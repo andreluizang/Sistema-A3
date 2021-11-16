@@ -142,7 +142,9 @@ public class TelaLogin extends javax.swing.JFrame {
     private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
         if(conexaoLogin.fazerLogin(emailTextField.getText(), senhaPasswordField.getText())){
             //ir para tela inicial
-            System.out.println("Seja bem-vindo(a), " + estudante.criarObjetoEstudante(emailTextField.getText()).getNome() + "!");
+            Estudante e = estudante.criarObjetoEstudante(emailTextField.getText());
+            System.out.println("Seja bem-vindo(a), " + e.getNome() + "!");
+            estudante.carregarInformacoes(e.getId());
             dispose();
             TelaInicial tela = new TelaInicial();
             tela.show();

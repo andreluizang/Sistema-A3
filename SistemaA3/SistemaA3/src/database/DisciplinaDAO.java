@@ -44,6 +44,23 @@ public class DisciplinaDAO {
         ConexaoDAO.closeConnection();
     }
     
+    public void carregarDisciplinas(int id){
+        ConexaoDAO.getConnection();
+        String querySelect = "SELECT id, nome FROM DISCIPLINA WHERE fk_estudante = ?";
+        ArrayList<Object> dadosSelect = new ArrayList<>();
+        dadosSelect.add(id);
+        ResultSet rs = conexao.Select(querySelect, dadosSelect);
+        try{
+            while(rs!=null && rs.next()){
+                criarObjetoDisciplina(rs.getInt(1), rs.getString(2));                
+            }
+            
+        }catch(SQLException ex){
+            Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ConexaoDAO.closeConnection();
+
+    }
     
     public String[] formatarComboBox(){
         ConexaoDAO.getConnection();

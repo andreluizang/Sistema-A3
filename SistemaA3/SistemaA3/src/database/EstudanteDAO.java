@@ -11,6 +11,7 @@ public class EstudanteDAO {
     
     private ConexaoDAO conexao = new ConexaoDAO();
     public static Estudante estudante = new Estudante();
+    private DisciplinaDAO disciplinadao = new DisciplinaDAO();
     
     public Estudante criarObjetoEstudante(String email){
         ConexaoDAO.getConnection();
@@ -33,11 +34,17 @@ public class EstudanteDAO {
         return estudante;
     }
     
+    public void carregarInformacoes(int id){
+        disciplinadao.carregarDisciplinas(id);
+    }
+    
     public void fazerLogout(){
         estudante.setId(0);
         estudante.setNome(null);
         estudante.setEmail(null);
         estudante.setSenha(null);
+        DisciplinaDAO.disciplina.clear();
+        DisciplinaDAO.countDisciplinas = 0;
     }
     
     
