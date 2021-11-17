@@ -12,7 +12,7 @@ public class LoginDAO {
     private ConexaoDAO conexao = new ConexaoDAO();
     
     public boolean fazerLogin(String email, String senha){
-        ConexaoDAO.getConnection();
+        conexao.getConnection(false);
         boolean retorno = false;
         
         try{
@@ -25,22 +25,22 @@ public class LoginDAO {
                     String compararSenha = rs.getString("senha");
                     if(compararSenha.equals(senha)){ //senha correta
                         JOptionPane.showMessageDialog(null, "Login efetuado com sucesso!", "Parabéns!", 1);
-                        ConexaoDAO.closeConnection();
+                        conexao.closeConnection();
                         retorno = true;
                     }else{ //senha incorreta
                         JOptionPane.showMessageDialog(null, "Senha incorreta!", "ERRO!", 0);
-                        ConexaoDAO.closeConnection();
+                        conexao.closeConnection();
                         retorno = false;
                     }
                 }
             }else{ //não encontrou e-mail
                 JOptionPane.showMessageDialog(null, "E-mail não cadastrado!", "ERRO!", 0);
-                ConexaoDAO.closeConnection();
+                conexao.closeConnection();
                 retorno = false;
             }
         }catch(SQLException ex){
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
-            ConexaoDAO.closeConnection();
+            conexao.closeConnection();
             retorno = false;
         }
         return retorno;

@@ -24,7 +24,7 @@ public class DisciplinaDAO {
     
     
     public void cadastrarDisciplina(String nome){
-        ConexaoDAO.getConnection();
+        conexao.getConnection(false);
         String queryInsert = "INSERT INTO DISCIPLINA (nome, fk_estudante) VALUES (?, ?)";
         ArrayList<Object> dadosInsert = new ArrayList<>();
         dadosInsert.add(nome); dadosInsert.add(EstudanteDAO.estudante.getId());
@@ -41,11 +41,11 @@ public class DisciplinaDAO {
         }catch(SQLException ex){
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ConexaoDAO.closeConnection();
+        conexao.closeConnection();
     }
     
     public void carregarDisciplinas(int id){
-        ConexaoDAO.getConnection();
+        conexao.getConnection(false);
         String querySelect = "SELECT id, nome FROM DISCIPLINA WHERE fk_estudante = ?";
         ArrayList<Object> dadosSelect = new ArrayList<>();
         dadosSelect.add(id);
@@ -58,12 +58,12 @@ public class DisciplinaDAO {
         }catch(SQLException ex){
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        ConexaoDAO.closeConnection();
+        conexao.closeConnection();
 
     }
     
     public String[] formatarComboBox(){
-        ConexaoDAO.getConnection();
+        conexao.getConnection(false);
         
         String querySelect = "SELECT id, nome FROM DISCIPLINA WHERE fk_estudante = ? AND id > ?";
         ArrayList<Object> dadosSelect = new ArrayList<>();
@@ -90,7 +90,7 @@ public class DisciplinaDAO {
         }
         
         
-        ConexaoDAO.closeConnection();
+        conexao.closeConnection();
         
         return disciplinas;
 

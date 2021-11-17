@@ -10,13 +10,15 @@ import javax.swing.JOptionPane;
 public class CadastroDAO {
     
     private ConexaoDAO conexao;
+    public ResultSet rs;
+
     
     public CadastroDAO(ConexaoDAO conexao){
         this.conexao = conexao;
     }
     
     public boolean cadastrar(String nome, String email, String senha){
-        ConexaoDAO.getConnection();
+        conexao.getConnection(false);
 
         if(verificarEmailNaoEstaCadastrado(email)){
             //Query e array de objetos que vão ser passados pro método Insert da classe ConexaoDAO
@@ -25,17 +27,16 @@ public class CadastroDAO {
             dadosInsert.add(nome); dadosInsert.add(email); dadosInsert.add(senha);
             conexao.Insert(queryInsert, dadosInsert);
             JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!", "Parabéns!", 1);
-            ConexaoDAO.closeConnection();
+            conexao.closeConnection();
             return true;
         }else{
             JOptionPane.showMessageDialog(null, "Esse e-mail já está cadastrado!", "ERRO!", 0);
-            ConexaoDAO.closeConnection();
+            conexao.closeConnection();
             return false;
         }
     }
     
     public boolean verificarEmailNaoEstaCadastrado(String email){
-        ResultSet rs;
         boolean retorno;
         //Query e array que vão ser passadas como parâmetro pro Select da classe ConexaoDAO
         String querySelect = "SELECT email FROM ESTUDANTE WHERE email = ?";
@@ -43,7 +44,7 @@ public class CadastroDAO {
         dadosSelect.add(email);
         rs = conexao.Select(querySelect, dadosSelect);
         try{
-            if(rs.next()){
+            if(rs!=null && rs.next()){
                 JOptionPane.showMessageDialog(null, "Esse e-mail já está cadastrado!", "ERRO!", 0);
                 retorno = false;
             }else{

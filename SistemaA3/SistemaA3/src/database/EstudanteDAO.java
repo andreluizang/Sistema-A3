@@ -14,7 +14,7 @@ public class EstudanteDAO {
     private DisciplinaDAO disciplinadao = new DisciplinaDAO();
     
     public Estudante criarObjetoEstudante(String email){
-        ConexaoDAO.getConnection();
+        conexao.getConnection(false);
         String query = "SELECT id, nome, email, senha FROM ESTUDANTE WHERE email = ?";
         ArrayList<Object> dadosSelect = new ArrayList<>();
         dadosSelect.add(email);
@@ -25,11 +25,11 @@ public class EstudanteDAO {
                 estudante.setNome(rs.getString("nome"));
                 estudante.setEmail(rs.getString("email"));
                 estudante.setSenha(rs.getString("senha"));
-                ConexaoDAO.closeConnection();
+                conexao.closeConnection();
             }
         }catch(SQLException ex){
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
-            ConexaoDAO.closeConnection();            
+            conexao.closeConnection();            
         }
         return estudante;
     }

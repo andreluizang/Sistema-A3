@@ -16,7 +16,7 @@ public class AtividadeDAO {
     public ArrayList<Atividade> atividades = new ArrayList<>();
     
     public Object[][] formatarTabela(){
-        ConexaoDAO.getConnection();
+        conexao.getConnection(false);
         ResultSet rs;
         ResultSet rsd;
         ArrayList<Object> dados = new ArrayList<>();
@@ -37,10 +37,10 @@ public class AtividadeDAO {
                 i++;
             }
 
-            ConexaoDAO.closeConnection();
+            conexao.closeConnection();
         }catch(SQLException ex){
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
-            ConexaoDAO.closeConnection();
+            conexao.closeConnection();
         }
         return tabela;
     }
