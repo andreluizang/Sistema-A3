@@ -62,10 +62,12 @@ public class ConexaoDAO {
     protected void Insert(String query, ArrayList<Object> parametros){
         PreparedStatement ps;
         try {
-            ps = conexao.prepareStatement(query);
+
+            ps = conexao.prepareStatement(query,  ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             for(int i = 0; i < parametros.size(); i++){
                 ps.setString(i+1, (parametros.get(i)).toString());
             }
+            System.out.println(ps.toString());
             ps.execute();
         }catch (SQLException ex){
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);            
@@ -78,7 +80,7 @@ public class ConexaoDAO {
     public ResultSet Select(String query, ArrayList<Object> parametros){
         try{
             ResultSet rs;
-            PreparedStatement ps = conexao.prepareStatement(query);
+            PreparedStatement ps = conexao.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             for(int i = 0; i < parametros.size(); i++){
                 ps.setString(i+1, (parametros.get(i)).toString());
             }

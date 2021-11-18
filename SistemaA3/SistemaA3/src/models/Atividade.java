@@ -12,12 +12,15 @@ public class Atividade {
     private boolean concluida;
     private double nota;
     private double notaMax;
+    private String nomeDisciplina;
     
-    public Atividade(String nome, String descricao, Disciplina disciplina, LocalDate prazo, LocalDate dataConclusao,
+    public Atividade(int id, String nome, String descricao, Disciplina disciplina, LocalDate prazo, LocalDate dataConclusao,
             boolean concluida, double nota, double notaMax){
+        this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.disciplina = disciplina;
+        nomeDisciplina = disciplina.getNome();
         this.prazo = prazo;
         this.dataconclusao = dataConclusao;
         this.concluida = concluida;
@@ -31,6 +34,9 @@ public class Atividade {
         this.disciplina = disciplina;
         this.prazo = prazo;
         this.concluida = concluida;
+    }
+
+    public Atividade() {
     }
 
     public int getId() {
@@ -88,7 +94,14 @@ public class Atividade {
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
     }
-
+    
+    public String getNomeDisciplina(){
+        return nomeDisciplina;
+    }
+    
+    public void setNomeDisciplina(String nomeDisciplina){
+        this.nomeDisciplina = nomeDisciplina;
+    }
     public LocalDate getPrazo() {
         return prazo;
     }

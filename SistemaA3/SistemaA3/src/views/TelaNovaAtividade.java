@@ -5,15 +5,29 @@
  */
 package views;
 
+import database.AtividadeDAO;
+import database.ConexaoDAO;
 import database.DisciplinaDAO;
+import database.EstudanteDAO;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import models.Atividade;
 
 /**
  *
  * @author andre
  */
 public class TelaNovaAtividade extends javax.swing.JFrame {
+    
+    Atividade atividade = new Atividade();
+    AtividadeDAO atividadedao = new AtividadeDAO();
 
     /**
      * Creates new form TelaNovaAtividade
@@ -34,28 +48,30 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
         okButton = new javax.swing.JButton();
         disciplinaLabel = new javax.swing.JLabel();
         notaLabel = new javax.swing.JLabel();
-        prazoLabel = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        notaTextPane = new javax.swing.JTextPane();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        prazoTextPane = new javax.swing.JTextPane();
+        notaMaxTextPane = new javax.swing.JTextPane();
         jScrollPane6 = new javax.swing.JScrollPane();
         atividadeTextPane = new javax.swing.JTextPane();
         concluidaCheckBox = new javax.swing.JCheckBox();
         jScrollPane2 = new javax.swing.JScrollPane();
         descricaoTextArea = new javax.swing.JTextArea();
         descricaoLabel = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        concluidaTextPane = new javax.swing.JTextPane();
         atividadeLabel = new javax.swing.JLabel();
         disciplinasComboBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        notaTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        notaTextPane1 = new javax.swing.JTextPane();
         novaDsclpnButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        diaTextField = new javax.swing.JTextField();
+        mesTextField = new javax.swing.JTextField();
+        anoTextField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        diaConclusaoTextField = new javax.swing.JTextField();
+        mesConclusaoTextField = new javax.swing.JTextField();
+        anoConclusaoTextField = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        voltarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -78,17 +94,19 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
 
         notaLabel.setText("Nota Máxima");
 
-        prazoLabel.setText("Prazo");
-
-        notaTextPane.setText("0.0");
-        jScrollPane3.setViewportView(notaTextPane);
-
-        prazoTextPane.setText("00/00/0000");
-        jScrollPane5.setViewportView(prazoTextPane);
+        notaMaxTextPane.setText("0.0");
+        notaMaxTextPane.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane3.setViewportView(notaMaxTextPane);
+        notaMaxTextPane.getAccessibleContext().setAccessibleParent(null);
 
         jScrollPane6.setViewportView(atividadeTextPane);
 
         concluidaCheckBox.setText("Concluída");
+        concluidaCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                concluidaCheckBoxStateChanged(evt);
+            }
+        });
         concluidaCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 concluidaCheckBoxActionPerformed(evt);
@@ -100,10 +118,6 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
         jScrollPane2.setViewportView(descricaoTextArea);
 
         descricaoLabel.setText("Descrição");
-
-        concluidaTextPane.setEditable(false);
-        concluidaTextPane.setText("00/00/0000");
-        jScrollPane8.setViewportView(concluidaTextPane);
 
         atividadeLabel.setText("Atividade");
 
@@ -121,12 +135,14 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
 
         jLabel2.setText("Nota");
 
-        jTextField1.setText("0.0");
+        notaTextField.setText("0.0");
+        notaTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                notaTextFieldActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Prazo");
-
-        notaTextPane1.setText("0000-00-00");
-        jScrollPane4.setViewportView(notaTextPane1);
 
         novaDsclpnButton.setText("(+) Nova");
         novaDsclpnButton.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +154,34 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Nova atividade");
 
+        diaTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        mesTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        anoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel1.setText(" Dia      Mês       Ano");
+
+        diaConclusaoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        diaConclusaoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diaConclusaoTextFieldActionPerformed(evt);
+            }
+        });
+
+        mesConclusaoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        anoConclusaoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel5.setText(" Dia      Mês       Ano");
+
+        voltarButton.setText("Voltar");
+        voltarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -146,104 +190,174 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(atividadeLabel)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(disciplinaLabel)
-                                    .addComponent(novaDsclpnButton))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(atividadeLabel)
+                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(disciplinasComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
+                                        .addComponent(disciplinaLabel))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(novaDsclpnButton))
+                                    .addComponent(disciplinasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(40, 40, 40)))
+                        .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(notaLabel)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(concluidaCheckBox)
-                            .addComponent(descricaoLabel)
-                            .addComponent(jLabel2)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(diaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(mesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(anoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel3)))
+                            .addComponent(jLabel1)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(voltarButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(okButton))
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(20, 20, 20))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(282, 282, 282)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(270, 270, 270))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(prazoLabel)
-                        .addGap(118, 118, 118))))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(diaConclusaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(mesConclusaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(anoConclusaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(15, 15, 15)
+                                            .addComponent(concluidaCheckBox)))
+                                    .addGap(27, 27, 27)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(notaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGap(171, 171, 171)
+                            .addComponent(okButton))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(descricaoLabel, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addGap(0, 0, Short.MAX_VALUE))))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addComponent(jLabel4)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(atividadeLabel)
+                            .addComponent(disciplinaLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(disciplinasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(novaDsclpnButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(notaLabel)
-                                .addComponent(jLabel3))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(atividadeLabel)
-                                .addComponent(disciplinaLabel)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(notaLabel)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(diaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(anoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(disciplinasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)
-                        .addComponent(novaDsclpnButton)
-                        .addGap(7, 7, 7)
-                        .addComponent(descricaoLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(concluidaCheckBox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(okButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                        .addComponent(jLabel1)))
+                .addGap(9, 9, 9)
+                .addComponent(descricaoLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(prazoLabel)
-                .addGap(142, 142, 142)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(okButton)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(concluidaCheckBox)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(diaConclusaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mesConclusaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(anoConclusaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(notaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(voltarButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        //CADASTRAR NOVA ATIVIDADE
         
+        String nome = atividadeTextPane.getText();
+        String descricao = descricaoTextArea.getText();
+        int idDisciplina = 0;
+        String querySelect = "SELECT id FROM DISCIPLINA WHERE nome = ? AND fk_estudante = ?";
+        ArrayList<Object> dadosSelect = new ArrayList<>();
+        dadosSelect.add(disciplinasComboBox.getSelectedItem().toString());
+        dadosSelect.add(EstudanteDAO.estudante.getId());
+        ConexaoDAO conexao = new ConexaoDAO();
+        conexao.getConnection(false);
+        ResultSet rs = conexao.Select(querySelect, dadosSelect);
+        try{
+            if(rs!= null && rs.next())
+                idDisciplina = rs.getInt(1);
+        }catch(SQLException ex){
+            Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        conexao.closeConnection();
+        double notaMaxima = Double.parseDouble(notaMaxTextPane.getText());
+        LocalDate p = LocalDate.of(Integer.parseInt(anoTextField.getText()),
+                Integer.parseInt(mesTextField.getText()),
+                Integer.parseInt(diaTextField.getText()));
+        LocalDate prazo = p.withDayOfMonth(Integer.parseInt(diaTextField.getText()));
+        boolean concluida = concluidaCheckBox.isSelected();
+        LocalDate dataConclusao;
+        double nota;
+        if(concluida){
+            dataConclusao = LocalDate.of(Integer.parseInt(anoConclusaoTextField.getText()),
+                Integer.parseInt(mesConclusaoTextField.getText()),
+                Integer.parseInt(diaConclusaoTextField.getText()));
+            nota = Double.parseDouble(notaTextField.getText());
+
+        }else{
+            dataConclusao = LocalDate.of(1970, 1, 1);
+            nota = 0;
+        }
+        
+        int idEstudante = EstudanteDAO.estudante.getId();
+        
+        atividadedao.cadastrarAtividade(nome, descricao, idDisciplina, nota, notaMaxima,
+            prazo, concluida, dataConclusao, idEstudante);        
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void concluidaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concluidaCheckBoxActionPerformed
@@ -292,6 +406,23 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowActivated
 
+    private void notaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notaTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_notaTextFieldActionPerformed
+
+    private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
+        dispose();
+        TelaAtividades tela = new TelaAtividades();
+        tela.show();
+    }//GEN-LAST:event_voltarButtonActionPerformed
+
+    private void concluidaCheckBoxStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_concluidaCheckBoxStateChanged
+    }//GEN-LAST:event_concluidaCheckBoxStateChanged
+
+    private void diaConclusaoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaConclusaoTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_diaConclusaoTextFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -330,30 +461,32 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField anoConclusaoTextField;
+    private javax.swing.JTextField anoTextField;
     private javax.swing.JLabel atividadeLabel;
     private javax.swing.JTextPane atividadeTextPane;
     private javax.swing.JCheckBox concluidaCheckBox;
-    private javax.swing.JTextPane concluidaTextPane;
     private javax.swing.JLabel descricaoLabel;
     private javax.swing.JTextArea descricaoTextArea;
+    private javax.swing.JTextField diaConclusaoTextField;
+    private javax.swing.JTextField diaTextField;
     private javax.swing.JLabel disciplinaLabel;
     private javax.swing.JComboBox<String> disciplinasComboBox;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField mesConclusaoTextField;
+    private javax.swing.JTextField mesTextField;
     private javax.swing.JLabel notaLabel;
-    private javax.swing.JTextPane notaTextPane;
-    private javax.swing.JTextPane notaTextPane1;
+    private javax.swing.JTextPane notaMaxTextPane;
+    private javax.swing.JTextField notaTextField;
     private javax.swing.JButton novaDsclpnButton;
     private javax.swing.JButton okButton;
-    private javax.swing.JLabel prazoLabel;
-    private javax.swing.JTextPane prazoTextPane;
+    private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 }
