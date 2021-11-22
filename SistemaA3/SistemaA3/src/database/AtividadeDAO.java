@@ -89,4 +89,29 @@ public class AtividadeDAO {
                 concluida, nota, notaMaxima));
         
     }
+    
+    public void atualizarAtividade(int id, String nome, String descricao, double nota, double notaMaxima,
+            boolean concluida, LocalDate prazo, LocalDate dataConclusao, int localId){
+        conexao.getConnection();
+        String query = "UPDATE ATIVIDADE SET nome = ?, descricao = ?, prazo = ?, concluida = ?, dataConclusao = ?, nota = ?,"
+                + " notaMaxima = ?"
+                + " WHERE id = ?";
+        ArrayList<Object> dados = new ArrayList<>();
+        int c = concluida ? 1 : 0;
+        dados.add(nome); dados.add(descricao); dados.add(prazo); dados.add(c);
+        dados.add(dataConclusao); dados.add(nota); dados.add(notaMaxima);
+        dados.add(id);
+        conexao.Update(query, dados);
+        JOptionPane.showMessageDialog(null, "Atualizado com sucesso!", "Parabéns!", 1);
+        conexao.closeConnection();
+        atividades.get(localId).setNome(nome);
+        atividades.get(localId).setDescricao(descricao);
+        atividades.get(localId).setConcluida(concluida);
+        atividades.get(localId).setDataconclusao(dataConclusao);
+        atividades.get(localId).setPrazo(prazo);
+        atividades.get(localId).setNota(nota);
+        atividades.get(localId).setNotaMax(notaMaxima);
+        
+        
+    }
 }

@@ -80,5 +80,31 @@ public class ConexaoDAO {
             return null;
         }
     }
+    
+    public void Update(String query, ArrayList<Object> parametros){
+        try{
+            PreparedStatement ps = conexao.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            for(int i = 0; i < parametros.size(); i++){
+                ps.setString(i+1, (parametros.get(i)).toString());
+            }
+            System.out.println(ps.toString());
+            ps.execute();
+        }catch(SQLException ex){
+            Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void Delete(String query, ArrayList<Object> parametros){
+        try{
+            PreparedStatement ps = conexao.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            for(int i = 0; i < parametros.size(); i++){
+                ps.setString(i+1, (parametros.get(i)).toString());
+            }
+            System.out.println(ps.toString());
+            ps.execute();
+        }catch(SQLException ex){
+            Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
         
 }
