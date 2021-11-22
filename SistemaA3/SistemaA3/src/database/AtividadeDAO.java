@@ -110,8 +110,18 @@ public class AtividadeDAO {
         atividades.get(localId).setDataconclusao(dataConclusao);
         atividades.get(localId).setPrazo(prazo);
         atividades.get(localId).setNota(nota);
-        atividades.get(localId).setNotaMax(notaMaxima);
-        
-        
+        atividades.get(localId).setNotaMax(notaMaxima);     
     }
+    
+    public void deletarAtividade(int id, int localId){
+        conexao.getConnection();
+        String query = "DELETE FROM ATIVIDADE WHERE id = ?";
+        ArrayList<Object> dados = new ArrayList<>();
+        dados.add(id);
+        conexao.Delete(query, dados);
+        JOptionPane.showMessageDialog(null, "Deletado com sucesso!", "Parabéns!", 1);
+        conexao.closeConnection();
+        atividades.remove(localId);        
+    }
+
 }

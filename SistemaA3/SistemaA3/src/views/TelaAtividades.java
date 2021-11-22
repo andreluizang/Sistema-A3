@@ -15,6 +15,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -171,6 +172,11 @@ public class TelaAtividades extends javax.swing.JFrame {
         });
 
         deletarButton.setText("Deletar");
+        deletarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletarButtonActionPerformed(evt);
+            }
+        });
 
         jScrollPane4.setToolTipText("");
 
@@ -418,6 +424,17 @@ public class TelaAtividades extends javax.swing.JFrame {
         atividadedao.atualizarAtividade(id, nome, descricao, nota, notaMaxima, concluida, prazo, dataConclusao, localId);
         
     }//GEN-LAST:event_salvarButtonActionPerformed
+
+    private void deletarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarButtonActionPerformed
+        Object[] options = { "Confirmar", "Cancelar" };
+        int confirma = JOptionPane.showOptionDialog(null, "Clique Confirmar para continuar", "Essa ação é permanente!",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+        if(confirma==0){
+            int id = AtividadeDAO.atividades.get(atividadesTabela.getSelectedRow()).getId();
+            int localId = atividadesTabela.getSelectedRow();
+            atividadedao.deletarAtividade(id, localId);
+        }
+    }//GEN-LAST:event_deletarButtonActionPerformed
 
     /**
      * @param args the command line arguments
