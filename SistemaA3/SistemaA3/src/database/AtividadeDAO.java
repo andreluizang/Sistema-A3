@@ -15,14 +15,15 @@ public class AtividadeDAO {
 
     private ConexaoDAO conexao = new ConexaoDAO();
     
-    public ArrayList<Atividade> atividades = new ArrayList<>();
+    public static ArrayList<Atividade> atividades = new ArrayList<>();
     
     public Object[][] formatarTabela(){
         conexao.getConnection();
         ResultSet rs;
         ArrayList<Object> dados = new ArrayList<>();
         dados.add(EstudanteDAO.estudante.getId());
-        rs = conexao.Select("SELECT ATIVIDADE.nome, DISCIPLINA.nome, ATIVIDADE.descricao, ATIVIDADE.prazo, ATIVIDADE.concluida"
+        rs = conexao.Select("SELECT ATIVIDADE.nome, DISCIPLINA.nome, ATIVIDADE.descricao, ATIVIDADE.prazo, ATIVIDADE.concluida,"
+                + " ATIVIDADE.id,  DISCIPLINA.id, ATIVIDADE.nota, ATIVIDADE.notaMaxima, ATIVIDADE.dataConclusao"
                 + " FROM ATIVIDADE INNER JOIN DISCIPLINA ON ATIVIDADE.fk_disciplina = DISCIPLINA.id"
                 + " WHERE ATIVIDADE.fk_estudante = ?", dados);
         String[] colunas = {"Nome", "Disciplina", "Descrição", "Prazo", "Concluída"};
@@ -34,6 +35,9 @@ public class AtividadeDAO {
             int i = 0;
             rs.beforeFirst();
             while(rs.next()){
+                criarObjetoAtividade(rs.getInt(6), rs.getString(1), rs.getString(3), rs.getInt(7), rs.getString(2),
+                                    rs.getDouble(8), rs.getDouble(9), rs.getDate(4).toLocalDate(), rs.getBoolean(5),
+                                    rs.getDate(10).toLocalDate());
                 for (int j = 0; j < rs.getMetaData().getColumnCount(); j++) {
                     tabela[i][j] = rs.getObject(j+1);
                 }

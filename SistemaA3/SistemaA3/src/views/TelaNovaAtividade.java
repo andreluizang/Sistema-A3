@@ -97,7 +97,6 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
         notaMaxTextPane.setText("0.0");
         notaMaxTextPane.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jScrollPane3.setViewportView(notaMaxTextPane);
-        notaMaxTextPane.getAccessibleContext().setAccessibleParent(null);
 
         jScrollPane6.setViewportView(atividadeTextPane);
 
@@ -275,9 +274,9 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(notaLabel)
-                                    .addComponent(jLabel3))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(notaLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -351,7 +350,7 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
 
         }else{
             dataConclusao = LocalDate.of(1970, 1, 1);
-            nota = 0;
+            nota = -1;
         }
         
         int idEstudante = EstudanteDAO.estudante.getId();

@@ -11,6 +11,7 @@ import database.EstudanteDAO;
 import java.util.ArrayList;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -63,11 +64,26 @@ public class TelaAtividades extends javax.swing.JFrame {
         disciplinaTextPane = new javax.swing.JTextPane();
         concluidaCheckBox = new javax.swing.JCheckBox();
         jScrollPane8 = new javax.swing.JScrollPane();
-        concluidaTextPane = new javax.swing.JTextPane();
+        diaConclusaoTextPane = new javax.swing.JTextPane();
         notaLabel = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        notaTextPane = new javax.swing.JTextPane();
+        notaMaxTextPane = new javax.swing.JTextPane();
         jButton1 = new javax.swing.JButton();
+        salvarButton = new javax.swing.JButton();
+        deletarButton = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        notaTextPane = new javax.swing.JTextPane();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        mesConclusaoTextPane = new javax.swing.JTextPane();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        anoConclusaoTextPane = new javax.swing.JTextPane();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        diaTextPane = new javax.swing.JTextPane();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        mesTextPane = new javax.swing.JTextPane();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        anoTextPane = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -131,21 +147,18 @@ public class TelaAtividades extends javax.swing.JFrame {
         prazoTextPane.setText("00/00/0000");
         jScrollPane5.setViewportView(prazoTextPane);
 
-        atividadeTextPane.setText("ATIVIDADE");
         jScrollPane6.setViewportView(atividadeTextPane);
 
-        disciplinaTextPane.setText("DISCIPLINA");
         jScrollPane7.setViewportView(disciplinaTextPane);
 
         concluidaCheckBox.setText("Concluída");
 
-        concluidaTextPane.setText("00/00/0000");
-        jScrollPane8.setViewportView(concluidaTextPane);
+        jScrollPane8.setViewportView(diaConclusaoTextPane);
 
         notaLabel.setText("Nota");
 
-        notaTextPane.setText("0.0 / 0.0");
-        jScrollPane3.setViewportView(notaTextPane);
+        notaMaxTextPane.setText("0.0");
+        jScrollPane3.setViewportView(notaMaxTextPane);
 
         jButton1.setText("Atualizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -153,6 +166,28 @@ public class TelaAtividades extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        salvarButton.setText("Salvar");
+        salvarButton.setToolTipText("");
+
+        deletarButton.setText("Deletar");
+
+        jScrollPane4.setToolTipText("");
+
+        notaTextPane.setText("0.0");
+        jScrollPane4.setViewportView(notaTextPane);
+
+        jLabel1.setText(" /");
+
+        jScrollPane9.setViewportView(mesConclusaoTextPane);
+
+        jScrollPane10.setViewportView(anoConclusaoTextPane);
+
+        jScrollPane11.setViewportView(diaTextPane);
+
+        jScrollPane12.setViewportView(mesTextPane);
+
+        jScrollPane13.setViewportView(anoTextPane);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,34 +202,59 @@ public class TelaAtividades extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(novaAtvButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(concluidaCheckBox)
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(prazoLabel)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(descricaoLabel)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(disciplinaLabel))
-                        .addGap(18, 18, 18)
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(notaLabel)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane3)))
-                    .addComponent(atividadeLabel))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
+                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(atividadeLabel))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(notaLabel)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 6, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(novaAtvButton)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(descricaoLabel)
+                                        .addComponent(disciplinaLabel))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(concluidaCheckBox)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(prazoLabel))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(12, 12, 12))
+                                    .addComponent(deletarButton)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(salvarButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(213, 213, 213)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -213,9 +273,11 @@ public class TelaAtividades extends javax.swing.JFrame {
                             .addComponent(atividadeLabel)
                             .addComponent(notaLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                            .addComponent(jScrollPane3)
+                            .addComponent(jScrollPane4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(disciplinaLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -224,20 +286,38 @@ public class TelaAtividades extends javax.swing.JFrame {
                         .addComponent(descricaoLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(2, 2, 2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(prazoLabel)
-                                .addGap(4, 4, 4)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(novaAtvButton)
+                                    .addComponent(jButton1)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(concluidaCheckBox)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(novaAtvButton)
-                            .addComponent(jButton1))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(concluidaCheckBox)
+                                                    .addComponent(prazoLabel))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jScrollPane13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(salvarButton)
+                                            .addComponent(deletarButton)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(79, 79, 79)
+                                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
 
@@ -306,7 +386,29 @@ public class TelaAtividades extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void atividadesTabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_atividadesTabelaMouseClicked
-        //exibir informações referente às atividades por row
+        int index = atividadesTabela.getSelectedRow();
+        atividadeTextPane.setText(AtividadeDAO.atividades.get(index).getNome());
+        disciplinaTextPane.setText(AtividadeDAO.atividades.get(index).getNomeDisciplina());
+        descricaoTextArea.setText(AtividadeDAO.atividades.get(index).getDescricao());
+        concluidaCheckBox.setSelected(AtividadeDAO.atividades.get(index).isConcluida());
+        notaMaxTextPane.setText((AtividadeDAO.atividades.get(index).getDataconclusao()).toString());
+        if(AtividadeDAO.atividades.get(index).isConcluida()){
+            notaTextPane.setText(Double.toString(AtividadeDAO.atividades.get(index).getNota()));
+            diaConclusaoTextPane.setText(Integer.toString(AtividadeDAO.atividades.get(index).getDataconclusao().getDayOfMonth()));
+            mesConclusaoTextPane.setText(Integer.toString(AtividadeDAO.atividades.get(index).getDataconclusao().getMonthValue()));
+            anoConclusaoTextPane.setText(Integer.toString(AtividadeDAO.atividades.get(index).getDataconclusao().getYear()));
+        }else{
+            notaTextPane.setText(Double.toString(AtividadeDAO.atividades.get(index).getNota()));
+            diaConclusaoTextPane.setText("");
+            mesConclusaoTextPane.setText("");
+            anoConclusaoTextPane.setText("");
+        }
+
+        diaTextPane.setText(Integer.toString(AtividadeDAO.atividades.get(index).getPrazo().getDayOfMonth()));
+        mesTextPane.setText(Integer.toString(AtividadeDAO.atividades.get(index).getPrazo().getMonthValue()));
+        anoTextPane.setText(Integer.toString(AtividadeDAO.atividades.get(index).getPrazo().getYear()));
+        
+                
     }//GEN-LAST:event_atividadesTabelaMouseClicked
 
     /**
@@ -347,28 +449,43 @@ public class TelaAtividades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextPane anoConclusaoTextPane;
+    private javax.swing.JTextPane anoTextPane;
     private javax.swing.JLabel atividadeLabel;
     private javax.swing.JTextPane atividadeTextPane;
     private javax.swing.JTable atividadesTabela;
     private javax.swing.JCheckBox concluidaCheckBox;
-    private javax.swing.JTextPane concluidaTextPane;
+    private javax.swing.JButton deletarButton;
     private javax.swing.JLabel descricaoLabel;
     private javax.swing.JTextArea descricaoTextArea;
+    private javax.swing.JTextPane diaConclusaoTextPane;
+    private javax.swing.JTextPane diaTextPane;
     private javax.swing.JLabel disciplinaLabel;
     private javax.swing.JTextPane disciplinaTextPane;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTextPane mesConclusaoTextPane;
+    private javax.swing.JTextPane mesTextPane;
     private javax.swing.JLabel notaLabel;
+    private javax.swing.JTextPane notaMaxTextPane;
     private javax.swing.JTextPane notaTextPane;
     private javax.swing.JButton novaAtvButton;
     private javax.swing.JLabel prazoLabel;
     private javax.swing.JTextPane prazoTextPane;
+    private javax.swing.JButton salvarButton;
     private javax.swing.JLabel tituloLabel;
     // End of variables declaration//GEN-END:variables
 }
