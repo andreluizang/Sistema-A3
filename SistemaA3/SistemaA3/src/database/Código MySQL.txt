@@ -13,6 +13,8 @@ CREATE TABLE IF NOT EXISTS DISCIPLINA(
     nome varchar(30) not null,
     fk_estudante int not null,
     FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS ATIVIDADE(
@@ -25,9 +27,13 @@ CREATE TABLE IF NOT EXISTS ATIVIDADE(
     nota double,
     notaMaxima double not null,
     fk_disciplina int not null,
-    FOREIGN KEY (fk_disciplina) REFERENCES DISCIPLINA (id),
+    FOREIGN KEY (fk_disciplina) REFERENCES DISCIPLINA (id)
+	ON UPDATE CASCADE
+    ON DELETE CASCADE,
     fk_estudante int not null,
     FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
+	ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS CONTEUDO(
@@ -35,18 +41,26 @@ CREATE TABLE IF NOT EXISTS CONTEUDO(
     nome varchar(30) not null,
     aprendizado tinyint,
     fk_disciplina int not null,
-    FOREIGN KEY (fk_disciplina) REFERENCES DISCIPLINA (id),
+    FOREIGN KEY (fk_disciplina) REFERENCES DISCIPLINA (id)
+	ON UPDATE CASCADE
+    ON DELETE CASCADE,
     fk_estudante int not null,
     FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE    
 );
 
 CREATE TABLE IF NOT EXISTS ANOTACOES(
     id int primary key auto_increment,
     anotacao varchar(200) not null,
     fk_conteudo int not null,
-    FOREIGN KEY (fk_conteudo) REFERENCES CONTEUDO (id),
+    FOREIGN KEY (fk_conteudo) REFERENCES CONTEUDO (id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,    
     fk_estudante int not null,
     FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE    
 );
 
 CREATE TABLE IF NOT EXISTS METAS(
@@ -54,9 +68,13 @@ CREATE TABLE IF NOT EXISTS METAS(
     concluida boolean not null,
     dataConclusao DATE,
     fk_conteudo int not null,
-    FOREIGN KEY (fk_conteudo) REFERENCES CONTEUDO (id),
+    FOREIGN KEY (fk_conteudo) REFERENCES CONTEUDO (id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
     fk_estudante int not null,
     FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
+	ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
 
 INSERT INTO ESTUDANTE (nome, email, senha) VALUES ("admin", "admin@email.com", "admin123");
@@ -65,4 +83,3 @@ INSERT INTO ATIVIDADE (nome, descricao, prazo, concluida, nota, notaMaxima, data
 			   VALUES ("Trabalho", "Apresentar", "2021-12-6", true, 8.5, 10.0, "2021-11-22", 1, 1);
 INSERT INTO ATIVIDADE (nome, descricao, prazo, concluida, nota, notaMaxima, dataConclusao, fk_disciplina, fk_estudante)
 			   VALUES ("Prova", "Responder", "2021-12-6", false, -1, 10.0, "1970-1-1", 1, 1);
-
