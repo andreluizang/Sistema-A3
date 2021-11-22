@@ -14,7 +14,7 @@ public class EstudanteDAO {
     private DisciplinaDAO disciplinadao = new DisciplinaDAO();
     
     public Estudante criarObjetoEstudante(String email){
-        conexao.getConnection(false);
+        conexao.getConnection();
         String query = "SELECT id, nome, email, senha FROM ESTUDANTE WHERE email = ?";
         ArrayList<Object> dadosSelect = new ArrayList<>();
         dadosSelect.add(email);

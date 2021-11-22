@@ -20,11 +20,10 @@ public class ConexaoDAO {
         
     }
 
-    public java.sql.Connection getConnection(boolean dropTables){
+    public java.sql.Connection getConnection(){
         try {
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/SistemaA3DataBase?useTimezone=true&serverTimezone=America/Sao_Paulo", "root", "1234");
-            initdb(dropTables);
             System.out.println("Conectado com sucesso!");
         } catch (SQLException ex) {
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -35,32 +34,18 @@ public class ConexaoDAO {
     
     public boolean closeConnection(){
         try {
-            getConnection(false).close();
+            getConnection().close();
             return true;
         } catch (SQLException ex) {
             return false;
         }
     }
     
-    public void initdb(boolean dropTable){
-    //    try {
-            //if(dropTable)
-                //this.stm.executeUpdate("DROP TABLE IF EXISTS ESUTDANTE");
-            
-            
-            //this.stm.execute("CREATE TABLE IF NOT EXISTS ESTUDANTE("
-              //      + "id int primary key not null, nome varchar(30), "
-                //    + "email varchar(30), senha varchar(30)"
-                  //  + ")");
-        //} catch (SQLException ex) {
-         //   Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        //}        
-    }
-    
     //Método de Insert, aceita de parâmetros uma String, que vai ser a query para formatar e um array de Object
     //que aceita qualquer tipo de variável ou objeto. Dessa forma, o método pode ser chamado em qualquer outra classe
-    protected void Insert(String query, ArrayList<Object> parametros){
+    public boolean Insert(String query, ArrayList<Object> parametros){
         PreparedStatement ps;
+        boolean retorno = false;
         try {
 
             ps = conexao.prepareStatement(query,  ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -69,9 +54,12 @@ public class ConexaoDAO {
             }
             System.out.println(ps.toString());
             ps.execute();
+            retorno = true;
         }catch (SQLException ex){
-            Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);            
+            Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);    
+            retorno = false;
         }
+        return retorno;
     }
     
     //Método de Select, aceita de parâmetros uma String, que vai ser a query para formatar e um array de Object

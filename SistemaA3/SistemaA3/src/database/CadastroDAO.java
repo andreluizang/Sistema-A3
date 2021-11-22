@@ -18,17 +18,21 @@ public class CadastroDAO {
     }
     
     public boolean cadastrar(String nome, String email, String senha){
-        conexao.getConnection(false);
+        conexao.getConnection();
 
         if(verificarEmailNaoEstaCadastrado(email)){
             //Query e array de objetos que vão ser passados pro método Insert da classe ConexaoDAO
             String queryInsert = "INSERT INTO ESTUDANTE (nome, email, senha) VALUES (?, ?, ?)";
             ArrayList<Object> dadosInsert = new ArrayList<>();
             dadosInsert.add(nome); dadosInsert.add(email); dadosInsert.add(senha);
-            conexao.Insert(queryInsert, dadosInsert);
-            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!", "Parabéns!", 1);
-            conexao.closeConnection();
-            return true;
+            if(conexao.Insert(queryInsert, dadosInsert)){
+                JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!", "Parabéns!", 1);
+                conexao.closeConnection();
+                return true;
+            }else{
+                conexao.closeConnection();
+                return false;
+            }
         }else{
             JOptionPane.showMessageDialog(null, "Esse e-mail já está cadastrado!", "ERRO!", 0);
             conexao.closeConnection();

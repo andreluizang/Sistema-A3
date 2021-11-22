@@ -326,7 +326,7 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
         dadosSelect.add(disciplinasComboBox.getSelectedItem().toString());
         dadosSelect.add(EstudanteDAO.estudante.getId());
         ConexaoDAO conexao = new ConexaoDAO();
-        conexao.getConnection(false);
+        conexao.getConnection();
         ResultSet rs = conexao.Select(querySelect, dadosSelect);
         try{
             if(rs!= null && rs.next())

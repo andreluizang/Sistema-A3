@@ -18,7 +18,7 @@ public class AtividadeDAO {
     public ArrayList<Atividade> atividades = new ArrayList<>();
     
     public Object[][] formatarTabela(){
-        conexao.getConnection(false);
+        conexao.getConnection();
         ResultSet rs;
         ArrayList<Object> dados = new ArrayList<>();
         dados.add(EstudanteDAO.estudante.getId());
@@ -51,7 +51,7 @@ public class AtividadeDAO {
     public void cadastrarAtividade(String nome, String descricao, int idDisciplina, double nota, double notaMaxima,
             LocalDate prazo, boolean concluida, LocalDate dataConclusao, int idEstudante){
         int c = concluida ? 1 : 0;
-        conexao.getConnection(false);
+        conexao.getConnection();
         String queryInsert = "INSERT INTO ATIVIDADE (nome, descricao, fk_disciplina, nota, notaMaxima,"
                 + " prazo, concluida, dataConclusao, fk_estudante) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         ArrayList<Object> dadosInsert = new ArrayList<>();

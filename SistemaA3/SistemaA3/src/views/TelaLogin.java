@@ -1,5 +1,6 @@
 package views;
 
+import database.ConexaoDAO;
 import database.LoginDAO;
 import database.EstudanteDAO;
 import java.awt.Color;
@@ -7,8 +8,9 @@ import javax.swing.JOptionPane;
 import models.Estudante;
 
 public class TelaLogin extends javax.swing.JFrame {
+    private ConexaoDAO conexao = new ConexaoDAO();
     private EstudanteDAO estudante = new EstudanteDAO();
-    private LoginDAO conexaoLogin = new LoginDAO();
+    private LoginDAO conexaoLogin = new LoginDAO(conexao);
     
     //DADOS DE TESTE DE LOGIN:
     //Email: admin@email.com

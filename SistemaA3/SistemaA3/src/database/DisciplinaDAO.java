@@ -24,7 +24,7 @@ public class DisciplinaDAO {
     
     
     public void cadastrarDisciplina(String nome){
-        conexao.getConnection(false);
+        conexao.getConnection();
         String queryInsert = "INSERT INTO DISCIPLINA (nome, fk_estudante) VALUES (?, ?)";
         ArrayList<Object> dadosInsert = new ArrayList<>();
         dadosInsert.add(nome); dadosInsert.add(EstudanteDAO.estudante.getId());
@@ -45,7 +45,7 @@ public class DisciplinaDAO {
     }
     
     public void carregarDisciplinas(int id){
-        conexao.getConnection(false);
+        conexao.getConnection();
         String querySelect = "SELECT id, nome FROM DISCIPLINA WHERE fk_estudante = ?";
         ArrayList<Object> dadosSelect = new ArrayList<>();
         dadosSelect.add(id);
@@ -63,7 +63,7 @@ public class DisciplinaDAO {
     }
     
     public String[] formatarComboBox(){
-        conexao.getConnection(false);
+        conexao.getConnection();
         
         String querySelect = "SELECT id, nome FROM DISCIPLINA WHERE fk_estudante = ? AND id > ?";
         ArrayList<Object> dadosSelect = new ArrayList<>();
