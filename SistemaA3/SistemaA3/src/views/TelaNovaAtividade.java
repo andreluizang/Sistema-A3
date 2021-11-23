@@ -61,7 +61,7 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         notaTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        novaDsclpnButton = new javax.swing.JButton();
+        maisDsclpnButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         diaTextField = new javax.swing.JTextField();
         mesTextField = new javax.swing.JTextField();
@@ -74,6 +74,13 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
         voltarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -143,10 +150,10 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
 
         jLabel3.setText("Prazo");
 
-        novaDsclpnButton.setText("(+) Nova");
-        novaDsclpnButton.addActionListener(new java.awt.event.ActionListener() {
+        maisDsclpnButton.setText("(+)");
+        maisDsclpnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novaDsclpnButtonActionPerformed(evt);
+                maisDsclpnButtonActionPerformed(evt);
             }
         });
 
@@ -189,30 +196,32 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(atividadeLabel)
-                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(17, 17, 17)
-                                        .addComponent(disciplinaLabel))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(atividadeLabel)
+                                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(disciplinasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(disciplinaLabel)
+                                                .addGap(32, 32, 32))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(40, 40, 40)))
+                                .addGap(12, 12, 12)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(notaLabel)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
-                                        .addComponent(novaDsclpnButton))
-                                    .addComponent(disciplinasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(40, 40, 40)))
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(notaLabel)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(6, 6, 6)
+                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(6, 6, 6))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(maisDsclpnButton)
+                                .addGap(110, 110, 110)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(diaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -262,15 +271,15 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(atividadeLabel)
-                            .addComponent(disciplinaLabel))
+                            .addComponent(disciplinaLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(disciplinasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(novaDsclpnButton))
+                        .addComponent(maisDsclpnButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -370,9 +379,12 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_disciplinasComboBoxItemStateChanged
 
-    private void novaDsclpnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novaDsclpnButtonActionPerformed
-        //Cadastrar nova disciplina
-        String novaDisciplina = JOptionPane.showInputDialog("Digite o nome da disciplina: ");       
+    private void maisDsclpnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maisDsclpnButtonActionPerformed
+        TelaDisciplinas tela = new TelaDisciplinas();
+        tela.show();
+
+    //Cadastrar nova disciplina
+        /*String novaDisciplina = JOptionPane.showInputDialog("Digite o nome da disciplina: ");       
         DisciplinaDAO disciplinadao = new DisciplinaDAO();
         boolean cadastrada = false;
         if(!DisciplinaDAO.disciplina.isEmpty()){
@@ -392,8 +404,8 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
             disciplinadao.cadastrarDisciplina(novaDisciplina);
         }
         
-        disciplinasComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(disciplinadao.formatarComboBox()));
-    }//GEN-LAST:event_novaDsclpnButtonActionPerformed
+        disciplinasComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(disciplinadao.formatarComboBox()));*/
+    }//GEN-LAST:event_maisDsclpnButtonActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         DisciplinaDAO disciplinadao = new DisciplinaDAO();
@@ -421,6 +433,11 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
     private void diaConclusaoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaConclusaoTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_diaConclusaoTextFieldActionPerformed
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        DisciplinaDAO disciplinadao = new DisciplinaDAO();
+        disciplinasComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(disciplinadao.formatarComboBox()));
+    }//GEN-LAST:event_formWindowGainedFocus
 
     /**
      * @param args the command line arguments
@@ -479,12 +496,12 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JButton maisDsclpnButton;
     private javax.swing.JTextField mesConclusaoTextField;
     private javax.swing.JTextField mesTextField;
     private javax.swing.JLabel notaLabel;
     private javax.swing.JTextPane notaMaxTextPane;
     private javax.swing.JTextField notaTextField;
-    private javax.swing.JButton novaDsclpnButton;
     private javax.swing.JButton okButton;
     private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables

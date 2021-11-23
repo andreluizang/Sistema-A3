@@ -256,8 +256,7 @@ public class TelaAtividades extends javax.swing.JFrame {
                                     .addComponent(deletarButton)))))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(salvarButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(salvarButton)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -299,9 +298,9 @@ public class TelaAtividades extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(concluidaCheckBox)
-                                            .addComponent(prazoLabel))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(prazoLabel)
+                                            .addComponent(concluidaCheckBox))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -312,9 +311,9 @@ public class TelaAtividades extends javax.swing.JFrame {
                                             .addComponent(jScrollPane13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(salvarButton)
-                                    .addComponent(deletarButton))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(deletarButton)
+                                    .addComponent(salvarButton))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -385,6 +384,8 @@ public class TelaAtividades extends javax.swing.JFrame {
 
     private void atividadesTabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_atividadesTabelaMouseClicked
         int index = atividadesTabela.getSelectedRow();
+        System.out.println(index);
+        System.out.println(AtividadeDAO.atividades.get(index).getNome());
         atividadeTextPane.setText(AtividadeDAO.atividades.get(index).getNome());
         disciplinaTextPane.setText(AtividadeDAO.atividades.get(index).getNomeDisciplina());
         descricaoTextArea.setText(AtividadeDAO.atividades.get(index).getDescricao());

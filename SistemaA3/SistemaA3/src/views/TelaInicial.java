@@ -68,12 +68,11 @@ public class TelaInicial extends javax.swing.JFrame {
                             .addComponent(bemvindoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(logoutButton)))
+                        .addComponent(logoutButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(394, 394, 394)
+                        .addComponent(atividadesButton)))
                 .addContainerGap(166, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(atividadesButton)
-                .addGap(430, 430, 430))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,9 +81,9 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addComponent(tituloLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bemvindoLabel)
-                .addGap(157, 157, 157)
+                .addGap(168, 168, 168)
                 .addComponent(atividadesButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
                 .addComponent(logoutButton)
                 .addContainerGap())
         );

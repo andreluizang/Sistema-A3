@@ -1,5 +1,6 @@
 package database;
 
+import static database.DisciplinaDAO.disciplina;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.sql.SQLException;
@@ -14,6 +15,7 @@ import java.sql.Date;
 public class AtividadeDAO {
 
     private ConexaoDAO conexao = new ConexaoDAO();
+    private static boolean objetosCriados = false;
     
     public static ArrayList<Atividade> atividades = new ArrayList<>();
     
@@ -25,7 +27,7 @@ public class AtividadeDAO {
         rs = conexao.Select("SELECT ATIVIDADE.nome, DISCIPLINA.nome, ATIVIDADE.descricao, ATIVIDADE.prazo, ATIVIDADE.concluida,"
                 + " ATIVIDADE.id,  DISCIPLINA.id, ATIVIDADE.nota, ATIVIDADE.notaMaxima, ATIVIDADE.dataConclusao"
                 + " FROM ATIVIDADE INNER JOIN DISCIPLINA ON ATIVIDADE.fk_disciplina = DISCIPLINA.id"
-                + " WHERE ATIVIDADE.fk_estudante = ?", dados);
+                + " WHERE ATIVIDADE.fk_estudante = ? ORDER BY ATIVIDADE.id ASC", dados);
         String[] colunas = {"Nome", "Disciplina", "Descrição", "Prazo", "Concluída"};
         Object[][] tabela ={};
 
@@ -34,21 +36,25 @@ public class AtividadeDAO {
             tabela = new Object[rs.getRow()][rs.getMetaData().getColumnCount()];
             int i = 0;
             rs.beforeFirst();
-            while(rs.next()){
-                criarObjetoAtividade(rs.getInt(6), rs.getString(1), rs.getString(3), rs.getInt(7), rs.getString(2),
+            for(int contador = 0; rs!=null && rs.next(); contador++){
+                if(!objetosCriados){
+                    criarObjetoAtividade(rs.getInt(6), rs.getString(1), rs.getString(3), rs.getInt(7), rs.getString(2),
                                     rs.getDouble(8), rs.getDouble(9), rs.getDate(4).toLocalDate(), rs.getBoolean(5),
                                     rs.getDate(10).toLocalDate());
+                }
                 for (int j = 0; j < rs.getMetaData().getColumnCount(); j++) {
                     tabela[i][j] = rs.getObject(j+1);
                 }
                 i++;
             }
+            objetosCriados = true;
 
             conexao.closeConnection();
         }catch(SQLException ex){
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
             conexao.closeConnection();
         }
+        System.out.println("Tamanho do array:" + atividades.size());
         return tabela;
     }
     
@@ -73,10 +79,10 @@ public class AtividadeDAO {
         ResultSet rs = conexao.Select(querySelect, dadosSelect);
         
         try{
-            DisciplinaDAO.disciplina.get(0);
-            if(rs!= null && rs.next())
+            if(rs!= null && rs.next()){
                 criarObjetoAtividade(rs.getInt(1), nome, descricao, idDisciplina, rs.getString(2), nota, notaMaxima,
                         prazo, concluida, dataConclusao);
+            }
         }catch(SQLException ex){
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

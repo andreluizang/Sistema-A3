@@ -12,6 +12,7 @@ public class EstudanteDAO {
     private ConexaoDAO conexao = new ConexaoDAO();
     public static Estudante estudante = new Estudante();
     private DisciplinaDAO disciplinadao = new DisciplinaDAO();
+    private AtividadeDAO atividadedao = new AtividadeDAO();
     
     public Estudante criarObjetoEstudante(String email){
         conexao.getConnection();
