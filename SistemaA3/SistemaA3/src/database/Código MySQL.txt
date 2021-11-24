@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS DISCIPLINA(
 );
 
 CREATE TABLE IF NOT EXISTS ATIVIDADE(
-	id int primary key auto_increment,
+    id int primary key auto_increment,
     nome varchar(30) not null,
     descricao varchar(200) not null,
     prazo DATE not null,
@@ -28,11 +28,11 @@ CREATE TABLE IF NOT EXISTS ATIVIDADE(
     notaMaxima double not null,
     fk_disciplina int not null,
     FOREIGN KEY (fk_disciplina) REFERENCES DISCIPLINA (id)
-	ON UPDATE CASCADE
+    ON UPDATE CASCADE
     ON DELETE CASCADE,
     fk_estudante int not null,
     FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
-	ON UPDATE CASCADE
+    ON UPDATE CASCADE
     ON DELETE CASCADE
 );
 
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS CONTEUDO(
     aprendizado tinyint,
     fk_disciplina int not null,
     FOREIGN KEY (fk_disciplina) REFERENCES DISCIPLINA (id)
-	ON UPDATE CASCADE
+    ON UPDATE CASCADE
     ON DELETE CASCADE,
     fk_estudante int not null,
     FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS METAS(
     ON DELETE CASCADE,
     fk_estudante int not null,
     FOREIGN KEY (fk_estudante) REFERENCES ESTUDANTE (id)
-	ON UPDATE CASCADE
+    ON UPDATE CASCADE
     ON DELETE CASCADE
 );
 
@@ -83,3 +83,5 @@ INSERT INTO ATIVIDADE (nome, descricao, prazo, concluida, nota, notaMaxima, data
 			   VALUES ("Trabalho", "Apresentar", "2021-12-6", true, 8.5, 10.0, "2021-11-22", 1, 1);
 INSERT INTO ATIVIDADE (nome, descricao, prazo, concluida, nota, notaMaxima, dataConclusao, fk_disciplina, fk_estudante)
 			   VALUES ("Prova", "Responder", "2021-12-6", false, -1, 10.0, "1970-1-1", 1, 1);
+INSERT INTO CONTEUDO (nome, aprendizado, fk_disciplina, fk_estudante) VALUES ("Bhaskara", 9, 1, 1);
+INSERT INTO ANOTACOES (anotacao, fk_conteudo, fk_estudante) VALUES ("Aprendi a fórmula de Bhaskara", 1, 1);

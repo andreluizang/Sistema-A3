@@ -118,6 +118,7 @@ public class TelaAtividades extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        atividadesTabela.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         atividadesTabela.setRowHeight(30);
         atividadesTabela.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {

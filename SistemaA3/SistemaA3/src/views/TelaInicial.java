@@ -31,6 +31,7 @@ public class TelaInicial extends javax.swing.JFrame {
         tituloLabel = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
         atividadesButton = new javax.swing.JButton();
+        conteudosButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +56,13 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        conteudosButton.setText("Conteúdos");
+        conteudosButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conteudosButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -71,7 +79,9 @@ public class TelaInicial extends javax.swing.JFrame {
                         .addComponent(logoutButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(394, 394, 394)
-                        .addComponent(atividadesButton)))
+                        .addComponent(atividadesButton)
+                        .addGap(65, 65, 65)
+                        .addComponent(conteudosButton)))
                 .addContainerGap(166, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -82,7 +92,9 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bemvindoLabel)
                 .addGap(168, 168, 168)
-                .addComponent(atividadesButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(atividadesButton)
+                    .addComponent(conteudosButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
                 .addComponent(logoutButton)
                 .addContainerGap())
@@ -104,6 +116,12 @@ public class TelaInicial extends javax.swing.JFrame {
         TelaAtividades tela = new TelaAtividades();
         tela.show();
     }//GEN-LAST:event_atividadesButtonActionPerformed
+
+    private void conteudosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conteudosButtonActionPerformed
+        dispose();
+        TelaConteudos tela = new TelaConteudos();
+        tela.show();
+    }//GEN-LAST:event_conteudosButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,6 +161,7 @@ public class TelaInicial extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atividadesButton;
     private javax.swing.JLabel bemvindoLabel;
+    private javax.swing.JButton conteudosButton;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel tituloLabel;
     // End of variables declaration//GEN-END:variables

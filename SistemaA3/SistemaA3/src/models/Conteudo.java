@@ -1,18 +1,29 @@
 package models;
 
 public class Conteudo {
+    private int id;
     private String nome;
     private int aprendizado;
     private String anotacao;
     private Disciplina disciplina;
+    //private String nomeDisciplina;
 
-    public Conteudo(String nome, int aprendizado, String anotacao, Disciplina disciplina) {
+    public Conteudo(int id, String nome, int aprendizado, String anotacao, Disciplina disciplina) {
+        this.id = id;
         this.nome = nome;
         this.aprendizado = aprendizado;
         this.anotacao = anotacao;
         this.disciplina = disciplina;
     }
 
+    public int getId(){
+        return id;
+    }
+    
+    public void setId(){
+        this.id = id;
+    }
+    
     public String getNome() {
         return nome;
     }
