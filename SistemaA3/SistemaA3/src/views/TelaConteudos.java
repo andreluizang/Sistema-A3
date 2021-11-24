@@ -7,6 +7,7 @@ package views;
 
 import javax.swing.table.DefaultTableModel;
 import database.ConteudoDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,6 +46,8 @@ public class TelaConteudos extends javax.swing.JFrame {
         escalaSlider = new javax.swing.JSlider();
         disciplinaLabel1 = new javax.swing.JLabel();
         escalaLabel = new javax.swing.JLabel();
+        revisarLabel = new javax.swing.JLabel();
+        reviseiButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -102,6 +105,15 @@ public class TelaConteudos extends javax.swing.JFrame {
 
         disciplinaLabel1.setText("O quanto você aprendeu sobre esse conteúdo?");
 
+        revisarLabel.setText("Revisar!");
+
+        reviseiButton.setText("Revisei!");
+        reviseiButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reviseiButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,14 +123,9 @@ public class TelaConteudos extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(descricaoLabel)
-                                    .addComponent(jScrollPane2)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(disciplinaLabel)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -126,16 +133,24 @@ public class TelaConteudos extends javax.swing.JFrame {
                                         .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)))
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(disciplinaLabel1)
-                                    .addComponent(escalaSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane2)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(reviseiButton)
+                                        .addComponent(disciplinaLabel1)
+                                        .addComponent(escalaSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(descricaoLabel))
+                                    .addGap(0, 0, Short.MAX_VALUE))))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(escalaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))))
+                        .addGap(35, 35, 35))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(revisarLabel)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,12 +171,16 @@ public class TelaConteudos extends javax.swing.JFrame {
                         .addComponent(escalaSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(escalaLabel)
-                        .addGap(39, 39, 39)
+                        .addGap(14, 14, 14)
+                        .addComponent(revisarLabel)
+                        .addGap(3, 3, 3)
+                        .addComponent(reviseiButton)
+                        .addGap(18, 18, 18)
                         .addComponent(descricaoLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 251, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -183,6 +202,7 @@ public class TelaConteudos extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) conteudosTabela.getModel();
         conteudosTabela.setModel(model);
         model.setDataVector(conteudodao.formatarTabela(), col);
+        conteudodao.carregarMetas();
         
         if (conteudosTabela.getColumnModel().getColumnCount() > 0) {
             conteudosTabela.getColumnModel().getColumn(0).setMinWidth(80);
@@ -205,7 +225,23 @@ public class TelaConteudos extends javax.swing.JFrame {
         anotacaoTextPane.setText(ConteudoDAO.conteudos.get(index).getAnotacao());
         escalaLabel.setText(Integer.toString(ConteudoDAO.conteudos.get(index).getAprendizado()));
         escalaSlider.setValue(ConteudoDAO.conteudos.get(index).getAprendizado());
+        if(ConteudoDAO.conteudos.get(index).getMeta() == 0){
+            revisarLabel.setText("Parabéns! Você cumpriu a sua meta!");
+        }else{
+            revisarLabel.setText("Revisar " + Integer.toString(ConteudoDAO.conteudos.get(index).getMeta()) + " vezes!");
+        }
     }//GEN-LAST:event_conteudosTabelaMouseClicked
+
+    private void reviseiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviseiButtonActionPerformed
+        int revisoes = ConteudoDAO.conteudos.get(conteudosTabela.getSelectedRow()).getMeta() - 1;
+        conteudodao.atualizarMetas(revisoes, conteudosTabela.getSelectedRow());
+        if(revisoes == 0){
+            JOptionPane.showMessageDialog(null, "Parabéns! Você cumpriu a sua meta!", "Parabéns!", 1);
+            revisarLabel.setText("Parabéns! Você cumpriu a sua meta de revisões!");
+        }else{
+            revisarLabel.setText("Revisar " + Integer.toString(ConteudoDAO.conteudos.get(conteudosTabela.getSelectedRow()).getMeta()));
+        }
+    }//GEN-LAST:event_reviseiButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,5 +293,7 @@ public class TelaConteudos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JLabel revisarLabel;
+    private javax.swing.JButton reviseiButton;
     // End of variables declaration//GEN-END:variables
 }

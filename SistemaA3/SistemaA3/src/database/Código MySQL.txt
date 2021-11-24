@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS ANOTACOES(
 
 CREATE TABLE IF NOT EXISTS METAS(
     id int primary key auto_increment,
+    revisoes int not null,
     concluida boolean not null,
     dataConclusao DATE,
     fk_conteudo int not null,

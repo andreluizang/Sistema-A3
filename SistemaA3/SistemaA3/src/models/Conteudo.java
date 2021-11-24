@@ -6,6 +6,7 @@ public class Conteudo {
     private int aprendizado;
     private String anotacao;
     private Disciplina disciplina;
+    private int meta;
     //private String nomeDisciplina;
 
     public Conteudo(int id, String nome, int aprendizado, String anotacao, Disciplina disciplina) {
@@ -14,6 +15,23 @@ public class Conteudo {
         this.aprendizado = aprendizado;
         this.anotacao = anotacao;
         this.disciplina = disciplina;
+        meta = calcularMetas(aprendizado);
+    }
+    
+    private int calcularMetas(int aprendizado){
+        int revisoes = 0;
+        if(aprendizado == 0){
+            revisoes = 5;
+        }else if(aprendizado > 0 && aprendizado <= 3){
+            revisoes = 4;
+        }else if(aprendizado >= 4 && aprendizado <= 6){
+            revisoes = 3;
+        }else if(aprendizado >= 7 && aprendizado <= 9){
+            revisoes = 2;
+        }else if(aprendizado == 10){
+            revisoes = 1;
+        }
+        return revisoes;
     }
 
     public int getId(){
@@ -56,8 +74,11 @@ public class Conteudo {
         this.disciplina = disciplina;
     }
     
+    public int getMeta(){
+        return meta;
+    } 
     
-    
-    
-    
+    public void setMeta(int meta){
+        this.meta = meta;
+    }
 }
