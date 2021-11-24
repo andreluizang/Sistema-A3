@@ -25,7 +25,8 @@ public class CadastroDAO {
             String queryInsert = "INSERT INTO ESTUDANTE (nome, email, senha) VALUES (?, ?, ?)";
             ArrayList<Object> dadosInsert = new ArrayList<>();
             dadosInsert.add(nome); dadosInsert.add(email); dadosInsert.add(senha);
-            if(conexao.Insert(queryInsert, dadosInsert)){
+            boolean cadastrou = conexao.Insert(queryInsert, dadosInsert);
+            if(cadastrou){
                 JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso!", "Parabéns!", 1);
                 conexao.closeConnection();
                 return true;

@@ -325,7 +325,6 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        
         String nome = atividadeTextPane.getText();
         String descricao = descricaoTextArea.getText();
         int idDisciplina = 0;
@@ -363,9 +362,10 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
         }
         
         int idEstudante = EstudanteDAO.estudante.getId();
-        
+
         atividadedao.cadastrarAtividade(nome, descricao, idDisciplina, nota, notaMaxima,
-            prazo, concluida, dataConclusao, idEstudante);        
+                prazo, concluida, dataConclusao, idEstudante); 
+        
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void concluidaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concluidaCheckBoxActionPerformed
@@ -382,31 +382,9 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
     private void maisDsclpnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maisDsclpnButtonActionPerformed
         TelaDisciplinas tela = new TelaDisciplinas();
         tela.show();
-
-    //Cadastrar nova disciplina
-        /*String novaDisciplina = JOptionPane.showInputDialog("Digite o nome da disciplina: ");       
-        DisciplinaDAO disciplinadao = new DisciplinaDAO();
-        boolean cadastrada = false;
-        if(!DisciplinaDAO.disciplina.isEmpty()){
-            for(int i = 0; i < DisciplinaDAO.disciplina.size(); i++){
-                if(novaDisciplina.equals(DisciplinaDAO.disciplina.get(i).getNome())){
-                    cadastrada = true;
-                    break;
-                }else{
-                    cadastrada = false;
-                }
-            }
-        }
-        if(cadastrada){
-            JOptionPane.showMessageDialog(null, "Essa disciplina já está cadastrada!", "ERRO!", 0);
-            System.out.println("Essa disciplina já está cadastrada!");
-        }else{
-            disciplinadao.cadastrarDisciplina(novaDisciplina);
-        }
-        
-        disciplinasComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(disciplinadao.formatarComboBox()));*/
     }//GEN-LAST:event_maisDsclpnButtonActionPerformed
 
+    
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         DisciplinaDAO disciplinadao = new DisciplinaDAO();
         disciplinasComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(disciplinadao.formatarComboBox()));
@@ -439,6 +417,7 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
         disciplinasComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(disciplinadao.formatarComboBox()));
     }//GEN-LAST:event_formWindowGainedFocus
 
+    
     /**
      * @param args the command line arguments
      */

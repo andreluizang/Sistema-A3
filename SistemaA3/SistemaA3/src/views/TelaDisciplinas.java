@@ -62,6 +62,7 @@ public class TelaDisciplinas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(disciplinasList);
 
         novaButton.setText("(+) Nova");
+        novaButton.setPreferredSize(new java.awt.Dimension(81, 23));
         novaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 novaButtonActionPerformed(evt);
@@ -69,6 +70,7 @@ public class TelaDisciplinas extends javax.swing.JFrame {
         });
 
         deletarButton.setText("Deletar");
+        deletarButton.setPreferredSize(new java.awt.Dimension(81, 23));
         deletarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deletarButtonActionPerformed(evt);
@@ -117,9 +119,9 @@ public class TelaDisciplinas extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(renomearButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(deletarButton)
+                        .addComponent(deletarButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(novaButton)))
+                        .addComponent(novaButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(okButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))

@@ -19,6 +19,10 @@ import java.util.logging.Logger;
 import java.lang.Object;
 import static org.mockito.Mockito.doReturn;
 import java.sql.ResultSet;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
+import org.mockito.Spy;
 
 public class CadastroDAOTestes{
     
@@ -32,12 +36,12 @@ public class CadastroDAOTestes{
     private CadastroDAO cadastrodao;
     private ConexaoDAO cdao = new ConexaoDAO();
     
-    @Mock private Connection connection;
 
-    
+    @Spy private ConexaoDAO connSpy;
     @Mock private ConexaoDAO sqlMockado;
-    @Mock private ResultSet rs;
+    //@Mock private ResultSet rs;
     private Statement statement;
+    private ResultSet rs;
 
     @Before
     public void init(){
@@ -46,55 +50,37 @@ public class CadastroDAOTestes{
         nome = "admin";
         email = "admin@email.com";
         senha = "admin123";
-        dados.add(nome);dados.add(email);dados.add(senha);
-        cadastrodao.cadastrar("admin", "admin@email.com", "admin123"); 
+    }
 
+    @Test
+    public void testarQuandoEmailJaEstaCadastrado(){
+        connSpy.getConnection();
+        sqlMockado.getConnection();
+        cadastrodao = new CadastroDAO(sqlMockado);
+        dados.add("admin@email.com");
+        System.out.println(dados.get(0));
+        rs = connSpy.Select("SELECT email FROM ESTUDANTE WHERE email = ?", dados);
+        boolean retorno = cadastrodao.cadastrar("anyNome", "admin@email.com", "anySenha");
+        when(connSpy.Select("anyString", dados)).thenReturn(rs);
+        assertEquals(false, retorno);
     }
     
     //AINDA NÃO FUNCIONA
-    
     /*@Test
-    public void testarQuandoEmailJaEstaCadastrado(){        
-        try{
-            sqlMockado.getConnection(false);
-            cdao.getConnection(false);
-            when(sqlMockado.getConnection(false)).thenReturn(connection);
-
-            statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
-               ResultSet.CONCUR_UPDATABLE);
-            
-            //System.out.println(statement.toString());
-            
-            
-            rs = cdao.Select("SELECT email FROM ESTUDANTE", dados);
-            rs.moveToInsertRow();                                 
-            rs.updateString("email", "admin@email.com");   
-            rs.insertRow();                                        
-            rs.moveToCurrentRow();                                 
-
-            System.out.println(rs.getString(0));
-            
-        }catch(SQLException ex){
-            Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        boolean retorno = cadastrodao.cadastrar("admin", "admin@email.com", "admin123");
-        when(sqlMockado.Select("random query", dados)).thenReturn(rs);
-
-        //when(sqlMockado.Select(nome, dados)).thenReturn(rs.);
-        //when(cadastrodao.verificarEmailNaoEstaCadastrado("admin@email.com")).thenReturn(false);
-        //doReturn(false).when(cadastrodao.verificarEmailNaoEstaCadastrado("admin@email.com"));
-        
-        assertEquals(false, retorno);
+    public void testarQuandoEmailAindaNaoEstaCadastrado(){
+        connSpy.getConnection();
+        sqlMockado.getConnection();
+        cadastrodao = new CadastroDAO(sqlMockado);
+        dados.add("outroEmail");
+        System.out.println(dados.get(0));
+        rs = connSpy.Select("SELECT email FROM ESTUDANTE WHERE email = ?", dados);
+        ArrayList<Object> dadosInsert = new ArrayList<>();
+        dadosInsert.add("anyNome"); dadosInsert.add("anyEmail"); dadosInsert.add("anySenha");
+        cadastrodao.cadastrar("anyNome", "anyEmail", "anySenha");
+        when(connSpy.Select("anyString", dados)).thenReturn(rs);
+        boolean Insert = verify(sqlMockado).Insert("INSERT INTO ESTUDANTE (nome, email, senha) VALUES (?, ?, ?)", dadosInsert);
+        assertEquals(true, Insert);
     }*/
-        
-    @Test
-    public void testarQuandoEmailAindaNaoEstaCadastrado() {
-        
-        //when(cadastroTeste.verificarEmailNaoEstaCadastrado("admin@email.com")).thenReturn(false);
-        boolean resultado = cadastrodao.cadastrar("admin", "admin@email.com", "admin123");
-        when(sqlMockado.Select("random query", dados)).thenReturn(rs);
-        assertEquals(true, resultado);
-    }
     
     @Test
     public void testarQuandoAsSenhasEstaoDiferentes(){

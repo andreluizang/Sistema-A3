@@ -47,7 +47,6 @@ public class ConexaoDAO {
         PreparedStatement ps;
         boolean retorno = false;
         try {
-
             ps = conexao.prepareStatement(query,  ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             for(int i = 0; i < parametros.size(); i++){
                 ps.setString(i+1, (parametros.get(i)).toString());

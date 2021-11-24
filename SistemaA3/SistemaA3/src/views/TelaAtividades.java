@@ -397,7 +397,7 @@ public class TelaAtividades extends javax.swing.JFrame {
             mesConclusaoTextPane.setText(Integer.toString(AtividadeDAO.atividades.get(index).getDataconclusao().getMonthValue()));
             anoConclusaoTextPane.setText(Integer.toString(AtividadeDAO.atividades.get(index).getDataconclusao().getYear()));
         }else{
-            notaTextPane.setText(Double.toString(AtividadeDAO.atividades.get(index).getNota()));
+            notaTextPane.setText("");
             diaConclusaoTextPane.setText("");
             mesConclusaoTextPane.setText("");
             anoConclusaoTextPane.setText("");
@@ -413,13 +413,20 @@ public class TelaAtividades extends javax.swing.JFrame {
     private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButtonActionPerformed
         String nome = atividadeTextPane.getText();
         String descricao = descricaoTextArea.getText();
-        double nota = Double.parseDouble(notaTextPane.getText());
         double notaMaxima = Double.parseDouble(notaMaxTextPane.getText());
         boolean concluida = concluidaCheckBox.isSelected();
         LocalDate prazo = LocalDate.of(Integer.parseInt(anoTextPane.getText()),
                 Integer.parseInt(mesTextPane.getText()), Integer.parseInt(diaTextPane.getText()));
-        LocalDate dataConclusao = LocalDate.of(Integer.parseInt(anoConclusaoTextPane.getText()),
-                Integer.parseInt(mesConclusaoTextPane.getText()), Integer.parseInt(diaConclusaoTextPane.getText()));
+        LocalDate dataConclusao;
+        double nota;
+        if(concluidaCheckBox.isSelected()){
+            dataConclusao = LocalDate.of(Integer.parseInt(anoConclusaoTextPane.getText()),
+                    Integer.parseInt(mesConclusaoTextPane.getText()), Integer.parseInt(diaConclusaoTextPane.getText()));
+            nota = Double.parseDouble(notaTextPane.getText());
+        }else{
+            dataConclusao = LocalDate.of(1970, 1, 1);
+            nota = -1;
+        }
         int id = AtividadeDAO.atividades.get(atividadesTabela.getSelectedRow()).getId();
         int localId = atividadesTabela.getSelectedRow();
         atividadedao.atualizarAtividade(id, nome, descricao, nota, notaMaxima, concluida, prazo, dataConclusao, localId);

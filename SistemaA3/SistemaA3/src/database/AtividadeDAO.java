@@ -60,33 +60,41 @@ public class AtividadeDAO {
     
     public void cadastrarAtividade(String nome, String descricao, int idDisciplina, double nota, double notaMaxima,
             LocalDate prazo, boolean concluida, LocalDate dataConclusao, int idEstudante){
-        int c = concluida ? 1 : 0;
-        conexao.getConnection();
-        String queryInsert = "INSERT INTO ATIVIDADE (nome, descricao, fk_disciplina, nota, notaMaxima,"
-                + " prazo, concluida, dataConclusao, fk_estudante) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        ArrayList<Object> dadosInsert = new ArrayList<>();
-        dadosInsert.add(nome); dadosInsert.add(descricao); dadosInsert.add(idDisciplina);
-        dadosInsert.add(nota); dadosInsert.add(notaMaxima); dadosInsert.add(Date.valueOf(prazo));
-        dadosInsert.add(c); dadosInsert.add(Date.valueOf(dataConclusao)); dadosInsert.add(idEstudante);
-        conexao.Insert(queryInsert, dadosInsert);
-        
-        JOptionPane.showMessageDialog(null, "Atividade cadastrada com sucesso!", "Parabéns!", 1);
-        
-        String querySelect = "SELECT ATIVIDADE.id, DISCIPLINA.nome FROM ATIVIDADE INNER JOIN DISCIPLINA"
-                + " ON ATIVIDADE.fk_disciplina = DISCIPLINA.id WHERE DISCIPLINA.fk_estudante = ?";
-        ArrayList<Object> dadosSelect = new ArrayList<>();
-        dadosSelect.add(idEstudante);
-        ResultSet rs = conexao.Select(querySelect, dadosSelect);
-        
-        try{
-            if(rs!= null && rs.next()){
-                criarObjetoAtividade(rs.getInt(1), nome, descricao, idDisciplina, rs.getString(2), nota, notaMaxima,
-                        prazo, concluida, dataConclusao);
+        if(verificarPrazo(prazo)){
+            int c = concluida ? 1 : 0;
+            conexao.getConnection();
+            String queryInsert = "INSERT INTO ATIVIDADE (nome, descricao, fk_disciplina, nota, notaMaxima,"
+                    + " prazo, concluida, dataConclusao, fk_estudante) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            ArrayList<Object> dadosInsert = new ArrayList<>();
+            dadosInsert.add(nome); dadosInsert.add(descricao); dadosInsert.add(idDisciplina);
+            dadosInsert.add(nota); dadosInsert.add(notaMaxima); dadosInsert.add(Date.valueOf(prazo));
+            dadosInsert.add(c); dadosInsert.add(Date.valueOf(dataConclusao)); dadosInsert.add(idEstudante);
+            conexao.Insert(queryInsert, dadosInsert);
+
+            JOptionPane.showMessageDialog(null, "Atividade cadastrada com sucesso!", "Parabéns!", 1);
+
+            String querySelect = "SELECT ATIVIDADE.id, DISCIPLINA.nome FROM ATIVIDADE INNER JOIN DISCIPLINA"
+                    + " ON ATIVIDADE.fk_disciplina = DISCIPLINA.id WHERE DISCIPLINA.fk_estudante = ?";
+            ArrayList<Object> dadosSelect = new ArrayList<>();
+            dadosSelect.add(idEstudante);
+            ResultSet rs = conexao.Select(querySelect, dadosSelect);
+
+            try{
+                if(rs!= null && rs.next()){
+                    criarObjetoAtividade(rs.getInt(1), nome, descricao, idDisciplina, rs.getString(2), nota, notaMaxima,
+                            prazo, concluida, dataConclusao);
+                }
+            }catch(SQLException ex){
+                Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }catch(SQLException ex){
-            Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            conexao.closeConnection();
+        }else{
+            JOptionPane.showMessageDialog(null, "Você não pode cadastrar uma disciplina para o passado!", "ERRO!", 0);
         }
-        conexao.closeConnection();
+    }
+    
+    public boolean verificarPrazo(LocalDate prazo){
+        return (prazo.isAfter(LocalDate.now()) || prazo.equals(LocalDate.now()));
     }
     
     public void criarObjetoAtividade(int id, String nome, String descricao, int idDisciplina, String disciplina,
