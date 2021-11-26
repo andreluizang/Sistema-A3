@@ -6,6 +6,6 @@ public class EstudanteTestes {
     public EstudanteTestes() {
     }
 
-    // @Test
-    // public void hello() {}
+    @Test
+    public void hello() {}
 }

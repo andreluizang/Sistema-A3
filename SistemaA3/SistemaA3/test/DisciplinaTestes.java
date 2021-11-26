@@ -6,6 +6,6 @@ public class DisciplinaTestes {
     public DisciplinaTestes() {
     }
 
-    // @Test
-    // public void hello() {}
+    @Test
+    public void hello() {}
 }
