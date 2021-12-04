@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package views;
 
 import javax.swing.table.DefaultTableModel;
@@ -48,6 +43,11 @@ public class TelaConteudos extends javax.swing.JFrame {
         escalaLabel = new javax.swing.JLabel();
         revisarLabel = new javax.swing.JLabel();
         reviseiButton = new javax.swing.JButton();
+        updateButon = new javax.swing.JButton();
+        deletarButton = new javax.swing.JButton();
+        atualizarButton = new javax.swing.JButton();
+        voltarButton = new javax.swing.JButton();
+        novoConteudoButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -114,49 +114,92 @@ public class TelaConteudos extends javax.swing.JFrame {
             }
         });
 
+        updateButon.setText("Salvar");
+        updateButon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButonActionPerformed(evt);
+            }
+        });
+
+        deletarButton.setText("Deletar");
+        deletarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletarButtonActionPerformed(evt);
+            }
+        });
+
+        atualizarButton.setText("Atualizar");
+        atualizarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizarButtonActionPerformed(evt);
+            }
+        });
+
+        voltarButton.setText("Voltar");
+        voltarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarButtonActionPerformed(evt);
+            }
+        });
+
+        novoConteudoButton.setText("Novo conteúdo");
+        novoConteudoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novoConteudoButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(escalaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(497, 497, 497)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(updateButon)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(deletarButton))
+                            .addComponent(disciplinaLabel)
+                            .addComponent(atividadeLabel)
+                            .addComponent(jScrollPane6)
+                            .addComponent(jScrollPane7)
+                            .addComponent(reviseiButton)
+                            .addComponent(disciplinaLabel1)
+                            .addComponent(escalaSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(descricaoLabel))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(disciplinaLabel)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(atividadeLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane2)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(reviseiButton)
-                                        .addComponent(disciplinaLabel1)
-                                        .addComponent(escalaSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(descricaoLabel))
-                                    .addGap(0, 0, Short.MAX_VALUE))))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(voltarButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(escalaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))
+                        .addComponent(atualizarButton))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(revisarLabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(novoConteudoButton)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(atividadeLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -179,9 +222,17 @@ public class TelaConteudos extends javax.swing.JFrame {
                         .addComponent(descricaoLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(updateButon)
+                            .addComponent(deletarButton)))
+                    .addComponent(jScrollPane1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(atualizarButton)
+                    .addComponent(voltarButton)
+                    .addComponent(novoConteudoButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -243,6 +294,58 @@ public class TelaConteudos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_reviseiButtonActionPerformed
 
+    private void updateButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButonActionPerformed
+        int id = ConteudoDAO.conteudos.get(conteudosTabela.getSelectedRow()).getId();
+        String nome = conteudoTextPane.getText();
+        String anotacao = anotacaoTextPane.getText();
+        int aprendizado = escalaSlider.getValue();
+        int localId = conteudosTabela.getSelectedRow();
+        
+        conteudodao.atualizarConteudo(id, nome, anotacao, aprendizado, localId);
+        conteudodao.formatarTabela();
+    }//GEN-LAST:event_updateButonActionPerformed
+
+    private void deletarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarButtonActionPerformed
+        int id = ConteudoDAO.conteudos.get(conteudosTabela.getSelectedRow()).getId();
+        int localId = conteudosTabela.getSelectedRow();
+        
+        conteudodao.deletarConteudo(id, localId);
+    }//GEN-LAST:event_deletarButtonActionPerformed
+
+    private void atualizarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarButtonActionPerformed
+        String[] col = {"Conteúdo", "Disciplina", "Anotações", "Aprendizado"};
+        
+        TelaAtividades tela = new TelaAtividades();
+        DefaultTableModel model = (DefaultTableModel) conteudosTabela.getModel();
+        conteudosTabela.setModel(model);
+        model.setDataVector(conteudodao.formatarTabela(), col);
+        conteudodao.carregarMetas();
+        
+        if (conteudosTabela.getColumnModel().getColumnCount() > 0) {
+            conteudosTabela.getColumnModel().getColumn(0).setMinWidth(80);
+            conteudosTabela.getColumnModel().getColumn(0).setPreferredWidth(80);
+            conteudosTabela.getColumnModel().getColumn(0).setMaxWidth(100);
+            conteudosTabela.getColumnModel().getColumn(1).setMinWidth(80);
+            conteudosTabela.getColumnModel().getColumn(1).setPreferredWidth(80);
+            conteudosTabela.getColumnModel().getColumn(1).setMaxWidth(100);
+            conteudosTabela.getColumnModel().getColumn(3).setMinWidth(50);
+            conteudosTabela.getColumnModel().getColumn(3).setPreferredWidth(80);
+            conteudosTabela.getColumnModel().getColumn(3).setMaxWidth(80);
+        }
+    }//GEN-LAST:event_atualizarButtonActionPerformed
+
+    private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
+        dispose();
+        TelaInicial tela = new TelaInicial();
+        tela.show();
+    }//GEN-LAST:event_voltarButtonActionPerformed
+
+    private void novoConteudoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoConteudoButtonActionPerformed
+        dispose();
+        TelaNovoConteudo tela = new TelaNovoConteudo();
+        tela.show();
+    }//GEN-LAST:event_novoConteudoButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -281,8 +384,10 @@ public class TelaConteudos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea anotacaoTextPane;
     private javax.swing.JLabel atividadeLabel;
+    private javax.swing.JButton atualizarButton;
     private javax.swing.JTextPane conteudoTextPane;
     private javax.swing.JTable conteudosTabela;
+    private javax.swing.JButton deletarButton;
     private javax.swing.JLabel descricaoLabel;
     private javax.swing.JLabel disciplinaLabel;
     private javax.swing.JLabel disciplinaLabel1;
@@ -293,7 +398,10 @@ public class TelaConteudos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JButton novoConteudoButton;
     private javax.swing.JLabel revisarLabel;
     private javax.swing.JButton reviseiButton;
+    private javax.swing.JButton updateButon;
+    private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 }

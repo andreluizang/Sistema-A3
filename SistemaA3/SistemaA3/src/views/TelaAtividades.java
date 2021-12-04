@@ -83,6 +83,7 @@ public class TelaAtividades extends javax.swing.JFrame {
         mesTextPane = new javax.swing.JTextPane();
         jScrollPane13 = new javax.swing.JScrollPane();
         anoTextPane = new javax.swing.JTextPane();
+        voltarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -196,6 +197,13 @@ public class TelaAtividades extends javax.swing.JFrame {
 
         jScrollPane13.setViewportView(anoTextPane);
 
+        voltarButton.setText("Voltar");
+        voltarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -206,9 +214,12 @@ public class TelaAtividades extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(voltarButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -295,7 +306,8 @@ public class TelaAtividades extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(novaAtvButton)
-                                    .addComponent(jButton1)))
+                                    .addComponent(jButton1)
+                                    .addComponent(voltarButton)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
@@ -445,6 +457,12 @@ public class TelaAtividades extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deletarButtonActionPerformed
 
+    private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
+        dispose();
+        TelaInicial tela = new TelaInicial();
+        tela.show();
+    }//GEN-LAST:event_voltarButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -519,5 +537,6 @@ public class TelaAtividades extends javax.swing.JFrame {
     private javax.swing.JLabel prazoLabel;
     private javax.swing.JButton salvarButton;
     private javax.swing.JLabel tituloLabel;
+    private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 }
