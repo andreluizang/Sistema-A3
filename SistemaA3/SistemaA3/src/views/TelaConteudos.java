@@ -236,6 +236,7 @@ public class TelaConteudos extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void escalaSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_escalaSliderStateChanged

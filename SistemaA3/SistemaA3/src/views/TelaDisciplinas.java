@@ -128,6 +128,7 @@ public class TelaDisciplinas extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void renomearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_renomearButtonActionPerformed
