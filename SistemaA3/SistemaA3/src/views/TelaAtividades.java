@@ -47,53 +47,37 @@ public class TelaAtividades extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tituloLabel = new javax.swing.JLabel();
         novaAtvButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         atividadesTabela = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         descricaoTextArea = new javax.swing.JTextArea();
-        descricaoLabel = new javax.swing.JLabel();
-        atividadeLabel = new javax.swing.JLabel();
-        disciplinaLabel = new javax.swing.JLabel();
-        prazoLabel = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        atividadeTextPane = new javax.swing.JTextPane();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        disciplinaTextPane = new javax.swing.JTextPane();
         concluidaCheckBox = new javax.swing.JCheckBox();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        diaConclusaoTextPane = new javax.swing.JTextPane();
-        notaLabel = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        notaMaxTextPane = new javax.swing.JTextPane();
         jButton1 = new javax.swing.JButton();
-        salvarButton = new javax.swing.JButton();
-        deletarButton = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        notaTextPane = new javax.swing.JTextPane();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        mesConclusaoTextPane = new javax.swing.JTextPane();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        anoConclusaoTextPane = new javax.swing.JTextPane();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        diaTextPane = new javax.swing.JTextPane();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        mesTextPane = new javax.swing.JTextPane();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        anoTextPane = new javax.swing.JTextPane();
         voltarButton = new javax.swing.JButton();
+        atividadeTextField = new javax.swing.JTextField();
+        disciplinaTextField = new javax.swing.JTextField();
+        notaTextField = new javax.swing.JTextField();
+        notaMaxTextField = new javax.swing.JTextField();
+        diaConcluidaTextField = new javax.swing.JTextField();
+        mesConcluidaTextField = new javax.swing.JTextField();
+        anoConcluidaTextField = new javax.swing.JTextField();
+        diaTextField = new javax.swing.JTextField();
+        mesTextField = new javax.swing.JTextField();
+        anoTextField = new javax.swing.JTextField();
+        salvar = new javax.swing.JLabel();
+        deletar = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1165, 684));
+        setPreferredSize(new java.awt.Dimension(1165, 684));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
-
-        tituloLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        tituloLabel.setText("Atividades");
+        getContentPane().setLayout(null);
 
         novaAtvButton.setText("Nova atividade");
         novaAtvButton.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +85,8 @@ public class TelaAtividades extends javax.swing.JFrame {
                 novaAtvButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(novaAtvButton);
+        novaAtvButton.setBounds(1050, 640, 105, 23);
 
         atividadesTabela.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         atividadesTabela.setModel(new javax.swing.table.DefaultTableModel(
@@ -133,30 +119,30 @@ public class TelaAtividades extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(atividadesTabela);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(10, 130, 530, 510);
+
+        jScrollPane2.setBorder(null);
+
         descricaoTextArea.setColumns(20);
         descricaoTextArea.setRows(5);
         jScrollPane2.setViewportView(descricaoTextArea);
 
-        descricaoLabel.setText("Descrição");
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(570, 300, 490, 150);
 
-        atividadeLabel.setText("Atividade");
-
-        disciplinaLabel.setText("Disciplina");
-
-        prazoLabel.setText("Prazo");
-
-        jScrollPane6.setViewportView(atividadeTextPane);
-
-        jScrollPane7.setViewportView(disciplinaTextPane);
-
-        concluidaCheckBox.setText("Concluída");
-
-        jScrollPane8.setViewportView(diaConclusaoTextPane);
-
-        notaLabel.setText("Nota");
-
-        notaMaxTextPane.setText("0.0");
-        jScrollPane3.setViewportView(notaMaxTextPane);
+        concluidaCheckBox.setBackground(new java.awt.Color(255, 255, 255));
+        concluidaCheckBox.setToolTipText("");
+        concluidaCheckBox.setMaximumSize(new java.awt.Dimension(12, 12));
+        concluidaCheckBox.setMinimumSize(new java.awt.Dimension(1, 1));
+        concluidaCheckBox.setPreferredSize(new java.awt.Dimension(5, 5));
+        concluidaCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                concluidaCheckBoxActionPerformed(evt);
+            }
+        });
+        getContentPane().add(concluidaCheckBox);
+        concluidaCheckBox.setBounds(567, 480, 20, 10);
 
         jButton1.setText("Atualizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -164,38 +150,8 @@ public class TelaAtividades extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        salvarButton.setText("Salvar");
-        salvarButton.setToolTipText("");
-        salvarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salvarButtonActionPerformed(evt);
-            }
-        });
-
-        deletarButton.setText("Deletar");
-        deletarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deletarButtonActionPerformed(evt);
-            }
-        });
-
-        jScrollPane4.setToolTipText("");
-
-        notaTextPane.setText("0.0");
-        jScrollPane4.setViewportView(notaTextPane);
-
-        jLabel1.setText(" /");
-
-        jScrollPane9.setViewportView(mesConclusaoTextPane);
-
-        jScrollPane10.setViewportView(anoConclusaoTextPane);
-
-        jScrollPane11.setViewportView(diaTextPane);
-
-        jScrollPane12.setViewportView(mesTextPane);
-
-        jScrollPane13.setViewportView(anoTextPane);
+        getContentPane().add(jButton1);
+        jButton1.setBounds(460, 650, 75, 23);
 
         voltarButton.setText("Voltar");
         voltarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -203,126 +159,80 @@ public class TelaAtividades extends javax.swing.JFrame {
                 voltarButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(voltarButton);
+        voltarButton.setBounds(10, 650, 61, 23);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tituloLabel)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(voltarButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(atividadeLabel)
-                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane7))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(notaLabel)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 39, Short.MAX_VALUE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(novaAtvButton)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(descricaoLabel)
-                                        .addComponent(disciplinaLabel))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(concluidaCheckBox)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(prazoLabel))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(12, 12, 12))
-                                    .addComponent(deletarButton)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(salvarButton)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloLabel)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(voltarButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(atividadeLabel)
-                    .addComponent(notaLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3)
-                    .addComponent(jScrollPane4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(disciplinaLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(descricaoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(prazoLabel)
-                            .addComponent(concluidaCheckBox))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(deletarButton)
-                    .addComponent(salvarButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(novaAtvButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        atividadeTextField.setBorder(null);
+        atividadeTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atividadeTextFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(atividadeTextField);
+        atividadeTextField.setBounds(570, 170, 350, 14);
+
+        disciplinaTextField.setEditable(false);
+        disciplinaTextField.setBackground(new java.awt.Color(255, 255, 255));
+        disciplinaTextField.setBorder(null);
+        getContentPane().add(disciplinaTextField);
+        disciplinaTextField.setBounds(570, 223, 350, 20);
+
+        notaTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        notaTextField.setText("0.0");
+        notaTextField.setBorder(null);
+        getContentPane().add(notaTextField);
+        notaTextField.setBounds(990, 170, 50, 14);
+
+        notaMaxTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        notaMaxTextField.setText("0.0");
+        notaMaxTextField.setBorder(null);
+        getContentPane().add(notaMaxTextField);
+        notaMaxTextField.setBounds(1071, 167, 40, 20);
+
+        diaConcluidaTextField.setBorder(null);
+        getContentPane().add(diaConcluidaTextField);
+        diaConcluidaTextField.setBounds(570, 514, 30, 20);
+
+        mesConcluidaTextField.setBorder(null);
+        getContentPane().add(mesConcluidaTextField);
+        mesConcluidaTextField.setBounds(621, 514, 30, 20);
+
+        anoConcluidaTextField.setBorder(null);
+        getContentPane().add(anoConcluidaTextField);
+        anoConcluidaTextField.setBounds(670, 514, 50, 20);
+
+        diaTextField.setBorder(null);
+        getContentPane().add(diaTextField);
+        diaTextField.setBounds(910, 514, 30, 20);
+
+        mesTextField.setBorder(null);
+        getContentPane().add(mesTextField);
+        mesTextField.setBounds(960, 514, 30, 20);
+
+        anoTextField.setBorder(null);
+        getContentPane().add(anoTextField);
+        anoTextField.setBounds(1010, 514, 50, 20);
+
+        salvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                salvarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(salvar);
+        salvar.setBounds(850, 600, 100, 40);
+
+        deletar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deletarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(deletar);
+        deletar.setBounds(680, 600, 110, 40);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ATIVIDADE.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(-6, 0, 1170, 690);
 
         pack();
         setLocationRelativeTo(null);
@@ -348,15 +258,15 @@ public class TelaAtividades extends javax.swing.JFrame {
         model.setDataVector(atividadedao.formatarTabela(), col);
         
         if (atividadesTabela.getColumnModel().getColumnCount() > 0) {
-            atividadesTabela.getColumnModel().getColumn(0).setMinWidth(150);
-            atividadesTabela.getColumnModel().getColumn(0).setPreferredWidth(150);
-            atividadesTabela.getColumnModel().getColumn(0).setMaxWidth(200);
-            atividadesTabela.getColumnModel().getColumn(1).setMinWidth(150);
-            atividadesTabela.getColumnModel().getColumn(1).setPreferredWidth(150);
-            atividadesTabela.getColumnModel().getColumn(1).setMaxWidth(200);
-            atividadesTabela.getColumnModel().getColumn(3).setMinWidth(120);
-            atividadesTabela.getColumnModel().getColumn(3).setPreferredWidth(120);
-            atividadesTabela.getColumnModel().getColumn(3).setMaxWidth(120);
+            atividadesTabela.getColumnModel().getColumn(0).setMinWidth(100);
+            atividadesTabela.getColumnModel().getColumn(0).setPreferredWidth(100);
+            atividadesTabela.getColumnModel().getColumn(0).setMaxWidth(150);
+            atividadesTabela.getColumnModel().getColumn(1).setMinWidth(100);
+            atividadesTabela.getColumnModel().getColumn(1).setPreferredWidth(100);
+            atividadesTabela.getColumnModel().getColumn(1).setMaxWidth(150);
+            atividadesTabela.getColumnModel().getColumn(3).setMinWidth(80);
+            atividadesTabela.getColumnModel().getColumn(3).setPreferredWidth(80);
+            atividadesTabela.getColumnModel().getColumn(3).setMaxWidth(80);
             atividadesTabela.getColumnModel().getColumn(4).setMinWidth(65);
             atividadesTabela.getColumnModel().getColumn(4).setPreferredWidth(65);
             atividadesTabela.getColumnModel().getColumn(4).setMaxWidth(65);
@@ -374,18 +284,19 @@ public class TelaAtividades extends javax.swing.JFrame {
         model.setDataVector(atividadedao.formatarTabela(), col);
         
         if (atividadesTabela.getColumnModel().getColumnCount() > 0) {
-            atividadesTabela.getColumnModel().getColumn(0).setMinWidth(150);
-            atividadesTabela.getColumnModel().getColumn(0).setPreferredWidth(150);
-            atividadesTabela.getColumnModel().getColumn(0).setMaxWidth(200);
-            atividadesTabela.getColumnModel().getColumn(1).setMinWidth(150);
-            atividadesTabela.getColumnModel().getColumn(1).setPreferredWidth(150);
-            atividadesTabela.getColumnModel().getColumn(1).setMaxWidth(200);
-            atividadesTabela.getColumnModel().getColumn(3).setMinWidth(120);
-            atividadesTabela.getColumnModel().getColumn(3).setPreferredWidth(120);
-            atividadesTabela.getColumnModel().getColumn(3).setMaxWidth(120);
+            atividadesTabela.getColumnModel().getColumn(0).setMinWidth(100);
+            atividadesTabela.getColumnModel().getColumn(0).setPreferredWidth(100);
+            atividadesTabela.getColumnModel().getColumn(0).setMaxWidth(150);
+            atividadesTabela.getColumnModel().getColumn(1).setMinWidth(100);
+            atividadesTabela.getColumnModel().getColumn(1).setPreferredWidth(100);
+            atividadesTabela.getColumnModel().getColumn(1).setMaxWidth(150);
+            atividadesTabela.getColumnModel().getColumn(3).setMinWidth(80);
+            atividadesTabela.getColumnModel().getColumn(3).setPreferredWidth(80);
+            atividadesTabela.getColumnModel().getColumn(3).setMaxWidth(80);
             atividadesTabela.getColumnModel().getColumn(4).setMinWidth(65);
             atividadesTabela.getColumnModel().getColumn(4).setPreferredWidth(65);
             atividadesTabela.getColumnModel().getColumn(4).setMaxWidth(65);
+
         }                                        
     }//GEN-LAST:event_formWindowOpened
 
@@ -393,43 +304,57 @@ public class TelaAtividades extends javax.swing.JFrame {
         int index = atividadesTabela.getSelectedRow();
         System.out.println(index);
         System.out.println(AtividadeDAO.atividades.get(index).getNome());
-        atividadeTextPane.setText(AtividadeDAO.atividades.get(index).getNome());
-        disciplinaTextPane.setText(AtividadeDAO.atividades.get(index).getNomeDisciplina());
+        atividadeTextField.setText(AtividadeDAO.atividades.get(index).getNome());
+        disciplinaTextField.setText(AtividadeDAO.atividades.get(index).getNomeDisciplina());
         descricaoTextArea.setText(AtividadeDAO.atividades.get(index).getDescricao());
         concluidaCheckBox.setSelected(AtividadeDAO.atividades.get(index).isConcluida());
-        notaMaxTextPane.setText(Double.toString(AtividadeDAO.atividades.get(index).getNotaMax()));
+        notaMaxTextField.setText(Double.toString(AtividadeDAO.atividades.get(index).getNotaMax()));
         if(AtividadeDAO.atividades.get(index).isConcluida()){
-            notaTextPane.setText(Double.toString(AtividadeDAO.atividades.get(index).getNota()));
-            diaConclusaoTextPane.setText(Integer.toString(AtividadeDAO.atividades.get(index).getDataconclusao().getDayOfMonth()));
-            mesConclusaoTextPane.setText(Integer.toString(AtividadeDAO.atividades.get(index).getDataconclusao().getMonthValue()));
-            anoConclusaoTextPane.setText(Integer.toString(AtividadeDAO.atividades.get(index).getDataconclusao().getYear()));
+            notaTextField.setText(Double.toString(AtividadeDAO.atividades.get(index).getNota()));
+            diaConcluidaTextField.setText(Integer.toString(AtividadeDAO.atividades.get(index).getDataconclusao().getDayOfMonth()));
+            mesConcluidaTextField.setText(Integer.toString(AtividadeDAO.atividades.get(index).getDataconclusao().getMonthValue()));
+            anoConcluidaTextField.setText(Integer.toString(AtividadeDAO.atividades.get(index).getDataconclusao().getYear()));
         }else{
-            notaTextPane.setText("");
-            diaConclusaoTextPane.setText("");
-            mesConclusaoTextPane.setText("");
-            anoConclusaoTextPane.setText("");
+            notaTextField.setText("");
+            diaConcluidaTextField.setText("");
+            mesConcluidaTextField.setText("");
+            anoConcluidaTextField.setText("");
         }
 
-        diaTextPane.setText(Integer.toString(AtividadeDAO.atividades.get(index).getPrazo().getDayOfMonth()));
-        mesTextPane.setText(Integer.toString(AtividadeDAO.atividades.get(index).getPrazo().getMonthValue()));
-        anoTextPane.setText(Integer.toString(AtividadeDAO.atividades.get(index).getPrazo().getYear()));
+        diaTextField.setText(Integer.toString(AtividadeDAO.atividades.get(index).getPrazo().getDayOfMonth()));
+        mesTextField.setText(Integer.toString(AtividadeDAO.atividades.get(index).getPrazo().getMonthValue()));
+        anoTextField.setText(Integer.toString(AtividadeDAO.atividades.get(index).getPrazo().getYear()));
         
                 
     }//GEN-LAST:event_atividadesTabelaMouseClicked
 
-    private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButtonActionPerformed
-        String nome = atividadeTextPane.getText();
+    private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
+        dispose();
+        TelaInicial tela = new TelaInicial();
+        tela.show();
+    }//GEN-LAST:event_voltarButtonActionPerformed
+
+    private void concluidaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concluidaCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_concluidaCheckBoxActionPerformed
+
+    private void atividadeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atividadeTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_atividadeTextFieldActionPerformed
+
+    private void salvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salvarMouseClicked
+        String nome = atividadeTextField.getText();
         String descricao = descricaoTextArea.getText();
-        double notaMaxima = Double.parseDouble(notaMaxTextPane.getText());
+        double notaMaxima = Double.parseDouble(notaMaxTextField.getText());
         boolean concluida = concluidaCheckBox.isSelected();
-        LocalDate prazo = LocalDate.of(Integer.parseInt(anoTextPane.getText()),
-                Integer.parseInt(mesTextPane.getText()), Integer.parseInt(diaTextPane.getText()));
+        LocalDate prazo = LocalDate.of(Integer.parseInt(anoTextField.getText()),
+                Integer.parseInt(mesTextField.getText()), Integer.parseInt(diaTextField.getText()));
         LocalDate dataConclusao;
         double nota;
         if(concluidaCheckBox.isSelected()){
-            dataConclusao = LocalDate.of(Integer.parseInt(anoConclusaoTextPane.getText()),
-                    Integer.parseInt(mesConclusaoTextPane.getText()), Integer.parseInt(diaConclusaoTextPane.getText()));
-            nota = Double.parseDouble(notaTextPane.getText());
+            dataConclusao = LocalDate.of(Integer.parseInt(anoConcluidaTextField.getText()),
+                    Integer.parseInt(mesConcluidaTextField.getText()), Integer.parseInt(diaConcluidaTextField.getText()));
+            nota = Double.parseDouble(notaTextField.getText());
         }else{
             dataConclusao = LocalDate.of(1970, 1, 1);
             nota = -1;
@@ -437,10 +362,9 @@ public class TelaAtividades extends javax.swing.JFrame {
         int id = AtividadeDAO.atividades.get(atividadesTabela.getSelectedRow()).getId();
         int localId = atividadesTabela.getSelectedRow();
         atividadedao.atualizarAtividade(id, nome, descricao, nota, notaMaxima, concluida, prazo, dataConclusao, localId);
-        
-    }//GEN-LAST:event_salvarButtonActionPerformed
+    }//GEN-LAST:event_salvarMouseClicked
 
-    private void deletarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarButtonActionPerformed
+    private void deletarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletarMouseClicked
         Object[] options = { "Confirmar", "Cancelar" };
         int confirma = JOptionPane.showOptionDialog(null, "Clique Confirmar para continuar", "Essa ação é permanente!",
                 JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
@@ -449,13 +373,7 @@ public class TelaAtividades extends javax.swing.JFrame {
             int localId = atividadesTabela.getSelectedRow();
             atividadedao.deletarAtividade(id, localId);
         }
-    }//GEN-LAST:event_deletarButtonActionPerformed
-
-    private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
-        dispose();
-        TelaInicial tela = new TelaInicial();
-        tela.show();
-    }//GEN-LAST:event_voltarButtonActionPerformed
+    }//GEN-LAST:event_deletarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -495,42 +413,26 @@ public class TelaAtividades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextPane anoConclusaoTextPane;
-    private javax.swing.JTextPane anoTextPane;
-    private javax.swing.JLabel atividadeLabel;
-    private javax.swing.JTextPane atividadeTextPane;
+    private javax.swing.JTextField anoConcluidaTextField;
+    private javax.swing.JTextField anoTextField;
+    private javax.swing.JTextField atividadeTextField;
     private javax.swing.JTable atividadesTabela;
     private javax.swing.JCheckBox concluidaCheckBox;
-    private javax.swing.JButton deletarButton;
-    private javax.swing.JLabel descricaoLabel;
+    private javax.swing.JLabel deletar;
     private javax.swing.JTextArea descricaoTextArea;
-    private javax.swing.JTextPane diaConclusaoTextPane;
-    private javax.swing.JTextPane diaTextPane;
-    private javax.swing.JLabel disciplinaLabel;
-    private javax.swing.JTextPane disciplinaTextPane;
+    private javax.swing.JTextField diaConcluidaTextField;
+    private javax.swing.JTextField diaTextField;
+    private javax.swing.JTextField disciplinaTextField;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextPane mesConclusaoTextPane;
-    private javax.swing.JTextPane mesTextPane;
-    private javax.swing.JLabel notaLabel;
-    private javax.swing.JTextPane notaMaxTextPane;
-    private javax.swing.JTextPane notaTextPane;
+    private javax.swing.JTextField mesConcluidaTextField;
+    private javax.swing.JTextField mesTextField;
+    private javax.swing.JTextField notaMaxTextField;
+    private javax.swing.JTextField notaTextField;
     private javax.swing.JButton novaAtvButton;
-    private javax.swing.JLabel prazoLabel;
-    private javax.swing.JButton salvarButton;
-    private javax.swing.JLabel tituloLabel;
+    private javax.swing.JLabel salvar;
     private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 }
