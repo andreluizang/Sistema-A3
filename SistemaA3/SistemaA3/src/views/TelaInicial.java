@@ -34,108 +34,74 @@ public class TelaInicial extends javax.swing.JFrame {
         conteudosButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        tituloLabel1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         bemvindoLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        bemvindoLabel.setForeground(new java.awt.Color(51, 0, 51));
         bemvindoLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         bemvindoLabel.setText("Seja bem-vindo(a), " + EstudanteDAO.estudante.getNome() + "!");
+        getContentPane().add(bemvindoLabel);
+        bemvindoLabel.setBounds(120, 150, 320, 17);
 
-        tituloLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        tituloLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tituloLabel.setForeground(new java.awt.Color(255, 255, 255));
         tituloLabel.setText("Study It Yourself!");
+        getContentPane().add(tituloLabel);
+        tituloLabel.setBounds(470, 610, 290, 40);
 
+        logoutButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\3D Objects\\trabalho Unifg\\inicio\\Grupo 26.png")); // NOI18N
         logoutButton.setText("Logout");
+        logoutButton.setBorderPainted(false);
+        logoutButton.setContentAreaFilled(false);
         logoutButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logoutButtonMouseClicked(evt);
             }
         });
+        getContentPane().add(logoutButton);
+        logoutButton.setBounds(30, 610, 170, 50);
 
-        atividadesButton.setText("Atividades");
+        atividadesButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\3D Objects\\trabalho Unifg\\inicio\\Grupo 27.png")); // NOI18N
+        atividadesButton.setBorderPainted(false);
+        atividadesButton.setContentAreaFilled(false);
+        atividadesButton.setDefaultCapable(false);
+        atividadesButton.setFocusPainted(false);
         atividadesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 atividadesButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(atividadesButton);
+        atividadesButton.setBounds(550, 300, 280, 70);
 
+        conteudosButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\3D Objects\\trabalho Unifg\\inicio\\Grupo 28.png")); // NOI18N
         conteudosButton.setText("Conteúdos");
+        conteudosButton.setBorderPainted(false);
+        conteudosButton.setContentAreaFilled(false);
         conteudosButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 conteudosButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(conteudosButton);
+        conteudosButton.setBounds(560, 400, 270, 70);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ConteudosImage.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\3D Objects\\trabalho Unifg\\inicio\\Grupo 25.png")); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(80, 110, 460, 106);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/AtividadesImage.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\3D Objects\\trabalho Unifg\\inicio\\Grupo 29.png")); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(250, 220, 630, 440);
 
-        tituloLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        tituloLabel1.setText("Sistema de Gerenciamento de Estudos");
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoStudyItYourself.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addComponent(tituloLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(logoutButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(atividadesButton)
-                            .addComponent(jLabel3)
-                            .addComponent(tituloLabel1))))
-                .addContainerGap(166, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(bemvindoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(84, 84, 84))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(253, 253, 253))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(conteudosButton))
-                .addGap(131, 131, 131))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tituloLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tituloLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bemvindoLabel)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(conteudosButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(atividadesButton))
-                    .addComponent(jLabel3))
-                .addGap(48, 48, 48)
-                .addComponent(logoutButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\3D Objects\\trabalho Unifg\\inicio\\Grupo 24.png")); // NOI18N
+        jLabel1.setAutoscrolls(true);
+        jLabel1.setDoubleBuffered(true);
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, -90, 1310, 840);
 
         pack();
         setLocationRelativeTo(null);
@@ -204,6 +170,5 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel tituloLabel;
-    private javax.swing.JLabel tituloLabel1;
     // End of variables declaration//GEN-END:variables
 }
