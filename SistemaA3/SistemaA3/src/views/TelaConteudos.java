@@ -181,10 +181,10 @@ public class TelaConteudos extends javax.swing.JFrame {
         getContentPane().add(escala);
         escala.setBounds(640, 180, 40, 16);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/conteudos.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/conteudos2.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 710, 600);
+        jLabel1.setBounds(0, 0, 700, 600);
 
         pack();
         setLocationRelativeTo(null);

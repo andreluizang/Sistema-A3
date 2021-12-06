@@ -38,14 +38,16 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1143, 668));
+        setPreferredSize(new java.awt.Dimension(1143, 668));
         getContentPane().setLayout(null);
 
-        bemvindoLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        bemvindoLabel.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         bemvindoLabel.setForeground(new java.awt.Color(51, 0, 51));
-        bemvindoLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        bemvindoLabel.setText("Seja bem-vindo(a), " + EstudanteDAO.estudante.getNome() + "!");
+        bemvindoLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bemvindoLabel.setText(EstudanteDAO.estudante.getNome());
         getContentPane().add(bemvindoLabel);
-        bemvindoLabel.setBounds(120, 150, 320, 17);
+        bemvindoLabel.setBounds(250, 150, 190, 21);
 
         tituloLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         tituloLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -82,6 +84,11 @@ public class TelaInicial extends javax.swing.JFrame {
         conteudosButton.setText("Conteúdos");
         conteudosButton.setBorderPainted(false);
         conteudosButton.setContentAreaFilled(false);
+        conteudosButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                conteudosButtonMouseClicked(evt);
+            }
+        });
         conteudosButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 conteudosButtonActionPerformed(evt);
@@ -130,6 +137,10 @@ public class TelaInicial extends javax.swing.JFrame {
         TelaConteudos tela = new TelaConteudos();
         tela.show();
     }//GEN-LAST:event_conteudosButtonActionPerformed
+
+    private void conteudosButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_conteudosButtonMouseClicked
+
+    }//GEN-LAST:event_conteudosButtonMouseClicked
 
     /**
      * @param args the command line arguments
