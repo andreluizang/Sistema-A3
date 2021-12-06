@@ -45,35 +45,27 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        okButton = new javax.swing.JButton();
-        disciplinaLabel = new javax.swing.JLabel();
-        notaLabel = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        notaMaxTextPane = new javax.swing.JTextPane();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        atividadeTextPane = new javax.swing.JTextPane();
         concluidaCheckBox = new javax.swing.JCheckBox();
         jScrollPane2 = new javax.swing.JScrollPane();
         descricaoTextArea = new javax.swing.JTextArea();
-        descricaoLabel = new javax.swing.JLabel();
-        atividadeLabel = new javax.swing.JLabel();
         disciplinasComboBox = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
         notaTextField = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        maisDsclpnButton = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         diaTextField = new javax.swing.JTextField();
         mesTextField = new javax.swing.JTextField();
         anoTextField = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         diaConclusaoTextField = new javax.swing.JTextField();
         mesConclusaoTextField = new javax.swing.JTextField();
         anoConclusaoTextField = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        voltarButton = new javax.swing.JButton();
+        atividadeTextField = new javax.swing.JTextField();
+        nova = new javax.swing.JLabel();
+        notaMaxTextField = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        ok = new javax.swing.JLabel();
+        voltar = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1303, 738));
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -89,23 +81,7 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-
-        okButton.setText("OK");
-        okButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                okButtonActionPerformed(evt);
-            }
-        });
-
-        disciplinaLabel.setText("Disciplina");
-
-        notaLabel.setText("Nota Máxima");
-
-        notaMaxTextPane.setText("0.0");
-        notaMaxTextPane.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jScrollPane3.setViewportView(notaMaxTextPane);
-
-        jScrollPane6.setViewportView(atividadeTextPane);
+        getContentPane().setLayout(null);
 
         concluidaCheckBox.setText("Concluída");
         concluidaCheckBox.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -118,14 +94,16 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
                 concluidaCheckBoxActionPerformed(evt);
             }
         });
+        getContentPane().add(concluidaCheckBox);
+        concluidaCheckBox.setBounds(550, 630, 71, 23);
 
         descricaoTextArea.setColumns(20);
         descricaoTextArea.setRows(5);
+        descricaoTextArea.setBorder(null);
         jScrollPane2.setViewportView(descricaoTextArea);
 
-        descricaoLabel.setText("Descrição");
-
-        atividadeLabel.setText("Atividade");
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(300, 410, 700, 200);
 
         disciplinasComboBox.setMaximumSize(new java.awt.Dimension(79, 20));
         disciplinasComboBox.addItemListener(new java.awt.event.ItemListener() {
@@ -138,195 +116,160 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
                 disciplinasComboBoxMouseClicked(evt);
             }
         });
+        getContentPane().add(disciplinasComboBox);
+        disciplinasComboBox.setBounds(300, 290, 190, 40);
 
-        jLabel2.setText("Nota");
-
+        notaTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         notaTextField.setText("0.0");
+        notaTextField.setBorder(null);
         notaTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 notaTextFieldActionPerformed(evt);
             }
         });
-
-        jLabel3.setText("Prazo");
-
-        maisDsclpnButton.setText("(+)");
-        maisDsclpnButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maisDsclpnButtonActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setText("Nova atividade");
+        getContentPane().add(notaTextField);
+        notaTextField.setBounds(801, 672, 40, 20);
 
         diaTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        diaTextField.setBorder(null);
+        diaTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diaTextFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(diaTextField);
+        diaTextField.setBounds(818, 204, 40, 20);
 
         mesTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        mesTextField.setBorder(null);
+        mesTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mesTextFieldActionPerformed(evt);
+            }
+        });
+        getContentPane().add(mesTextField);
+        mesTextField.setBounds(888, 207, 40, 20);
 
         anoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-
-        jLabel1.setText(" Dia      Mês       Ano");
+        anoTextField.setBorder(null);
+        getContentPane().add(anoTextField);
+        anoTextField.setBounds(958, 207, 40, 20);
 
         diaConclusaoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        diaConclusaoTextField.setBorder(null);
         diaConclusaoTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 diaConclusaoTextFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(diaConclusaoTextField);
+        diaConclusaoTextField.setBounds(494, 670, 40, 20);
 
         mesConclusaoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        mesConclusaoTextField.setBorder(null);
+        getContentPane().add(mesConclusaoTextField);
+        mesConclusaoTextField.setBounds(564, 670, 40, 20);
 
         anoConclusaoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        anoConclusaoTextField.setBorder(null);
+        getContentPane().add(anoConclusaoTextField);
+        anoConclusaoTextField.setBounds(634, 673, 40, 14);
 
-        jLabel5.setText(" Dia      Mês       Ano");
+        atividadeTextField.setBorder(null);
+        getContentPane().add(atividadeTextField);
+        atividadeTextField.setBounds(320, 206, 390, 20);
 
-        voltarButton.setText("Voltar");
-        voltarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                voltarButtonActionPerformed(evt);
+        nova.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                novaMouseClicked(evt);
             }
         });
+        getContentPane().add(nova);
+        nova.setBounds(560, 300, 100, 20);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(atividadeLabel)
-                                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(disciplinasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(disciplinaLabel)
-                                                .addGap(32, 32, 32))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(40, 40, 40)))
-                                .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(notaLabel)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(6, 6, 6))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(maisDsclpnButton)
-                                .addGap(110, 110, 110)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(diaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(mesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(anoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel3)))
-                            .addComponent(jLabel1)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(voltarButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(diaConclusaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(mesConclusaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(anoConclusaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(15, 15, 15)
-                                            .addComponent(concluidaCheckBox)))
-                                    .addGap(27, 27, 27)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel2)
-                                        .addComponent(notaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(171, 171, 171)
-                            .addComponent(okButton))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(descricaoLabel, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addGap(0, 0, Short.MAX_VALUE))))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(atividadeLabel)
-                            .addComponent(disciplinaLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(disciplinasComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(maisDsclpnButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(notaLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(diaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(mesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(anoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)))
-                .addGap(9, 9, 9)
-                .addComponent(descricaoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(okButton)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(concluidaCheckBox)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(diaConclusaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(mesConclusaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(anoConclusaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(notaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(voltarButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        notaMaxTextField.setBorder(null);
+        getContentPane().add(notaMaxTextField);
+        notaMaxTextField.setBounds(870, 300, 80, 20);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nota_novaatividade.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(790, 645, 70, 60);
+
+        ok.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                okMouseClicked(evt);
+            }
+        });
+        getContentPane().add(ok);
+        ok.setBounds(930, 670, 90, 30);
+
+        voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                voltarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(voltar);
+        voltar.setBounds(290, 670, 90, 30);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Nova atividade.png"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(0, 0, 1310, 740);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        String nome = atividadeTextPane.getText();
+    private void concluidaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concluidaCheckBoxActionPerformed
+
+    }//GEN-LAST:event_concluidaCheckBoxActionPerformed
+
+    private void disciplinasComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_disciplinasComboBoxMouseClicked
+    }//GEN-LAST:event_disciplinasComboBoxMouseClicked
+
+    private void disciplinasComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_disciplinasComboBoxItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_disciplinasComboBoxItemStateChanged
+
+    
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        DisciplinaDAO disciplinadao = new DisciplinaDAO();
+        disciplinasComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(disciplinadao.formatarComboBox()));
+
+    }//GEN-LAST:event_formWindowOpened
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+    }//GEN-LAST:event_formWindowActivated
+
+    private void notaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notaTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_notaTextFieldActionPerformed
+
+    private void concluidaCheckBoxStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_concluidaCheckBoxStateChanged
+    }//GEN-LAST:event_concluidaCheckBoxStateChanged
+
+    private void diaConclusaoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaConclusaoTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_diaConclusaoTextFieldActionPerformed
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        DisciplinaDAO disciplinadao = new DisciplinaDAO();
+        disciplinasComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(disciplinadao.formatarComboBox()));
+    }//GEN-LAST:event_formWindowGainedFocus
+
+    private void novaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_novaMouseClicked
+        TelaDisciplinas tela = new TelaDisciplinas();
+        tela.show();
+    }//GEN-LAST:event_novaMouseClicked
+
+    private void diaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_diaTextFieldActionPerformed
+
+    private void okMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_okMouseClicked
+        String nome = atividadeTextField.getText();
         String descricao = descricaoTextArea.getText();
         int idDisciplina = 0;
         String querySelect = "SELECT id FROM DISCIPLINA WHERE nome = ? AND fk_estudante = ?";
@@ -343,7 +286,7 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
             Logger.getLogger(ConexaoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         conexao.closeConnection();
-        double notaMaxima = Double.parseDouble(notaMaxTextPane.getText());
+        double notaMaxima = Double.parseDouble(notaMaxTextField.getText());
         LocalDate p = LocalDate.of(Integer.parseInt(anoTextField.getText()),
                 Integer.parseInt(mesTextField.getText()),
                 Integer.parseInt(diaTextField.getText()));
@@ -366,57 +309,17 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
 
         atividadedao.cadastrarAtividade(nome, descricao, idDisciplina, nota, notaMaxima,
                 prazo, concluida, dataConclusao, idEstudante); 
-        
-    }//GEN-LAST:event_okButtonActionPerformed
+    }//GEN-LAST:event_okMouseClicked
 
-    private void concluidaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concluidaCheckBoxActionPerformed
-
-    }//GEN-LAST:event_concluidaCheckBoxActionPerformed
-
-    private void disciplinasComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_disciplinasComboBoxMouseClicked
-    }//GEN-LAST:event_disciplinasComboBoxMouseClicked
-
-    private void disciplinasComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_disciplinasComboBoxItemStateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_disciplinasComboBoxItemStateChanged
-
-    private void maisDsclpnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maisDsclpnButtonActionPerformed
-        TelaDisciplinas tela = new TelaDisciplinas();
-        tela.show();
-    }//GEN-LAST:event_maisDsclpnButtonActionPerformed
-
-    
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        DisciplinaDAO disciplinadao = new DisciplinaDAO();
-        disciplinasComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(disciplinadao.formatarComboBox()));
-
-    }//GEN-LAST:event_formWindowOpened
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-
-    }//GEN-LAST:event_formWindowActivated
-
-    private void notaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notaTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_notaTextFieldActionPerformed
-
-    private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
+    private void voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_voltarMouseClicked
         dispose();
         TelaAtividades tela = new TelaAtividades();
         tela.show();
-    }//GEN-LAST:event_voltarButtonActionPerformed
+    }//GEN-LAST:event_voltarMouseClicked
 
-    private void concluidaCheckBoxStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_concluidaCheckBoxStateChanged
-    }//GEN-LAST:event_concluidaCheckBoxStateChanged
-
-    private void diaConclusaoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_diaConclusaoTextFieldActionPerformed
+    private void mesTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mesTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_diaConclusaoTextFieldActionPerformed
-
-    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        DisciplinaDAO disciplinadao = new DisciplinaDAO();
-        disciplinasComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(disciplinadao.formatarComboBox()));
-    }//GEN-LAST:event_formWindowGainedFocus
+    }//GEN-LAST:event_mesTextFieldActionPerformed
 
     
     /**
@@ -459,30 +362,21 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField anoConclusaoTextField;
     private javax.swing.JTextField anoTextField;
-    private javax.swing.JLabel atividadeLabel;
-    private javax.swing.JTextPane atividadeTextPane;
+    private javax.swing.JTextField atividadeTextField;
     private javax.swing.JCheckBox concluidaCheckBox;
-    private javax.swing.JLabel descricaoLabel;
     private javax.swing.JTextArea descricaoTextArea;
     private javax.swing.JTextField diaConclusaoTextField;
     private javax.swing.JTextField diaTextField;
-    private javax.swing.JLabel disciplinaLabel;
     private javax.swing.JComboBox<String> disciplinasComboBox;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JButton maisDsclpnButton;
     private javax.swing.JTextField mesConclusaoTextField;
     private javax.swing.JTextField mesTextField;
-    private javax.swing.JLabel notaLabel;
-    private javax.swing.JTextPane notaMaxTextPane;
+    private javax.swing.JTextField notaMaxTextField;
     private javax.swing.JTextField notaTextField;
-    private javax.swing.JButton okButton;
-    private javax.swing.JButton voltarButton;
+    private javax.swing.JLabel nova;
+    private javax.swing.JLabel ok;
+    private javax.swing.JLabel voltar;
     // End of variables declaration//GEN-END:variables
 }
