@@ -26,21 +26,17 @@ public class TelaNovoConteudo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         nomeTextPane = new javax.swing.JTextPane();
-        nomeLabel = new javax.swing.JLabel();
         disciplinaComboBox = new javax.swing.JComboBox<>();
-        disciplinaLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         anotacoesTextArea = new javax.swing.JTextArea();
-        anotacoesLabel = new javax.swing.JLabel();
         aprendizadoSlider = new javax.swing.JSlider();
-        aprendizadoLabel = new javax.swing.JLabel();
         okButton = new javax.swing.JButton();
         voltarButton = new javax.swing.JButton();
         novaDsclpnButton = new javax.swing.JButton();
         aprendizadoSliderLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -48,23 +44,25 @@ public class TelaNovoConteudo extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Novo conteúdo");
+        getContentPane().setLayout(null);
 
         jScrollPane1.setViewportView(nomeTextPane);
 
-        nomeLabel.setText("Nome do conteúdo");
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(80, 170, 210, 22);
 
         disciplinaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        disciplinaLabel.setText("Disciplina");
+        getContentPane().add(disciplinaComboBox);
+        disciplinaComboBox.setBounds(360, 170, 140, 20);
 
         anotacoesTextArea.setColumns(20);
         anotacoesTextArea.setRows(5);
+        anotacoesTextArea.setBorder(null);
+        anotacoesTextArea.setCaretColor(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(anotacoesTextArea);
 
-        anotacoesLabel.setText("Anotações");
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(80, 320, 400, 180);
 
         aprendizadoSlider.setMaximum(10);
         aprendizadoSlider.setValue(5);
@@ -73,113 +71,46 @@ public class TelaNovoConteudo extends javax.swing.JFrame {
                 aprendizadoSliderStateChanged(evt);
             }
         });
+        getContentPane().add(aprendizadoSlider);
+        aprendizadoSlider.setBounds(80, 240, 420, 26);
 
-        aprendizadoLabel.setText("Aprendizado");
-
-        okButton.setText("Ok");
+        okButton.setBorderPainted(false);
+        okButton.setContentAreaFilled(false);
         okButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 okButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(okButton);
+        okButton.setBounds(360, 520, 60, 30);
 
-        voltarButton.setText("Voltar");
+        voltarButton.setBorderPainted(false);
+        voltarButton.setContentAreaFilled(false);
         voltarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 voltarButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(voltarButton);
+        voltarButton.setBounds(150, 520, 60, 30);
 
-        novaDsclpnButton.setText("(+)");
+        novaDsclpnButton.setBorderPainted(false);
+        novaDsclpnButton.setContentAreaFilled(false);
         novaDsclpnButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 novaDsclpnButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(novaDsclpnButton);
+        novaDsclpnButton.setBounds(390, 200, 70, 20);
 
         aprendizadoSliderLabel.setText("-");
+        getContentPane().add(aprendizadoSliderLabel);
+        aprendizadoSliderLabel.setBounds(280, 180, 4, 14);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(86, 86, 86)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(anotacoesLabel)
-                                    .addComponent(aprendizadoLabel))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane2)
-                                .addComponent(aprendizadoSlider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(nomeLabel))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(9, 9, 9)
-                                            .addComponent(disciplinaLabel)
-                                            .addGap(0, 0, Short.MAX_VALUE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(10, 10, 10)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addGap(10, 10, 10)
-                                                    .addComponent(novaDsclpnButton)
-                                                    .addGap(0, 21, Short.MAX_VALUE))
-                                                .addComponent(disciplinaComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(voltarButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
-                                .addComponent(okButton))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(aprendizadoSliderLabel)
-                        .addGap(15, 15, 15)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeLabel)
-                    .addComponent(disciplinaLabel))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(disciplinaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(novaDsclpnButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(aprendizadoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(aprendizadoSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(aprendizadoSliderLabel)
-                .addGap(2, 2, 2)
-                .addComponent(anotacoesLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(okButton)
-                    .addComponent(voltarButton))
-                .addContainerGap())
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Grupo 73.png"))); // NOI18N
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(-10, 0, 590, 600);
 
         pack();
         setLocationRelativeTo(null);
@@ -265,17 +196,13 @@ public class TelaNovoConteudo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel anotacoesLabel;
     private javax.swing.JTextArea anotacoesTextArea;
-    private javax.swing.JLabel aprendizadoLabel;
     private javax.swing.JSlider aprendizadoSlider;
     private javax.swing.JLabel aprendizadoSliderLabel;
     private javax.swing.JComboBox<String> disciplinaComboBox;
-    private javax.swing.JLabel disciplinaLabel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel nomeLabel;
     private javax.swing.JTextPane nomeTextPane;
     private javax.swing.JButton novaDsclpnButton;
     private javax.swing.JButton okButton;
