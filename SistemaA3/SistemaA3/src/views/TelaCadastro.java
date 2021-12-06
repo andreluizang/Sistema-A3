@@ -32,7 +32,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(805, 527));
+        setPreferredSize(new java.awt.Dimension(690, 527));
         getContentPane().setLayout(null);
 
         nomeTextField.setForeground(new java.awt.Color(153, 153, 153));

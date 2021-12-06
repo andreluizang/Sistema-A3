@@ -47,14 +47,11 @@ public class TelaAtividades extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        novaAtvButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         atividadesTabela = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         descricaoTextArea = new javax.swing.JTextArea();
         concluidaCheckBox = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
-        voltarButton = new javax.swing.JButton();
         atividadeTextField = new javax.swing.JTextField();
         disciplinaTextField = new javax.swing.JTextField();
         notaTextField = new javax.swing.JTextField();
@@ -67,26 +64,20 @@ public class TelaAtividades extends javax.swing.JFrame {
         anoTextField = new javax.swing.JTextField();
         salvar = new javax.swing.JLabel();
         deletar = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1165, 684));
-        setPreferredSize(new java.awt.Dimension(1165, 684));
+        setPreferredSize(new java.awt.Dimension(1165, 720));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
         getContentPane().setLayout(null);
-
-        novaAtvButton.setText("Nova atividade");
-        novaAtvButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novaAtvButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(novaAtvButton);
-        novaAtvButton.setBounds(1050, 640, 105, 23);
 
         atividadesTabela.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         atividadesTabela.setModel(new javax.swing.table.DefaultTableModel(
@@ -143,24 +134,6 @@ public class TelaAtividades extends javax.swing.JFrame {
         });
         getContentPane().add(concluidaCheckBox);
         concluidaCheckBox.setBounds(567, 480, 20, 10);
-
-        jButton1.setText("Atualizar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(460, 650, 75, 23);
-
-        voltarButton.setText("Voltar");
-        voltarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                voltarButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(voltarButton);
-        voltarButton.setBounds(10, 650, 61, 23);
 
         atividadeTextField.setBorder(null);
         atividadeTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -229,6 +202,36 @@ public class TelaAtividades extends javax.swing.JFrame {
         getContentPane().add(deletar);
         deletar.setBounds(680, 600, 110, 40);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Grupo 43.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(1060, 620, 90, 40);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Grupo 47.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(10, 650, 80, 30);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Atualizar.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(430, 640, 110, 43);
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ATIVIDADE.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
@@ -238,42 +241,9 @@ public class TelaAtividades extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void novaAtvButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novaAtvButtonActionPerformed
-        dispose();
-        TelaNovaAtividade tela =new TelaNovaAtividade();
-        tela.show();
-    }//GEN-LAST:event_novaAtvButtonActionPerformed
-
     private void atividadesTabelaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_atividadesTabelaFocusGained
         
     }//GEN-LAST:event_atividadesTabelaFocusGained
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                
-        String[] col = {"Nome", "Disciplina", "Descrição", "Prazo", "Concluída"};
-        
-        TelaAtividades tela = new TelaAtividades();
-        DefaultTableModel model = (DefaultTableModel) atividadesTabela.getModel();
-        atividadesTabela.setModel(model);
-        model.setDataVector(atividadedao.formatarTabela(), col);
-        
-        if (atividadesTabela.getColumnModel().getColumnCount() > 0) {
-            atividadesTabela.getColumnModel().getColumn(0).setMinWidth(100);
-            atividadesTabela.getColumnModel().getColumn(0).setPreferredWidth(100);
-            atividadesTabela.getColumnModel().getColumn(0).setMaxWidth(150);
-            atividadesTabela.getColumnModel().getColumn(1).setMinWidth(100);
-            atividadesTabela.getColumnModel().getColumn(1).setPreferredWidth(100);
-            atividadesTabela.getColumnModel().getColumn(1).setMaxWidth(150);
-            atividadesTabela.getColumnModel().getColumn(3).setMinWidth(80);
-            atividadesTabela.getColumnModel().getColumn(3).setPreferredWidth(80);
-            atividadesTabela.getColumnModel().getColumn(3).setMaxWidth(80);
-            atividadesTabela.getColumnModel().getColumn(4).setMinWidth(65);
-            atividadesTabela.getColumnModel().getColumn(4).setPreferredWidth(65);
-            atividadesTabela.getColumnModel().getColumn(4).setMaxWidth(65);
-        }
-
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         String[] col = {"Nome", "Disciplina", "Descrição", "Prazo", "Concluída"};
@@ -328,12 +298,6 @@ public class TelaAtividades extends javax.swing.JFrame {
                 
     }//GEN-LAST:event_atividadesTabelaMouseClicked
 
-    private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
-        dispose();
-        TelaInicial tela = new TelaInicial();
-        tela.show();
-    }//GEN-LAST:event_voltarButtonActionPerformed
-
     private void concluidaCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_concluidaCheckBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_concluidaCheckBoxActionPerformed
@@ -374,6 +338,42 @@ public class TelaAtividades extends javax.swing.JFrame {
             atividadedao.deletarAtividade(id, localId);
         }
     }//GEN-LAST:event_deletarMouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        dispose();
+        TelaNovaAtividade tela =new TelaNovaAtividade();
+        tela.show();
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        dispose();
+        TelaInicial tela = new TelaInicial();
+        tela.show();
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        String[] col = {"Nome", "Disciplina", "Descrição", "Prazo", "Concluída"};
+        
+        TelaAtividades tela = new TelaAtividades();
+        DefaultTableModel model = (DefaultTableModel) atividadesTabela.getModel();
+        atividadesTabela.setModel(model);
+        model.setDataVector(atividadedao.formatarTabela(), col);
+        
+        if (atividadesTabela.getColumnModel().getColumnCount() > 0) {
+            atividadesTabela.getColumnModel().getColumn(0).setMinWidth(100);
+            atividadesTabela.getColumnModel().getColumn(0).setPreferredWidth(100);
+            atividadesTabela.getColumnModel().getColumn(0).setMaxWidth(150);
+            atividadesTabela.getColumnModel().getColumn(1).setMinWidth(100);
+            atividadesTabela.getColumnModel().getColumn(1).setPreferredWidth(100);
+            atividadesTabela.getColumnModel().getColumn(1).setMaxWidth(150);
+            atividadesTabela.getColumnModel().getColumn(3).setMinWidth(80);
+            atividadesTabela.getColumnModel().getColumn(3).setPreferredWidth(80);
+            atividadesTabela.getColumnModel().getColumn(3).setMaxWidth(80);
+            atividadesTabela.getColumnModel().getColumn(4).setMinWidth(65);
+            atividadesTabela.getColumnModel().getColumn(4).setPreferredWidth(65);
+            atividadesTabela.getColumnModel().getColumn(4).setMaxWidth(65);
+        }
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -423,16 +423,16 @@ public class TelaAtividades extends javax.swing.JFrame {
     private javax.swing.JTextField diaConcluidaTextField;
     private javax.swing.JTextField diaTextField;
     private javax.swing.JTextField disciplinaTextField;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField mesConcluidaTextField;
     private javax.swing.JTextField mesTextField;
     private javax.swing.JTextField notaMaxTextField;
     private javax.swing.JTextField notaTextField;
-    private javax.swing.JButton novaAtvButton;
     private javax.swing.JLabel salvar;
-    private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 }

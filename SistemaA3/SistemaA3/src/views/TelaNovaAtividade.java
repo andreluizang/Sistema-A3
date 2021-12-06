@@ -65,7 +65,7 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1303, 738));
+        setPreferredSize(new java.awt.Dimension(1303, 735));
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -95,7 +95,7 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
             }
         });
         getContentPane().add(concluidaCheckBox);
-        concluidaCheckBox.setBounds(550, 630, 71, 23);
+        concluidaCheckBox.setBounds(550, 620, 71, 23);
 
         descricaoTextArea.setColumns(20);
         descricaoTextArea.setRows(5);
@@ -103,7 +103,7 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
         jScrollPane2.setViewportView(descricaoTextArea);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(300, 410, 700, 200);
+        jScrollPane2.setBounds(300, 390, 700, 200);
 
         disciplinasComboBox.setMaximumSize(new java.awt.Dimension(79, 20));
         disciplinasComboBox.addItemListener(new java.awt.event.ItemListener() {
@@ -117,7 +117,7 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
             }
         });
         getContentPane().add(disciplinasComboBox);
-        disciplinasComboBox.setBounds(300, 290, 190, 40);
+        disciplinasComboBox.setBounds(300, 270, 190, 40);
 
         notaTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         notaTextField.setText("0.0");
@@ -128,7 +128,7 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
             }
         });
         getContentPane().add(notaTextField);
-        notaTextField.setBounds(801, 672, 40, 20);
+        notaTextField.setBounds(802, 658, 40, 20);
 
         diaTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         diaTextField.setBorder(null);
@@ -138,7 +138,7 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
             }
         });
         getContentPane().add(diaTextField);
-        diaTextField.setBounds(818, 204, 40, 20);
+        diaTextField.setBounds(818, 185, 40, 20);
 
         mesTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         mesTextField.setBorder(null);
@@ -148,12 +148,12 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
             }
         });
         getContentPane().add(mesTextField);
-        mesTextField.setBounds(888, 207, 40, 20);
+        mesTextField.setBounds(888, 185, 40, 20);
 
         anoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         anoTextField.setBorder(null);
         getContentPane().add(anoTextField);
-        anoTextField.setBounds(958, 207, 40, 20);
+        anoTextField.setBounds(958, 185, 40, 20);
 
         diaConclusaoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         diaConclusaoTextField.setBorder(null);
@@ -163,21 +163,21 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
             }
         });
         getContentPane().add(diaConclusaoTextField);
-        diaConclusaoTextField.setBounds(494, 670, 40, 20);
+        diaConclusaoTextField.setBounds(494, 652, 40, 20);
 
         mesConclusaoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         mesConclusaoTextField.setBorder(null);
         getContentPane().add(mesConclusaoTextField);
-        mesConclusaoTextField.setBounds(564, 670, 40, 20);
+        mesConclusaoTextField.setBounds(564, 652, 40, 20);
 
         anoConclusaoTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         anoConclusaoTextField.setBorder(null);
         getContentPane().add(anoConclusaoTextField);
-        anoConclusaoTextField.setBounds(634, 673, 40, 14);
+        anoConclusaoTextField.setBounds(634, 652, 40, 20);
 
         atividadeTextField.setBorder(null);
         getContentPane().add(atividadeTextField);
-        atividadeTextField.setBounds(320, 206, 390, 20);
+        atividadeTextField.setBounds(320, 185, 390, 20);
 
         nova.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -185,16 +185,16 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
             }
         });
         getContentPane().add(nova);
-        nova.setBounds(560, 300, 100, 20);
+        nova.setBounds(560, 280, 100, 20);
 
         notaMaxTextField.setBorder(null);
         getContentPane().add(notaMaxTextField);
-        notaMaxTextField.setBounds(870, 300, 80, 20);
+        notaMaxTextField.setBounds(870, 280, 80, 20);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/nota_novaatividade.png"))); // NOI18N
         jLabel4.setText("jLabel4");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(790, 645, 70, 60);
+        jLabel4.setBounds(790, 630, 70, 60);
 
         ok.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -202,7 +202,7 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
             }
         });
         getContentPane().add(ok);
-        ok.setBounds(930, 670, 90, 30);
+        ok.setBounds(930, 649, 90, 30);
 
         voltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -210,12 +210,12 @@ public class TelaNovaAtividade extends javax.swing.JFrame {
             }
         });
         getContentPane().add(voltar);
-        voltar.setBounds(290, 670, 90, 30);
+        voltar.setBounds(290, 649, 90, 30);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Nova atividade.png"))); // NOI18N
         jLabel6.setText("jLabel6");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(0, 0, 1310, 740);
+        jLabel6.setBounds(0, 0, 1310, 700);
 
         pack();
         setLocationRelativeTo(null);

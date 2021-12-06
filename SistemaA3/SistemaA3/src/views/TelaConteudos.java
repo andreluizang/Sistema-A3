@@ -47,7 +47,7 @@ public class TelaConteudos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(702, 600));
+        setPreferredSize(new java.awt.Dimension(702, 640));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -117,6 +117,7 @@ public class TelaConteudos extends javax.swing.JFrame {
         conteudoTextField.setBounds(400, 40, 250, 14);
 
         disciplinaTextField.setEditable(false);
+        disciplinaTextField.setBackground(new java.awt.Color(255, 255, 255));
         disciplinaTextField.setBorder(null);
         getContentPane().add(disciplinaTextField);
         disciplinaTextField.setBounds(400, 87, 250, 14);

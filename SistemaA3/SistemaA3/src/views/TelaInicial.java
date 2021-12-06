@@ -39,7 +39,7 @@ public class TelaInicial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1143, 668));
-        setPreferredSize(new java.awt.Dimension(1143, 668));
+        setPreferredSize(new java.awt.Dimension(1143, 700));
         getContentPane().setLayout(null);
 
         bemvindoLabel.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
@@ -114,6 +114,8 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel1.setDoubleBuffered(true);
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, -90, 1310, 840);
+
+        getAccessibleContext().setAccessibleDescription("");
 
         pack();
         setLocationRelativeTo(null);
