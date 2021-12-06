@@ -29,32 +29,31 @@ public class TelaConteudos extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         conteudosTabela = new javax.swing.JTable();
-        disciplinaLabel = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        conteudoTextPane = new javax.swing.JTextPane();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        disciplinaTextPane = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         anotacaoTextPane = new javax.swing.JTextArea();
-        descricaoLabel = new javax.swing.JLabel();
-        atividadeLabel = new javax.swing.JLabel();
         escalaSlider = new javax.swing.JSlider();
-        disciplinaLabel1 = new javax.swing.JLabel();
         escalaLabel = new javax.swing.JLabel();
-        revisarLabel = new javax.swing.JLabel();
-        reviseiButton = new javax.swing.JButton();
-        updateButon = new javax.swing.JButton();
-        deletarButton = new javax.swing.JButton();
-        atualizarButton = new javax.swing.JButton();
         voltarButton = new javax.swing.JButton();
-        novoConteudoButton = new javax.swing.JButton();
+        conteudoTextField = new javax.swing.JTextField();
+        disciplinaTextField = new javax.swing.JTextField();
+        revisei = new javax.swing.JLabel();
+        revisarLabel = new javax.swing.JLabel();
+        deletar = new javax.swing.JLabel();
+        salvar = new javax.swing.JLabel();
+        novoConteudo = new javax.swing.JLabel();
+        atualizar = new javax.swing.JLabel();
+        voltar = new javax.swing.JLabel();
+        escala = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(702, 600));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(null);
 
         conteudosTabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -75,19 +74,16 @@ public class TelaConteudos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(conteudosTabela);
 
-        disciplinaLabel.setText("Disciplina");
-
-        jScrollPane6.setViewportView(conteudoTextPane);
-
-        jScrollPane7.setViewportView(disciplinaTextPane);
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(0, 30, 350, 530);
 
         anotacaoTextPane.setColumns(20);
         anotacaoTextPane.setRows(5);
+        anotacaoTextPane.setBorder(null);
         jScrollPane2.setViewportView(anotacaoTextPane);
 
-        descricaoLabel.setText("Anotações");
-
-        atividadeLabel.setText("Conteúdo");
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(397, 302, 250, 170);
 
         escalaSlider.setMaximum(10);
         escalaSlider.setToolTipText("");
@@ -102,38 +98,10 @@ public class TelaConteudos extends javax.swing.JFrame {
                 escalaSliderMouseClicked(evt);
             }
         });
-
-        disciplinaLabel1.setText("O quanto você aprendeu sobre esse conteúdo?");
-
-        revisarLabel.setText("Revisar!");
-
-        reviseiButton.setText("Revisei!");
-        reviseiButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reviseiButtonActionPerformed(evt);
-            }
-        });
-
-        updateButon.setText("Salvar");
-        updateButon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateButonActionPerformed(evt);
-            }
-        });
-
-        deletarButton.setText("Deletar");
-        deletarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deletarButtonActionPerformed(evt);
-            }
-        });
-
-        atualizarButton.setText("Atualizar");
-        atualizarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atualizarButtonActionPerformed(evt);
-            }
-        });
+        getContentPane().add(escalaSlider);
+        escalaSlider.setBounds(380, 150, 300, 26);
+        getContentPane().add(escalaLabel);
+        escalaLabel.setBounds(910, 160, 15, 0);
 
         voltarButton.setText("Voltar");
         voltarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -141,110 +109,93 @@ public class TelaConteudos extends javax.swing.JFrame {
                 voltarButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(voltarButton);
+        voltarButton.setBounds(10, 532, 61, 23);
 
-        novoConteudoButton.setText("Novo conteúdo");
-        novoConteudoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novoConteudoButtonActionPerformed(evt);
+        conteudoTextField.setBorder(null);
+        getContentPane().add(conteudoTextField);
+        conteudoTextField.setBounds(400, 40, 250, 14);
+
+        disciplinaTextField.setEditable(false);
+        disciplinaTextField.setBorder(null);
+        getContentPane().add(disciplinaTextField);
+        disciplinaTextField.setBounds(400, 87, 250, 14);
+
+        revisei.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reviseiMouseClicked(evt);
             }
         });
+        getContentPane().add(revisei);
+        revisei.setBounds(390, 200, 100, 30);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(escalaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(497, 497, 497)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(updateButon)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(deletarButton))
-                            .addComponent(disciplinaLabel)
-                            .addComponent(atividadeLabel)
-                            .addComponent(jScrollPane6)
-                            .addComponent(jScrollPane7)
-                            .addComponent(reviseiButton)
-                            .addComponent(disciplinaLabel1)
-                            .addComponent(escalaSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(descricaoLabel))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(voltarButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(atualizarButton))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(revisarLabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(novoConteudoButton)
-                        .addContainerGap())))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(atividadeLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(disciplinaLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(disciplinaLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(escalaSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(escalaLabel)
-                        .addGap(14, 14, 14)
-                        .addComponent(revisarLabel)
-                        .addGap(3, 3, 3)
-                        .addComponent(reviseiButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(descricaoLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(updateButon)
-                            .addComponent(deletarButton)))
-                    .addComponent(jScrollPane1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(atualizarButton)
-                    .addComponent(voltarButton)
-                    .addComponent(novoConteudoButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        revisarLabel.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        revisarLabel.setForeground(new java.awt.Color(255, 255, 255));
+        revisarLabel.setText("jLabel2");
+        getContentPane().add(revisarLabel);
+        revisarLabel.setBounds(390, 230, 300, 20);
+
+        deletar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deletarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(deletar);
+        deletar.setBounds(400, 490, 90, 30);
+
+        salvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                salvarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(salvar);
+        salvar.setBounds(570, 490, 90, 30);
+
+        novoConteudo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                novoConteudoMouseClicked(evt);
+            }
+        });
+        getContentPane().add(novoConteudo);
+        novoConteudo.setBounds(570, 554, 90, 20);
+
+        atualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                atualizarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(atualizar);
+        atualizar.setBounds(250, 570, 90, 20);
+
+        voltar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                voltarMouseClicked(evt);
+            }
+        });
+        getContentPane().add(voltar);
+        voltar.setBounds(20, 570, 90, 20);
+
+        escala.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        escala.setForeground(new java.awt.Color(255, 255, 255));
+        escala.setText("jLabel2");
+        getContentPane().add(escala);
+        escala.setBounds(640, 180, 40, 16);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/conteudos.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 710, 600);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void escalaSliderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_escalaSliderStateChanged
-        escalaLabel.setText(Integer.toString(escalaSlider.getValue()));
+        escala.setText(Integer.toString(escalaSlider.getValue()));
     }//GEN-LAST:event_escalaSliderStateChanged
 
     private void escalaSliderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_escalaSliderMouseClicked
-        escalaLabel.setText(Integer.toString(escalaSlider.getValue()));
+        escala.setText(Integer.toString(escalaSlider.getValue()));
     }//GEN-LAST:event_escalaSliderMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -272,10 +223,10 @@ public class TelaConteudos extends javax.swing.JFrame {
 
     private void conteudosTabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_conteudosTabelaMouseClicked
         int index = conteudosTabela.getSelectedRow();
-        conteudoTextPane.setText(ConteudoDAO.conteudos.get(index).getNome());
-        disciplinaTextPane.setText(ConteudoDAO.conteudos.get(index).getDisciplina().getNome());
+        conteudoTextField.setText(ConteudoDAO.conteudos.get(index).getNome());
+        disciplinaTextField.setText(ConteudoDAO.conteudos.get(index).getDisciplina().getNome());
         anotacaoTextPane.setText(ConteudoDAO.conteudos.get(index).getAnotacao());
-        escalaLabel.setText(Integer.toString(ConteudoDAO.conteudos.get(index).getAprendizado()));
+        escala.setText(Integer.toString(ConteudoDAO.conteudos.get(index).getAprendizado()));
         escalaSlider.setValue(ConteudoDAO.conteudos.get(index).getAprendizado());
         if(ConteudoDAO.conteudos.get(index).getMeta() == 0){
             revisarLabel.setText("Parabéns! Você cumpriu a sua meta!");
@@ -284,7 +235,13 @@ public class TelaConteudos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_conteudosTabelaMouseClicked
 
-    private void reviseiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reviseiButtonActionPerformed
+    private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
+        dispose();
+        TelaInicial tela = new TelaInicial();
+        tela.show();
+    }//GEN-LAST:event_voltarButtonActionPerformed
+
+    private void reviseiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reviseiMouseClicked
         int revisoes = ConteudoDAO.conteudos.get(conteudosTabela.getSelectedRow()).getMeta() - 1;
         conteudodao.atualizarMetas(revisoes, conteudosTabela.getSelectedRow());
         if(revisoes == 0){
@@ -292,28 +249,33 @@ public class TelaConteudos extends javax.swing.JFrame {
             revisarLabel.setText("Parabéns! Você cumpriu a sua meta de revisões!");
         }else{
             revisarLabel.setText("Revisar " + Integer.toString(ConteudoDAO.conteudos.get(conteudosTabela.getSelectedRow()).getMeta()));
-        }
-    }//GEN-LAST:event_reviseiButtonActionPerformed
+        }    }//GEN-LAST:event_reviseiMouseClicked
 
-    private void updateButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButonActionPerformed
+    private void deletarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletarMouseClicked
         int id = ConteudoDAO.conteudos.get(conteudosTabela.getSelectedRow()).getId();
-        String nome = conteudoTextPane.getText();
+        int localId = conteudosTabela.getSelectedRow();
+        
+        conteudodao.deletarConteudo(id, localId);
+    }//GEN-LAST:event_deletarMouseClicked
+
+    private void salvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salvarMouseClicked
+        int id = ConteudoDAO.conteudos.get(conteudosTabela.getSelectedRow()).getId();
+        String nome = conteudoTextField.getText();
         String anotacao = anotacaoTextPane.getText();
         int aprendizado = escalaSlider.getValue();
         int localId = conteudosTabela.getSelectedRow();
         
         conteudodao.atualizarConteudo(id, nome, anotacao, aprendizado, localId);
         conteudodao.formatarTabela();
-    }//GEN-LAST:event_updateButonActionPerformed
+    }//GEN-LAST:event_salvarMouseClicked
 
-    private void deletarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarButtonActionPerformed
-        int id = ConteudoDAO.conteudos.get(conteudosTabela.getSelectedRow()).getId();
-        int localId = conteudosTabela.getSelectedRow();
-        
-        conteudodao.deletarConteudo(id, localId);
-    }//GEN-LAST:event_deletarButtonActionPerformed
+    private void novoConteudoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_novoConteudoMouseClicked
+        dispose();
+        TelaNovoConteudo tela = new TelaNovoConteudo();
+        tela.show();
+    }//GEN-LAST:event_novoConteudoMouseClicked
 
-    private void atualizarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarButtonActionPerformed
+    private void atualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_atualizarMouseClicked
         String[] col = {"Conteúdo", "Disciplina", "Anotações", "Aprendizado"};
         
         TelaAtividades tela = new TelaAtividades();
@@ -333,19 +295,13 @@ public class TelaConteudos extends javax.swing.JFrame {
             conteudosTabela.getColumnModel().getColumn(3).setPreferredWidth(80);
             conteudosTabela.getColumnModel().getColumn(3).setMaxWidth(80);
         }
-    }//GEN-LAST:event_atualizarButtonActionPerformed
+    }//GEN-LAST:event_atualizarMouseClicked
 
-    private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
+    private void voltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_voltarMouseClicked
         dispose();
         TelaInicial tela = new TelaInicial();
         tela.show();
-    }//GEN-LAST:event_voltarButtonActionPerformed
-
-    private void novoConteudoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoConteudoButtonActionPerformed
-        dispose();
-        TelaNovoConteudo tela = new TelaNovoConteudo();
-        tela.show();
-    }//GEN-LAST:event_novoConteudoButtonActionPerformed
+    }//GEN-LAST:event_voltarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -384,25 +340,22 @@ public class TelaConteudos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea anotacaoTextPane;
-    private javax.swing.JLabel atividadeLabel;
-    private javax.swing.JButton atualizarButton;
-    private javax.swing.JTextPane conteudoTextPane;
+    private javax.swing.JLabel atualizar;
+    private javax.swing.JTextField conteudoTextField;
     private javax.swing.JTable conteudosTabela;
-    private javax.swing.JButton deletarButton;
-    private javax.swing.JLabel descricaoLabel;
-    private javax.swing.JLabel disciplinaLabel;
-    private javax.swing.JLabel disciplinaLabel1;
-    private javax.swing.JTextPane disciplinaTextPane;
+    private javax.swing.JLabel deletar;
+    private javax.swing.JTextField disciplinaTextField;
+    private javax.swing.JLabel escala;
     private javax.swing.JLabel escalaLabel;
     private javax.swing.JSlider escalaSlider;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JButton novoConteudoButton;
+    private javax.swing.JLabel novoConteudo;
     private javax.swing.JLabel revisarLabel;
-    private javax.swing.JButton reviseiButton;
-    private javax.swing.JButton updateButon;
+    private javax.swing.JLabel revisei;
+    private javax.swing.JLabel salvar;
+    private javax.swing.JLabel voltar;
     private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 }
