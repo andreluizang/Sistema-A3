@@ -32,6 +32,7 @@ public class TelaInicial extends javax.swing.JFrame {
         logoutButton = new javax.swing.JButton();
         atividadesButton = new javax.swing.JButton();
         conteudosButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -52,7 +53,7 @@ public class TelaInicial extends javax.swing.JFrame {
         getContentPane().add(tituloLabel);
         tituloLabel.setBounds(470, 610, 290, 40);
 
-        logoutButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\3D Objects\\trabalho Unifg\\inicio\\Grupo 26.png")); // NOI18N
+        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Grupo 26.png"))); // NOI18N
         logoutButton.setText("Logout");
         logoutButton.setBorderPainted(false);
         logoutButton.setContentAreaFilled(false);
@@ -64,7 +65,7 @@ public class TelaInicial extends javax.swing.JFrame {
         getContentPane().add(logoutButton);
         logoutButton.setBounds(30, 610, 170, 50);
 
-        atividadesButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\3D Objects\\trabalho Unifg\\inicio\\Grupo 27.png")); // NOI18N
+        atividadesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Grupo 27.png"))); // NOI18N
         atividadesButton.setBorderPainted(false);
         atividadesButton.setContentAreaFilled(false);
         atividadesButton.setDefaultCapable(false);
@@ -77,7 +78,7 @@ public class TelaInicial extends javax.swing.JFrame {
         getContentPane().add(atividadesButton);
         atividadesButton.setBounds(550, 300, 280, 70);
 
-        conteudosButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\3D Objects\\trabalho Unifg\\inicio\\Grupo 28.png")); // NOI18N
+        conteudosButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Grupo 28.png"))); // NOI18N
         conteudosButton.setText("Conteúdos");
         conteudosButton.setBorderPainted(false);
         conteudosButton.setContentAreaFilled(false);
@@ -89,15 +90,19 @@ public class TelaInicial extends javax.swing.JFrame {
         getContentPane().add(conteudosButton);
         conteudosButton.setBounds(560, 400, 270, 70);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\3D Objects\\trabalho Unifg\\inicio\\Grupo 25.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/image-from-rawpixel-id-2721421-png.png"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(790, 470, 280, 250);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Grupo 25.png"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(80, 110, 460, 106);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\3D Objects\\trabalho Unifg\\inicio\\Grupo 29.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Grupo 29.png"))); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(250, 220, 630, 440);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\felip\\3D Objects\\trabalho Unifg\\inicio\\Grupo 24.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Grupo 24.png"))); // NOI18N
         jLabel1.setAutoscrolls(true);
         jLabel1.setDoubleBuffered(true);
         getContentPane().add(jLabel1);
@@ -168,6 +173,7 @@ public class TelaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel tituloLabel;
     // End of variables declaration//GEN-END:variables

@@ -63,7 +63,7 @@
     <Component class="javax.swing.JButton" name="logoutButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\felip\3D Objects\trabalho Unifg\inicio\Grupo 26.png"/>
+          <Image iconType="3" name="/images/Grupo 26.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Logout"/>
         <Property name="borderPainted" type="boolean" value="false"/>
@@ -81,7 +81,7 @@
     <Component class="javax.swing.JButton" name="atividadesButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\felip\3D Objects\trabalho Unifg\inicio\Grupo 27.png"/>
+          <Image iconType="3" name="/images/Grupo 27.png"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -100,7 +100,7 @@
     <Component class="javax.swing.JButton" name="conteudosButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\felip\3D Objects\trabalho Unifg\inicio\Grupo 28.png"/>
+          <Image iconType="3" name="/images/Grupo 28.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Conte&#xfa;dos"/>
         <Property name="borderPainted" type="boolean" value="false"/>
@@ -115,10 +115,22 @@
         </Constraint>
       </Constraints>
     </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/images/image-from-rawpixel-id-2721421-png.png"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="790" y="470" width="280" height="250"/>
+        </Constraint>
+      </Constraints>
+    </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\felip\3D Objects\trabalho Unifg\inicio\Grupo 25.png"/>
+          <Image iconType="3" name="/images/Grupo 25.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -130,7 +142,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\felip\3D Objects\trabalho Unifg\inicio\Grupo 29.png"/>
+          <Image iconType="3" name="/images/Grupo 29.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -142,7 +154,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\felip\3D Objects\trabalho Unifg\inicio\Grupo 24.png"/>
+          <Image iconType="3" name="/images/Grupo 24.png"/>
         </Property>
         <Property name="autoscrolls" type="boolean" value="true"/>
         <Property name="doubleBuffered" type="boolean" value="true"/>
