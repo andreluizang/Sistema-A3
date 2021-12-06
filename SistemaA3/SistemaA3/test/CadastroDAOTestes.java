@@ -4,24 +4,14 @@ import database.CadastroDAO;
 import database.ConexaoDAO;
 import org.junit.Assert;
 import org.junit.Before;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import static org.mockito.Mockito.when;
 import org.mockito.MockitoAnnotations;
-import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.lang.Object;
-import static org.mockito.Mockito.doReturn;
 import java.sql.ResultSet;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
 import org.mockito.Spy;
 
 public class CadastroDAOTestes{

@@ -23,27 +23,27 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void initComponents() {
 
         nomeTextField = new javax.swing.JTextField();
-        loginLabel = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
-        loginButton = new javax.swing.JButton();
         senhaPasswordField = new javax.swing.JPasswordField();
         senhaConfirmaPasswordField = new javax.swing.JPasswordField();
-        nomeLabel = new javax.swing.JLabel();
-        emailLabel = new javax.swing.JLabel();
-        senhaLabel = new javax.swing.JLabel();
-        senhaConfirmaLabel = new javax.swing.JLabel();
         cadastroLabel = new javax.swing.JLabel();
-        cadastrarButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        login = new javax.swing.JLabel();
+        cadastrese = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(702, 500));
+        getContentPane().setLayout(null);
 
         nomeTextField.setForeground(new java.awt.Color(153, 153, 153));
         nomeTextField.setText("  digite seu nome...");
+        nomeTextField.setBorder(null);
         nomeTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 nomeTextFieldMouseClicked(evt);
@@ -54,11 +54,12 @@ public class TelaCadastro extends javax.swing.JFrame {
                 nomeTextFieldActionPerformed(evt);
             }
         });
-
-        loginLabel.setText("Já possui uma conta?");
+        getContentPane().add(nomeTextField);
+        nomeTextField.setBounds(360, 90, 250, 14);
 
         emailTextField.setForeground(new java.awt.Color(153, 153, 153));
         emailTextField.setText("  digite o seu e-mail...");
+        emailTextField.setBorder(null);
         emailTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 emailTextFieldMouseClicked(evt);
@@ -69,142 +70,73 @@ public class TelaCadastro extends javax.swing.JFrame {
                 emailTextFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(emailTextField);
+        emailTextField.setBounds(360, 140, 250, 14);
 
-        loginButton.setText("Fazer login");
-        loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginButtonMouseClicked(evt);
-            }
-        });
-        loginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginButtonActionPerformed(evt);
-            }
-        });
+        senhaPasswordField.setBorder(null);
+        getContentPane().add(senhaPasswordField);
+        senhaPasswordField.setBounds(360, 190, 250, 14);
 
-        nomeLabel.setText("Nome");
+        senhaConfirmaPasswordField.setBorder(null);
+        getContentPane().add(senhaConfirmaPasswordField);
+        senhaConfirmaPasswordField.setBounds(350, 240, 260, 14);
 
-        emailLabel.setText("E-mail");
-
-        senhaLabel.setText("Senha");
-
-        senhaConfirmaLabel.setText("Confirme sua senha");
-
-        cadastroLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cadastroLabel.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
+        cadastroLabel.setForeground(new java.awt.Color(255, 255, 255));
         cadastroLabel.setText("Cadastre-se!");
+        getContentPane().add(cadastroLabel);
+        cadastroLabel.setBounds(380, 10, 190, 40);
 
-        cadastrarButton.setText("Cadastrar");
-        cadastrarButton.setToolTipText("");
-        cadastrarButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel2.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        jLabel2.setText("Com o Study It Yourself! você pode organizar");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, 330, 270, 16);
+
+        jLabel3.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        jLabel3.setText("os seus estudos de forma autônoma, ter con-");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, 350, 270, 16);
+
+        jLabel4.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        jLabel4.setText("trole sobre os prazos de suas atividades, fazer");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(0, 370, 270, 16);
+
+        jLabel5.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        jLabel5.setText("estudo!");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(0, 410, 260, 16);
+
+        login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cadastrarButtonMouseClicked(evt);
+                loginMouseClicked(evt);
             }
         });
+        getContentPane().add(login);
+        login.setBounds(370, 280, 90, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoStudyItYourself.png"))); // NOI18N
+        cadastrese.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cadastreseMouseClicked(evt);
+            }
+        });
+        getContentPane().add(cadastrese);
+        cadastrese.setBounds(500, 280, 100, 30);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setText("Com o Study It Yourself! você pode organizar");
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/StudyItYourself.png"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(30, 10, 190, 50);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel3.setText("os seus estudos de forma autônoma, ter con-");
+        jLabel8.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
+        jLabel8.setText("anotações sobre a matéria e criar metas de");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(0, 390, 260, 16);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel4.setText("trole sobre os prazos de suas atividades, fazer");
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setText("anotações sobre a matéria e criar metas de estudo! ");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel1))
-                    .addComponent(jLabel5)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(loginLabel)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(loginButton)
-                                        .addGap(25, 25, 25)
-                                        .addComponent(cadastrarButton))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(senhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(senhaConfirmaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(senhaConfirmaLabel))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(emailLabel)
-                                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(senhaLabel)
-                                        .addComponent(nomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(nomeLabel)))
-                                .addContainerGap())
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(cadastroLabel)
-                                .addGap(63, 63, 63))))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(cadastroLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(nomeLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(senhaLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(senhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(senhaConfirmaLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(senhaConfirmaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(4, 4, 4)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(loginLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cadastrarButton)
-                            .addComponent(loginButton)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cadastro.png"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(0, 0, 700, 500);
 
         pack();
         setLocationRelativeTo(null);
@@ -230,7 +162,13 @@ public class TelaCadastro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_emailTextFieldMouseClicked
 
-    private void cadastrarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastrarButtonMouseClicked
+    private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
+        dispose();
+        TelaLogin login = new TelaLogin();
+        login.show();
+    }//GEN-LAST:event_loginMouseClicked
+
+    private void cadastreseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastreseMouseClicked
         CadastroDAO cadastro = new CadastroDAO(conexao);
         boolean senhasIguais = cadastro.confirmarSenhasIguais(senhaPasswordField.getText(), senhaConfirmaPasswordField.getText());
         if(senhasIguais){
@@ -242,17 +180,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "As senhas não são iguais!", "ERRO!", 0);
         }
-    }//GEN-LAST:event_cadastrarButtonMouseClicked
-
-    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_loginButtonActionPerformed
-
-    private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
-        dispose();
-        TelaLogin login = new TelaLogin();
-        login.show();
-    }//GEN-LAST:event_loginButtonMouseClicked
+    }//GEN-LAST:event_cadastreseMouseClicked
 
     /**
      * @param args the command line arguments
@@ -293,22 +221,19 @@ public class TelaCadastro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cadastrarButton;
+    private javax.swing.JLabel cadastrese;
     private javax.swing.JLabel cadastroLabel;
-    private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JButton loginButton;
-    private javax.swing.JLabel loginLabel;
-    private javax.swing.JLabel nomeLabel;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel login;
     private javax.swing.JTextField nomeTextField;
-    private javax.swing.JLabel senhaConfirmaLabel;
     private javax.swing.JPasswordField senhaConfirmaPasswordField;
-    private javax.swing.JLabel senhaLabel;
     private javax.swing.JPasswordField senhaPasswordField;
     // End of variables declaration//GEN-END:variables
 }

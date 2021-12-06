@@ -20,7 +20,7 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,39 +30,20 @@ public class TelaLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        loginLabel = new javax.swing.JLabel();
-        loginButton = new javax.swing.JButton();
-        cadastreseLabel = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
-        cadastreseButton = new javax.swing.JButton();
         senhaPasswordField = new javax.swing.JPasswordField();
-        emailLabel = new javax.swing.JLabel();
-        senhaLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        cadastrese = new javax.swing.JLabel();
+        login = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
-        loginLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        loginLabel.setText("Login");
-
-        loginButton.setText("Login");
-        loginButton.setToolTipText("");
-        loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginButtonMouseClicked(evt);
-            }
-        });
-        loginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginButtonActionPerformed(evt);
-            }
-        });
-
-        cadastreseLabel.setText("Ainda não possui conta?");
+        setPreferredSize(new java.awt.Dimension(621, 674));
+        getContentPane().setLayout(null);
 
         emailTextField.setForeground(new java.awt.Color(153, 153, 153));
         emailTextField.setText("  digite o seu e-mail...");
+        emailTextField.setBorder(null);
         emailTextField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 emailTextFieldMouseClicked(evt);
@@ -73,96 +54,37 @@ public class TelaLogin extends javax.swing.JFrame {
                 emailTextFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(emailTextField);
+        emailTextField.setBounds(170, 310, 270, 14);
 
-        cadastreseButton.setText("Cadastre-se");
-        cadastreseButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        senhaPasswordField.setBorder(null);
+        getContentPane().add(senhaPasswordField);
+        senhaPasswordField.setBounds(170, 394, 270, 20);
+
+        cadastrese.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cadastreseButtonMouseClicked(evt);
+                cadastreseMouseClicked(evt);
             }
         });
-        cadastreseButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastreseButtonActionPerformed(evt);
+        getContentPane().add(cadastrese);
+        cadastrese.setBounds(210, 450, 70, 20);
+
+        login.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginMouseClicked(evt);
             }
         });
+        getContentPane().add(login);
+        login.setBounds(340, 450, 70, 20);
 
-        emailLabel.setText("E-mail");
-
-        senhaLabel.setText("Senha");
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logoStudyItYourself.png"))); // NOI18N
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(loginLabel)
-                                .addGap(77, 77, 77))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(emailLabel)
-                                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(senhaLabel)
-                                .addComponent(senhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(cadastreseLabel)
-                        .addGap(96, 96, 96))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(cadastreseButton)
-                        .addGap(22, 22, 22)
-                        .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(loginLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(senhaLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(senhaPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(cadastreseLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(loginButton)
-                            .addComponent(cadastreseButton)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(0, -10, 620, 690);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
-        if(conexaoLogin.fazerLogin(emailTextField.getText(), senhaPasswordField.getText())){
-            //ir para tela inicial
-            Estudante e = estudante.criarObjetoEstudante(emailTextField.getText());
-            System.out.println("Seja bem-vindo(a), " + e.getNome() + "!");
-            estudante.carregarInformacoes(e.getId());
-            dispose();
-            TelaInicial tela = new TelaInicial();
-            tela.show();
-        }
-    }//GEN-LAST:event_loginButtonMouseClicked
 
     private void emailTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailTextFieldMouseClicked
         if(emailTextField.getText().equals("  digite o seu e-mail...")){
@@ -175,19 +97,23 @@ public class TelaLogin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_emailTextFieldActionPerformed
 
-    private void cadastreseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastreseButtonActionPerformed
-
-    }//GEN-LAST:event_cadastreseButtonActionPerformed
-
-    private void cadastreseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastreseButtonMouseClicked
+    private void cadastreseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastreseMouseClicked
         dispose();
         TelaCadastro cadastro = new TelaCadastro();
         cadastro.show();
-    }//GEN-LAST:event_cadastreseButtonMouseClicked
+    }//GEN-LAST:event_cadastreseMouseClicked
 
-    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        
-    }//GEN-LAST:event_loginButtonActionPerformed
+    private void loginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginMouseClicked
+        if(conexaoLogin.fazerLogin(emailTextField.getText(), senhaPasswordField.getText())){
+            //ir para tela inicial
+            Estudante e = estudante.criarObjetoEstudante(emailTextField.getText());
+            System.out.println("Seja bem-vindo(a), " + e.getNome() + "!");
+            estudante.carregarInformacoes(e.getId());
+            dispose();
+            TelaInicial tela = new TelaInicial();
+            tela.show();
+        }
+    }//GEN-LAST:event_loginMouseClicked
 
     /**
      * @param args the command line arguments
@@ -225,14 +151,10 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cadastreseButton;
-    private javax.swing.JLabel cadastreseLabel;
-    private javax.swing.JLabel emailLabel;
+    private javax.swing.JLabel cadastrese;
     private javax.swing.JTextField emailTextField;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton loginButton;
-    private javax.swing.JLabel loginLabel;
-    private javax.swing.JLabel senhaLabel;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel login;
     private javax.swing.JPasswordField senhaPasswordField;
     // End of variables declaration//GEN-END:variables
 }
