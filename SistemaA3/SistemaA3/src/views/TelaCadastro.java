@@ -92,7 +92,7 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(login);
-        login.setBounds(340, 280, 90, 30);
+        login.setBounds(340, 280, 100, 30);
 
         cadastrese.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -100,9 +100,9 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cadastrese);
-        cadastrese.setBounds(480, 280, 100, 30);
+        cadastrese.setBounds(470, 280, 100, 30);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/janela cadastro nova.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Grupo 62.png"))); // NOI18N
         jLabel6.setText("jLabel6");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(0, 0, 680, 500);
