@@ -27,18 +27,12 @@ public class TelaCadastro extends javax.swing.JFrame {
         senhaPasswordField = new javax.swing.JPasswordField();
         senhaConfirmaPasswordField = new javax.swing.JPasswordField();
         cadastroLabel = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         login = new javax.swing.JLabel();
         cadastrese = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(702, 500));
+        setPreferredSize(new java.awt.Dimension(805, 527));
         getContentPane().setLayout(null);
 
         nomeTextField.setForeground(new java.awt.Color(153, 153, 153));
@@ -55,7 +49,7 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(nomeTextField);
-        nomeTextField.setBounds(360, 90, 250, 14);
+        nomeTextField.setBounds(330, 90, 250, 14);
 
         emailTextField.setForeground(new java.awt.Color(153, 153, 153));
         emailTextField.setText("  digite o seu e-mail...");
@@ -71,15 +65,20 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(emailTextField);
-        emailTextField.setBounds(360, 140, 250, 14);
+        emailTextField.setBounds(330, 140, 250, 14);
 
         senhaPasswordField.setBorder(null);
         getContentPane().add(senhaPasswordField);
-        senhaPasswordField.setBounds(360, 190, 250, 14);
+        senhaPasswordField.setBounds(330, 190, 250, 14);
 
         senhaConfirmaPasswordField.setBorder(null);
+        senhaConfirmaPasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhaConfirmaPasswordFieldActionPerformed(evt);
+            }
+        });
         getContentPane().add(senhaConfirmaPasswordField);
-        senhaConfirmaPasswordField.setBounds(350, 240, 260, 14);
+        senhaConfirmaPasswordField.setBounds(330, 240, 260, 10);
 
         cadastroLabel.setFont(new java.awt.Font("Tw Cen MT", 1, 36)); // NOI18N
         cadastroLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -87,33 +86,13 @@ public class TelaCadastro extends javax.swing.JFrame {
         getContentPane().add(cadastroLabel);
         cadastroLabel.setBounds(380, 10, 190, 40);
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        jLabel2.setText("Com o Study It Yourself! você pode organizar");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 330, 270, 16);
-
-        jLabel3.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        jLabel3.setText("os seus estudos de forma autônoma, ter con-");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 350, 270, 16);
-
-        jLabel4.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        jLabel4.setText("trole sobre os prazos de suas atividades, fazer");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 370, 270, 16);
-
-        jLabel5.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        jLabel5.setText("estudo!");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 410, 260, 16);
-
         login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginMouseClicked(evt);
             }
         });
         getContentPane().add(login);
-        login.setBounds(370, 280, 90, 30);
+        login.setBounds(340, 280, 90, 30);
 
         cadastrese.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -121,22 +100,12 @@ public class TelaCadastro extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cadastrese);
-        cadastrese.setBounds(500, 280, 100, 30);
+        cadastrese.setBounds(480, 280, 100, 30);
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/StudyItYourself.png"))); // NOI18N
-        jLabel7.setText("jLabel7");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(30, 10, 190, 50);
-
-        jLabel8.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
-        jLabel8.setText("anotações sobre a matéria e criar metas de");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(0, 390, 260, 16);
-
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cadastro.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/janela cadastro nova.png"))); // NOI18N
         jLabel6.setText("jLabel6");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(0, 0, 700, 500);
+        jLabel6.setBounds(0, 0, 680, 500);
 
         pack();
         setLocationRelativeTo(null);
@@ -182,6 +151,10 @@ public class TelaCadastro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cadastreseMouseClicked
 
+    private void senhaConfirmaPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaConfirmaPasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhaConfirmaPasswordFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -224,13 +197,7 @@ public class TelaCadastro extends javax.swing.JFrame {
     private javax.swing.JLabel cadastrese;
     private javax.swing.JLabel cadastroLabel;
     private javax.swing.JTextField emailTextField;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel login;
     private javax.swing.JTextField nomeTextField;
     private javax.swing.JPasswordField senhaConfirmaPasswordField;
