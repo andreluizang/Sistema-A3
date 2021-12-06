@@ -33,7 +33,9 @@ public class TelaLogin extends javax.swing.JFrame {
         emailTextField = new javax.swing.JTextField();
         senhaPasswordField = new javax.swing.JPasswordField();
         cadastrese = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         login = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,6 +71,10 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(cadastrese);
         cadastrese.setBounds(210, 450, 70, 20);
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Grupo 50.png"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(80, 30, 490, 100);
+
         login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginMouseClicked(evt);
@@ -76,6 +82,10 @@ public class TelaLogin extends javax.swing.JFrame {
         });
         getContentPane().add(login);
         login.setBounds(340, 450, 70, 20);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogoStudyItYourself1.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(20, 440, 160, 120);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -153,7 +163,9 @@ public class TelaLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cadastrese;
     private javax.swing.JTextField emailTextField;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel login;
     private javax.swing.JPasswordField senhaPasswordField;
     // End of variables declaration//GEN-END:variables
