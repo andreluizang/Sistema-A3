@@ -113,14 +113,23 @@ public class TelaConteudos extends javax.swing.JFrame {
         voltarButton.setBounds(10, 532, 61, 23);
 
         conteudoTextField.setBorder(null);
+        conteudoTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conteudoTextFieldActionPerformed(evt);
+            }
+        });
         getContentPane().add(conteudoTextField);
         conteudoTextField.setBounds(400, 40, 250, 14);
 
-        disciplinaTextField.setEditable(false);
         disciplinaTextField.setBackground(new java.awt.Color(255, 255, 255));
         disciplinaTextField.setBorder(null);
+        disciplinaTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                disciplinaTextFieldActionPerformed(evt);
+            }
+        });
         getContentPane().add(disciplinaTextField);
-        disciplinaTextField.setBounds(400, 87, 250, 14);
+        disciplinaTextField.setBounds(400, 90, 250, 14);
 
         revisei.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -305,6 +314,14 @@ public class TelaConteudos extends javax.swing.JFrame {
         TelaInicial tela = new TelaInicial();
         tela.show();
     }//GEN-LAST:event_voltarMouseClicked
+
+    private void disciplinaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disciplinaTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_disciplinaTextFieldActionPerformed
+
+    private void conteudoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conteudoTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_conteudoTextFieldActionPerformed
 
     /**
      * @param args the command line arguments

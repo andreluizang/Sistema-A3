@@ -144,7 +144,6 @@ public class TelaAtividades extends javax.swing.JFrame {
         getContentPane().add(atividadeTextField);
         atividadeTextField.setBounds(570, 170, 350, 14);
 
-        disciplinaTextField.setEditable(false);
         disciplinaTextField.setBackground(new java.awt.Color(255, 255, 255));
         disciplinaTextField.setBorder(null);
         getContentPane().add(disciplinaTextField);
