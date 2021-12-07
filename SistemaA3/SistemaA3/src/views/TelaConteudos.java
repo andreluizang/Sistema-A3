@@ -136,21 +136,23 @@ public class TelaConteudos extends javax.swing.JFrame {
         getContentPane().add(revisarLabel);
         revisarLabel.setBounds(390, 230, 300, 20);
 
+        deletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Grupo 15.png"))); // NOI18N
         deletar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 deletarMouseClicked(evt);
             }
         });
         getContentPane().add(deletar);
-        deletar.setBounds(400, 490, 90, 30);
+        deletar.setBounds(390, 490, 110, 30);
 
+        salvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Grupo 16.png"))); // NOI18N
         salvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 salvarMouseClicked(evt);
             }
         });
         getContentPane().add(salvar);
-        salvar.setBounds(570, 490, 90, 30);
+        salvar.setBounds(560, 490, 110, 30);
 
         novoConteudo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -178,9 +180,9 @@ public class TelaConteudos extends javax.swing.JFrame {
 
         escala.setFont(new java.awt.Font("Tw Cen MT", 1, 14)); // NOI18N
         escala.setForeground(new java.awt.Color(255, 255, 255));
-        escala.setText("jLabel2");
+        escala.setText("valor");
         getContentPane().add(escala);
-        escala.setBounds(640, 180, 40, 16);
+        escala.setBounds(640, 180, 28, 16);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/conteudos2.png"))); // NOI18N
         jLabel1.setText("jLabel1");
